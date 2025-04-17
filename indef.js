@@ -4411,7 +4411,7 @@ function f0080()//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5
 			g00HTML[31][2] = g00HTML[31][2].substring(0, g00HTML[31][2].length - 3).split("','");//Se quita las ultimas ',' Y genera el array
 			//g00HTML[26][2] += ']';
 			//g00HTML[31][2] += ']';
-			for (let v1 = 0; v1 < g00HTML[26][2].length; v1++)//-RECORRER LISTA de numeros de señas
+			for (var v1 = 0; v1 < g00HTML[26][2].length; v1++)//-RECORRER LISTA de numeros de señas
 			{ 	g00HTML[26][2][v1] = parseInt(g00HTML[26][2][v1]);//El arreglo tipo string se pasa a tipo número
 				g00HTML[36][2][v1] = parseInt(g00HTML[36][2][v1]);//El arreglo tipo string se pasa a tipo número
 			}
