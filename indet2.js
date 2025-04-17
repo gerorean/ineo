@@ -25,9 +25,9 @@
 //console.time('tiempoDeCarga');//:/SwitchS0//Inicio la carga
 
 //Funciones visibles pero sin que nadie las llame..
-ggg=()=>{	lOU();lOG();lOC();lOI();lOK();lOL();hOU();hOG();hOC();hOI();hOK();hOL()}
+function ggg(){	lOU();lOG();lOC();lOI();lOK();lOL();hOU();hOG();hOC();hOI();hOK();hOL()}
 
-fERROR=()=>//adicionar para probar y capturar error
+function fERROR()//adicionar para probar y capturar error
 		{	try
 			{	console.log('[Probando...');
 
@@ -61,11 +61,11 @@ console.timeEnd("t3");
 */
 
 //	ASTERISCOS POR CONSOLA
-fff=()=>{	if(reGis)
+function fff(){	if(reGis)
 			{console.log('***********************************************************************************************************************************************************************************LineaDeAstericos*******************************************************************************************************************************************')}
 		};
 
-aLL=(id)=>//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
+function aLL(id)//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 		{	g00LOGS[id][2] += 1;//INCREMENTA EN UNO LA CUENTA ACTUAL DE LLAMADOS DE ESE REGISTRO
 			if (g00LOGS[id][3])//si 3LOG esta habilitado con un 1.. es un boton!
 			{	//if(g00VARS[55][2]&&MaMi&&bMin)//Si ya ocurrio la primer interacción y (bandera de verificar si maxi o mini esta activa) y (la capa de pantalla minimizada esta activa) entonces
@@ -86,7 +86,7 @@ aLL=(id)=>//Incrementar en uno el contador y si es un botón ver si Maximizar? s
 						
 						//Adicionar al string de info "Ventana: minimizada"
 					}
-					setTimeout(()=>//Déspues de un segundo
+					setTimeout(function()//Déspues de un segundo
 					{	MaMi = 1;//Activar la bandera verificar si maxi o mini
 					}
 					,3000);
@@ -94,7 +94,7 @@ aLL=(id)=>//Incrementar en uno el contador y si es un botón ver si Maximizar? s
 			}
 		}
 
-lOU=(id)=>
+function lOU(id)
 		{	aLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&g00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='sin Usarse [ ¡Atención! ¡este mensaje no debe salir por CONSOLA! ]';//No se ha usado
@@ -103,7 +103,7 @@ lOU=(id)=>
 			}
 		}
 
-lOG=(id)=>
+function lOG(id)
 		{	aLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&g00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='sin Revizar';// revizar la función !!
@@ -111,7 +111,7 @@ lOG=(id)=>
 			}
 		}
 
-lOC=(id)=>
+function lOC(id)
 		{	aLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&g00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='Comentada';// terminar de revisar !!
@@ -119,7 +119,7 @@ lOC=(id)=>
 			}
 		}
 
-lOI=(id)=>
+function lOI(id)
 		{	aLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&g00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='Interrumpida';// terminar de revisar !!
@@ -127,7 +127,7 @@ lOI=(id)=>
 			}
 		}
 
-lOK=(id)=>
+function lOK(id)
 		{	aLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&g00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='OK';// con funciones pendientes !!
@@ -135,7 +135,7 @@ lOK=(id)=>
 			}
 		}
 
-lOL=(id)=>
+function lOL(id)
 		{	aLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&g00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='Lista';// sin funciones pendientes
@@ -143,7 +143,7 @@ lOL=(id)=>
 			}
 		}
 
-lOO=(id)=>//MOSTRAR el tipo, la mision y las veces que ha sido llamada una función 
+function lOO(id)//MOSTRAR el tipo, la mision y las veces que ha sido llamada una función 
 		{	console.log('________@> f'+id+'()',funsi+'\n- Mission:',g00LOGS[id][4]+'\n- Calls: '+g00LOGS[id][2]+'\n\n\n ');
 		}
 
@@ -151,7 +151,7 @@ lOO=(id)=>//MOSTRAR el tipo, la mision y las veces que ha sido llamada una funci
 
 // - -
 
-hLL=(id)=>//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
+function hLL(id)//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 		{	h00LOGS[id][2] += 1;//INCREMENTA EN UNO LA CUENTA ACTUAL DE LLAMADOS DE ESE REGISTRO
 			if(!g00VARS[55][2])
 			{	g00VARS[55][2] = 1;//ocurrio la primer interacción
@@ -175,7 +175,7 @@ hLL=(id)=>//Incrementar en uno el contador y si es un botón ver si Maximizar? s
 						
 						//Adicionar al string de info "Ventana: minimizada"
 					}
-					setTimeout(()=>//Déspues de un segundo
+					setTimeout(function()//Déspues de un segundo
 					{	MaMi = 1;//Activar la bandera verificar si maxi o mini
 					}
 					,3000);
@@ -183,7 +183,7 @@ hLL=(id)=>//Incrementar en uno el contador y si es un botón ver si Maximizar? s
 			}
 		}
 
-hOU=(id)=>
+function hOU(id)
 		{	hLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&h00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='sin Usarse [ ¡Atención! ¡este mensaje no debe salir por CONSOLA! ]';//No se ha usado
@@ -192,7 +192,7 @@ hOU=(id)=>
 			}
 		}
 
-hOG=(id)=>
+function hOG(id)
 		{	hLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&h00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='sin Revizar';// revizar la función !!
@@ -200,7 +200,7 @@ hOG=(id)=>
 			}
 		}
 
-hOC=(id)=>
+function hOC(id)
 		{	hLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&h00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='Comentada';// terminar de revisar !!
@@ -208,7 +208,7 @@ hOC=(id)=>
 			}
 		}
 
-hOI=(id)=>
+function hOI(id)
 		{	hLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&h00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='Interrumpida';// terminar de revisar !!
@@ -216,7 +216,7 @@ hOI=(id)=>
 			}
 		}
 
-hOK=(id)=>
+function hOK(id)
 		{	hLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&h00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='OK';// con funciones pendientes !!
@@ -224,7 +224,7 @@ hOK=(id)=>
 			}
 		}
 
-hOL=(id)=>
+function hOL(id)
 		{	hLL(id);//Incrementar en uno el contador y si es un botón ver si Maximizar? si o no
 			if(reGis&&h00LOGS[id][1])//si 1LOG esta habilitado con un 1..
 			{	funsi ='Lista';// sin funciones pendientes
@@ -232,7 +232,7 @@ hOL=(id)=>
 			}
 		}
 
-hOO=(id)=>//MOSTRAR el tipo, la mision y las veces que ha sido llamada una función 
+function hOO(id)//MOSTRAR el tipo, la mision y las veces que ha sido llamada una función 
 		{	console.log('________@> h'+id+'()',funsi+'\n- Mission:',h00LOGS[id][4]+'\n- Calls: '+h00LOGS[id][2]+'\n\n\n ');
 		}
 

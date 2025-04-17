@@ -1,6 +1,6 @@
 //d DATOS: CONSTANTES Y VARIABLES
 /*	constantes ocultas para las rutas "padres" e "hijos".. 
-			  ... hay varias tanto let como const todas del tipo array
+			  ... hay varias tanto var como const todas del tipo array
 	funciones ocultas para ser usadas en el servidor.. 
 		f0128()	... f0137()
 	constantes visibles para ser usadas en la aplicaciíon (frontend): son varias
@@ -29,28 +29,28 @@ para activar/desactivar separe/una (con un espacio) el último * de la barra inc
 
 
 const   ext				= 5;//desde la columna 3 wPapax[x][3,4,5- ene extras] casillas que se corren los strings por casillas especiales/extras en wPapax, en este momento se crearon 5 casillas extra para alimentar la presentación AV
-let 	hij1 			= [];//array de hijos 1
-let 	hij2 			= [];//array de hijos 2
-let 	hij3 			= [];//array de hijos 3
-let 	hij4 			= [];//array de hijos 4
-let 	hij5 			= [];//array de hijos 5
-let 	hij6 			= [];//array de hijos 6
-let 	hij7 			= [];//array de hijos 7
-let 	hij8			= [];//array de hijos 8
-let 	hij9 			= [];//array de hijos 9
-let 	hij10 			= [];//array de hijos 10
-let 	hijos			= [];//array de todos los hijos (end points)
-let 	rutas 			= [];//array con todas las rutas
-let 	vPAPA1 			= [];//Array visible de wPapa1
-let 	vPAPA2 			= [];//Array visible de wPapa2
-let 	vPAPA3 			= [];//Array visible de wPapa3
-let 	vPAPA4 			= [];//Array visible de wPapa4
-let 	vPAPA5 			= [];//Array visible de wPapa5
-let 	vPAPA6 			= [];//Array visible de wPapa6
-let 	vPAPA7 			= [];//Array visible de wPapa7
-let 	vPAPA8 			= [];//Array visible de wPapa8
-let 	vPAPA9 			= [];//Array visible de wPapa9
-let 	vPAPA10 		= [];//Array visible de wPapa10
+var 	hij1 			= [];//array de hijos 1
+var 	hij2 			= [];//array de hijos 2
+var 	hij3 			= [];//array de hijos 3
+var 	hij4 			= [];//array de hijos 4
+var 	hij5 			= [];//array de hijos 5
+var 	hij6 			= [];//array de hijos 6
+var 	hij7 			= [];//array de hijos 7
+var 	hij8			= [];//array de hijos 8
+var 	hij9 			= [];//array de hijos 9
+var 	hij10 			= [];//array de hijos 10
+var 	hijos			= [];//array de todos los hijos (end points)
+var 	rutas 			= [];//array con todas las rutas
+var 	vPAPA1 			= [];//Array visible de wPapa1
+var 	vPAPA2 			= [];//Array visible de wPapa2
+var 	vPAPA3 			= [];//Array visible de wPapa3
+var 	vPAPA4 			= [];//Array visible de wPapa4
+var 	vPAPA5 			= [];//Array visible de wPapa5
+var 	vPAPA6 			= [];//Array visible de wPapa6
+var 	vPAPA7 			= [];//Array visible de wPapa7
+var 	vPAPA8 			= [];//Array visible de wPapa8
+var 	vPAPA9 			= [];//Array visible de wPapa9
+var 	vPAPA10 		= [];//Array visible de wPapa10
 
 
 
@@ -168,14 +168,14 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			//CREAR LISTA CON TODOS LOS PAPAS visibles completo por cada nivel, la que se genera es parcial, si los elementos no son visibles no deberían pasarse al navegador, eso debería ahorrarle un paso al navegador (wPapax -> wPAPAx)
 			//Cargar los titulos de vPAPA1..
 			vPAPA1[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];	
-			for(let m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
+			for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
 			{	vPAPA1[0][m] = wPapa1[0][m+2];
 			}		
 			var ff = 1;//Contador de filas visibles
 			for (var i = 1; i < wPapa1.length; i++)//Recorre el array de continentes
 			{	if(wPapa1[i][3] == 1)//si es visible
 				{	vPAPA1[ff] = [wPapa1[i][2],ff,wPapa1[i][4],'','','','','',wPapa1[i][0],wPapa1[i][ext+5],wPapa1[i][ext+6],wPapa1[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
+					for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
 					{	vPAPA1[ff][m] = wPapa1[i][m+2];
 					}
 					ff++;//Siguiente fila visible
@@ -183,14 +183,14 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			}
 			//Cargar los titulos de vPAPA2..
 			vPAPA2[0] = [wPapa2[0][2],0,wPapa2[0][4],'','','','','',wPapa2[0][0],wPapa2[0][ext+5],wPapa2[0][ext+6],wPapa2[0][ext+7]];	
-			for(let m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
+			for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
 			{	vPAPA2[0][m] = wPapa2[0][m+2];
 			}
 			ff = 1;//Contador de filas visibles
 			for (var i = 1; i < wPapa2.length; i++)//recorre las filas
 			{ 	if(wPapa2[i][3] == 1)//si es visible
 				{	vPAPA2[ff] = [wPapa2[i][2],ff,wPapa2[i][4],'','','','','',wPapa2[i][0],wPapa2[i][ext+5],wPapa2[i][ext+6],wPapa2[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
+					for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
 					{	vPAPA2[ff][m] = wPapa2[i][m+2];
 					}
 					ff++;//Siguiente fila visible
@@ -198,14 +198,14 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			}
 			//Cargar los titulos de vPAPA3..
 			//vPAPA3[0] = [wPapa3[0][2],0,wPapa3[0][4],'','','','','',wPapa3[0][0],wPapa3[0][ext+5],wPapa3[0][ext+6],wPapa3[0][ext+7]];	
-			//for(let m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
+			//for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
 			//{	vPAPA3[0][m] = wPapa3[0][m+2];
 			//}
 			ff = 1;//Contador de filas visibles
 			for (var i = 1; i < wPapa3.length; i++)//recorre las filas
 			{ 	if(wPapa3[i][3] == 1)//si es visible
 				{	vPAPA3[ff] = [wPapa3[i][2],ff,wPapa3[i][4],'','','','','',wPapa3[i][0],wPapa3[i][ext+5],wPapa3[i][ext+6],wPapa3[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)
+					for(var m = 3; m < ext + 3; m++)
 					{	vPAPA3[ff][m] = wPapa3[i][m+2];
 					}
 					ff++;//Siguiente fila visible
@@ -213,14 +213,14 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			}
 			//Cargar los titulos de vPAPA4..
 			//vPAPA4[0] = [wPapa4[0][2],0,wPapa4[0][4],'','','','','',wPapa4[0][0],wPapa4[0][ext+5],wPapa4[0][ext+6],wPapa4[0][ext+7]];	
-			//for(let m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
+			//for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
 			//{	vPAPA4[0][m] = wPapa4[0][m+2];
 			//}
 			ff = 1;
 			for (var i = 1; i < wPapa4.length; i++)//Recorre el array
 			{	if(wPapa4[i][3] == 1)//si esa fila es visible
 				{	vPAPA4[ff] = [wPapa4[i][2],ff,wPapa4[i][4],'','','','','',wPapa4[i][0],wPapa4[i][ext+5],wPapa4[i][ext+6],wPapa4[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)
+					for(var m = 3; m < ext + 3; m++)
 					{	vPAPA4[ff][m] = wPapa4[i][m+2];
 					}
 					ff++;//Siguiente fila
@@ -230,7 +230,7 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			for (var i = 1; i < wPapa5.length; i++)//Recorre el array
 			{	if(wPapa5[i][3] == 1)//si esa fila es visible
 				{	vPAPA5[ff] = [wPapa5[i][2],ff,wPapa5[i][4],'','','','','',wPapa5[i][0],wPapa5[i][ext+5],wPapa5[i][ext+6],wPapa5[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)
+					for(var m = 3; m < ext + 3; m++)
 					{	vPAPA5[ff][m] = wPapa5[i][m+2];
 					}
 					ff++;//Siguiente fila
@@ -240,7 +240,7 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			for (var i = 1; i < wPapa6.length; i++)//Recorre el array
 			{	if(wPapa6[i][3] == 1)//si esa fila es visible
 				{	vPAPA6[ff] = [wPapa6[i][2],ff,wPapa6[i][4],'','','','','',wPapa6[i][0],wPapa6[i][ext+5],wPapa6[i][ext+6],wPapa6[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)
+					for(var m = 3; m < ext + 3; m++)
 					{	vPAPA6[ff][m] = wPapa6[i][m+2];
 					}	
 					ff++;//Siguiente fila
@@ -250,7 +250,7 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			for (var i = 1; i < wPapa7.length; i++)//Recorre el array
 			{	if(wPapa7[i][3] == 1)//si esa fila es visible
 				{	vPAPA7[ff] = [wPapa7[i][2],ff,wPapa7[i][4],'','','','','',wPapa7[i][0],wPapa7[i][ext+5],wPapa7[i][ext+6],wPapa7[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)
+					for(var m = 3; m < ext + 3; m++)
 					{	vPAPA7[ff][m] = wPapa7[i][m+2];
 					}
 					ff++;//Siguiente fila
@@ -260,7 +260,7 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			for (var i = 1; i < wPapa8.length; i++)//Recorre el array 
 			{	if(wPapa8[i][3] == 1)//si esa fila es visible
 				{	vPAPA8[ff] = [wPapa8[i][2],ff,wPapa8[i][4],'','','','','',wPapa8[i][0],wPapa8[i][ext+5],wPapa8[i][ext+6],wPapa2[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)
+					for(var m = 3; m < ext + 3; m++)
 					{	vPAPA8[ff][m] = wPapa8[i][m+2];
 					}
 					ff++;//Siguiente fila
@@ -270,7 +270,7 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			for (var i = 1; i < wPapa9.length; i++)//Recorre el array
 			{	if(wPapa9[i][3] == 1)//si esa fila es visible
 				{	vPAPA9[ff] = [wPapa9[i][2],ff,wPapa9[i][4],'','','','','',wPapa9[i][0],wPapa9[i][ext+5],wPapa9[i][ext+6],wPapa9[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)
+					for(var m = 3; m < ext + 3; m++)
 					{	vPAPA9[ff][m] = wPapa9[i][m+2];
 					}
 					ff++;//Siguiente fila
@@ -280,7 +280,7 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			for (var i = 1; i < wPapa10.length; i++)//Recorre el array
 			{	if(wPapa10[i][3] == 1)//si esa fila es visible
 				{	vPAPA10[ff] = [wPapa10[i][2],ff,wPapa10[i][4],'','','','','',wPapa10[i][0],wPapa10[i][ext+5],wPapa10[i][ext+6],wPapa10[i][ext+7]];
-					for(let m = 3; m < ext + 3; m++)
+					for(var m = 3; m < ext + 3; m++)
 					{	vPAPA10[ff][m] = wPapa10[i][m+2];
 					}
 					ff++;//Siguiente fila
@@ -636,7 +636,7 @@ const 	res3A		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
 */
 
 //GUIONES ANUNCIOS
-let r003A = [['Casillas', 'Head', 'Others'],
+var r003A = [['Casillas', 'Head', 'Others'],
 [1, ['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Vacio']],
 [2, ['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Vacio']],
 [3, ['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"], ['Vacio']],
@@ -644,7 +644,7 @@ let r003A = [['Casillas', 'Head', 'Others'],
 ];
 
 /*
-let 	r003A		=[	['Casillas'	],
+var 	r003A		=[	['Casillas'	],
 							[1		,['Vacio']],
 							[2		,['Vacio']],
 							[3		,['Vacio']],
@@ -653,7 +653,7 @@ let 	r003A		=[	['Casillas'	],
 */
 
 //GUIONES HAY ANUNCIOS 
-let c003A = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
+var c003A = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
 [1, ['', 'here you can find out about the activities published by local leaders, contact us: ilifebogota@gmail.com', 'on this website you will find information accessible through seven modes', 'Navigation, to navigate there are 6 navigation buttons, on the screen they go from top to bottom', 'there are 3 buttons on the left side, the square menu button, the diagonal button to cancel or exit and the triangle button up to go up or back', 'and on the right side there are 3 other buttons, the vertical quick information bar button, the round button to accept or enter and the down triangle button to go down or go forward', 'To enable navigation buttons on a physical keyboard, turn on caps lock button', 'square button is 7 or N, diagonal button is 4 or M, triangle up button is 1 or comma, the vertical bar button is 9 or V, the round button is 6, C or space, and the down triangle button is 3, X or tab'], ['Participate this May 27 in the Accountability of the Local Mayor of Puente Aranda at the Parque Polideportivo El Jazmín', 'located at 1 G street number 41 A 39, at 9:00, it is an opportunity for citizens to learn about public management and to ask questions and make comments about it', 'and participate as observers of the management carried out by the Local Mayor\'s Office of Puente Aranda'], ['Are you a female caregiver or victim of violence?, we invite you to register at the Manzana del Cuidado de Puente Aranda at calle 1 b number: 57_51, or call the number 313-8699-260, e-mail: imora@sdmujer.gov.co', 'In the Manzana del Cuidado you can train with SENA, learn to create your own business, enjoy physical activity classes, bike school, and more', 'while the elderly and people with disabilities who are under your care are cared for by caregivers from the Mayor\'s Office'], ['Do you have an emergency? Call 123', '123 is the telephone line that gathers all the security and emergency numbers: Police, Mobility, Fire, Risk Management and Ministry of Health'], ['Are you a victim of violence against women?, call 123, 01-8001-12137, or WhatsApp 300-7551-846, and request the accompaniment of the purple patrol', 'With the purple patrol, women who are victims of violence can receive security, guidance, help and prevention'], ['Invitation to boys, girls and young people to musical training', 'with the National Batuta Foundation and being part of the local Orchestral Center'], ['If you are between 18 to 28 years old, we invite you to be part of the Parceros Por Bogotá program, which includes courses, city activities and the possibility of receiving 500,000 pesos per month.', 'We invite you to register on Friday, May 19, place: Parque Dalias, 4th street number 54-01, Galán neighborhood; Time: 15:00 to 17:00'], ['Local Impulse delivers between 1 to 3 million pesos to strengthen and grow local businesses', 'Register now at https://bit.ly/ImpulsoLocal or visit https://www.bogotalocal.gov.co/bogotaproductiva.html']],
 [2, ['', 'aquí podrás conocer las actividades publicadas por los líderes locales, contáctanos: ilifebogota@gmail.com', 'en este sitio web encontrará información accesible a través de siete modos', 'Navegación, para navegar hay 6 botones de navegación, en pantalla van desde arriba hacia abajo', 'hay 3 botones al lado izquierdo, el botón cuadrado de menú, el botón diagonal para cancelar o salir y el botón de triángulo hacia arriba para subir o retroceder', 'y al lado derecho hay otros 3 botones, el botón barra vertical de información rápida, el botón redondo para aceptar o ingresar y el botón de triángulo hacia abajo para ir abajo o avanzar', 'Para habilitar los botones de navegación en un teclado físico, active el botón de bloqueo de mayúsculas', 'el botón cuadrado es el 7 o la N, el botón diagonal es el 4 o la M, el botón de triángulo hacia arriba es el 1 o la coma, el botón barra vertical es el 9 o la V, el botón redondo es el 6, la C o el espacio, y el botón de triángulo hacia abajo es el 3, la X o el tabulador'], ['Participa este 27 de mayo en la Rendición de Cuentas de la Alcaldía Local de Puente Aranda en el Parque Polideportivo El Jazmín', 'ubicado en la calle 1 G número 41 A 39, a las 9:00, es una oportunidad para que los ciudadanos conozcan la gestión pública y puedan hacer preguntas y comentarios sobre la misma', 'y participar como veedores de la gestión que realiza la Alcaldía Local de Puente Aranda'], ['¿Eres mujer cuidadora o víctima de la violencia?, te invitamos a incribirte en la Manzana del Cuidado de Puente Aranda en la calle 1 b número: 57_51, o llamar al número 313-8699-260, e-mail: imora@sdmujer.gov.co', 'en la Manzana del Cuidado podrás capacitarse con el SENA, aprender a crear su propio negocio, disfrutar clases de actividad física, escuela de la bici, y más', 'mientras que las personas mayores y las personas con discapacidad que están bajo su cuidado son cuidadas por cuidadoras de la Alcaldía'], ['¿Tienes una emergencia?, llama al 123', 'el 123 es la línea telefónica que reúne todos los números de seguridad y emergencias: Policía, Movilidad, Bomberos, Gestión de Riesgos y Secretaría de Salud'], ['¿Eres víctima de violencia contra las mujeres?, llama al 123, al 01-8001-12137, o al WhatsApp 300-7551-846, y solicita el acompañamiento de la patrulla púrpura', 'con la patrulla púrpura las mujeres que sean víctimas de violencia pueden recibir seguridad, orientación, ayuda y prevención'], ['Invitación a niños, niñas y jóvenes de la localidad a la formación musical', 'con La Fundación Nacional Batuta y ser parte del Centro Orquestal de la localidad'], ['Si tienes entre 18 a 28 años, te invitamos a ser parte del programa Parceros Por Bogotá, incluye cursos,  actividades de ciudad y la posibilidad de recibir 500 mil pesos al mes', 'te invitamos a inscribirte el viernes 19 de mayo, lugar: Parque Dalias, calle 4 número 54-01, barrio Galán; Hora: 15:00 a 17:00'], ['Impulso Local entrega entre 1 a 3 millones de pesos para fortalecer y hacer crecer los emprendimientos locales', 'Regístrate ahora en https://bit.ly/ImpulsoLocal o visita https://www.bogotalocal.gov.co/bogotaproductiva.html']],
 [3, ['', 'ici vous pouvez découvrir les activités publiées par les dirigeants locaux, contactez-nous : ilifebogota@gmail.com', "sur ce site vous trouverez des informations accessibles à travers sept modes", "Navigation, pour naviguer il y a 6 boutons de navigation, sur l'écran ils vont de haut en bas", "il y a 3 boutons sur le côté gauche, le bouton menu carré, le bouton diagonal pour annuler ou sortir et le bouton triangle haut pour monter ou dos", "et sur le côté droit il y a 3 autres boutons, le bouton barre d'information rapide verticale, le bouton rond pour accepter ou entrer et le bouton triangle bas pour descendre ou avancer", "Pour activer les boutons de navigation sur un clavier physique, activez le bouton de verrouillage des majuscules", "le bouton carré est 7 ou N, le bouton diagonal est 4 ou M, le bouton triangle vers le haut est 1 ou virgule, le bouton de la barre verticale est 9 ou V, le bouton rond est 6, C ou espace, et le bouton triangle vers le bas est 3, X ou tabulation"], ['Participez ce 27 mai à la Responsabilité du maire local de Puente Aranda au Parque Polideportivo El Jazmín', 'situé au numéro de rue 1 G 41 A 39, à 9h00, c\'est l\'occasion pour les citoyens de s\'informer sur la gestion publique, de poser des questions et de faire des commentaires à son sujet', 'et participer en tant qu\'observateurs de la gestion effectuée par le bureau du maire local de Puente Aranda'], ["Êtes-vous une femme aidante ou victime de violence?, nous vous invitons à vous inscrire à la Manzana del Cuidado de Puente Aranda à calle 1 b numéro: 57_51, ou appelez le numéro 313-8699-260, e-mail: imora@sdmujer.gov.co", "Dans la Manzana del Cuidado, vous pouvez vous entraîner avec SENA, apprendre à créer votre propre entreprise, profiter de cours d'activité physique, d'une école de vélo, et plus encore", "tandis que les personnes âgées et les personnes handicapées dont vous avez la charge sont pris en charge par les soignants de la mairie"], ['Vous avez une urgence, appelez le 123', 'Le 123 est la ligne téléphonique qui regroupe tous les numéros de sécurité et d\'urgence : Police, Mobilité, Pompiers, Gestion des Risques et Ministère de la Santé'], ['Êtes-vous victime de violence faite aux femmes?, appelez le 123, 01-8001-12137, ou WhatsApp 300-7551-846, et demandez l\'accompagnement de la patrouille violette', 'Avec la patrouille violette, les femmes victimes de violence peuvent recevoir sécurité, accompagnement, aide et prévention'], ['Invitation aux garçons, filles et jeunes à la formation musicale', 'avec la Fondation Nationale Batuta et faisant partie du Centre Orchestral local'], ['Si vous avez entre 18 et 28 ans, nous vous invitons à faire partie du programme Parceros Por Bogotá, qui comprend des cours, des activités de la ville et la possibilité de recevoir 500 000 pesos par mois,', 'Nous vous invitons à vous inscrire le vendredi 19 mai, lieu : Parque Dalias, 4e rue numéro 54-01, quartier Galán ; Heure : 15h00 à 17h00'], ['Local Impulse fournit entre 1 et 3 millions de pesos pour renforcer et développer les entreprises locales', 'Inscrivez-vous maintenant sur https://bit.ly/ImpulsoLocal ou visitez https://www.bogotalocal.gov.co/bogotaproductiva.html']],
@@ -726,7 +726,7 @@ const 	res3Z		=[	['Casillas'	],//la D es de default cuando no hay ningun anuncio
 */
 
 //IMAGENES DE ANUNCIOS
-let r003Z = [['Casillas', 'Head', 'Others'],
+var r003Z = [['Casillas', 'Head', 'Others'],
 [1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['Moving satellite']],
 [2, ['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''], ['Satélite en movimiento']],
 [3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['satellite en mouvement']],
@@ -735,7 +735,7 @@ let r003Z = [['Casillas', 'Head', 'Others'],
 
 /*
 //IMAGENES DE ANUNCIOS
-let 	r003Z		=[	['Casillas'	],
+var 	r003Z		=[	['Casillas'	],
 							[1		,['Moving points']],
 							[2		,['Satélite en movimiento']],
 							[3		,['satellite en mouvement']],
@@ -744,7 +744,7 @@ let 	r003Z		=[	['Casillas'	],
 */
 
 //IMAGENES HAY ANUNCIOS
-let c003Z = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
+var c003Z = [['Casillas', 1, 2, 3, 4, 5, 6, 7, 8],
 [1, ['photography of the place', 'reading person icon', 'There are four blue icons: wheelchair person, deaf ear, blind eye and the last one is an icon with 2 faces', 'In front of a laptop is an adult man without his right arm, the man looks at the screen and holds his glasses with his left hand', '', '', '', ''], ['smiling woman', 'smiling woman', 'smiling woman'], ['Hike Ciud', 'Meeting ', 'Free '], ['logo 123', 'logo 123'], ['purple patrol drawing', 'purple patrol drawing'], ['invitation ', 'abece 1'], ['young man smiling', 'young man smiling'], ['emprendimiento', 'empre2']],
 [2, ['fotografía del lugar', 'icono de persona leyendo', 'Hay cuatro iconos azules: persona en silla de ruedas, oído sordo, ojo ciego y el último es un icono con 2 caras', 'Frente a una computadora portátil hay un hombre adulto sin su brazo derecho, el hombre mira la pantalla y sostiene sus anteojos con la mano izquierda', '', '', '', ''], ['mujer sonriente', 'mujer sonriente', 'mujer sonriente'], ['Bus de la alcaldía', 'Actividad física', 'Mujer cuidando una niña'], ['logo 123', 'logo 123'], ['dibujo de la patrulla púrpura', 'dibujo de la patrulla púrpura'], ['niños y jovenes tocando música', 'niños y jovenes tocando música'], ['Joven sonriendo', 'Joven sonriendo'], ['emprendedora', 'emprendedora']],
 [3, ['photographie du lieu', 'icône de la personne qui lit', "Il y a quatre icônes bleues : personne en fauteuil roulant, sourde oreille, aveugle et la dernière est une icône à 2 visages", "Devant un ordinateur portable se trouve un homme adulte sans son bras droit, l'homme regarde l'écran et tient ses lunettes avec sa main gauche", '', '', '', ''], ['femme souriante', 'femme souriante', 'femme souriante'], ["Randonnée ", "Point de", "Inscr"], ['logo 123', 'logo 123'], ['dessin de patrouille violette', 'dessin de patrouille violette'], ['invitation ', 'abece'], ['jeune homme souriant', 'jeune homme souriant'], ['emprendimiento', 'empre2']],
@@ -829,7 +829,7 @@ const 	res3B		=[		['Recursos/ Casillas..'										],//la D es de default cuando
 */
 
 //CONTROL ANUNCIOS
-let r003B = [['Recursos/ Casillas..', 'Head', 'Others'],
+var r003B = [['Recursos/ Casillas..', 'Head', 'Others'],
 ['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', [3, 1, 3, 3, 3, 3, 3, 3], [1]],
 ['2 id de la Imag, Icon o Texto', [31, 3, 16, 12, 13, 8, 9, 10], [84]],
 ['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', 0, 0],
@@ -844,7 +844,7 @@ let r003B = [['Recursos/ Casillas..', 'Head', 'Others'],
 
 /*
 //CONTROL ANUNCIOS
-let 	r003B		=[		['Recursos/ Casillas..'										],
+var 	r003B		=[		['Recursos/ Casillas..'										],
 							['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA'					,[1]],
 							['2 id de la Imag, Icon o Texto'							,[84]],
 							['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"',0],
@@ -859,7 +859,7 @@ let 	r003B		=[		['Recursos/ Casillas..'										],
 */
 
 //CONTROL HAY ANUNCIOS
-let c003B = [['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8],
+var c003B = [['Recursos/ Casillas..', 1, 2, 3, 4, 5, 6, 7, 8],
 ['1 0:Imag,1:Icon,2:Texto,3ImagenA,4VideoA', [3, 1, 3, 3, 3, 3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3], [3, 3], [3, 3], [3, 3], [3, 3]],
 ['2 id de la Imag, Icon o Texto', [31, 3, 16, 12, 13, 8, 9, 10], [82, 82, 82], [90, 91, 92], [88, 88], [84, 84], [85, 85], [89, 89], [93, 93]],
 ['3 onclick function,vacio=NO PERMITIDA(INFO)/id"apuntador"', 0, 0, 0, 0, 0, 0, 0, 0],
@@ -906,9 +906,9 @@ const 	r003D 		=	[	[0		,1		,2		],
 
 
 
-let rrr3A = r003A;
-let rrr3B = r003B;
-let rrr3Z = r003Z;
+var rrr3A = r003A;
+var rrr3B = r003B;
+var rrr3Z = r003Z;
 
 
 
@@ -1155,138 +1155,138 @@ const rutas = ['/7/7', '/6/10', '/1/8', '/4/6', '/5/4', '/3/5', '/5/2', '/4/3/7'
 
 
 
-let aafil = 8000;//Tiempo en milisegundo que demora el cambio del texto en la presentacion AV 		
+var aafil = 8000;//Tiempo en milisegundo que demora el cambio del texto en la presentacion AV 		
 const aaini 		/**/ = 500;//Sugerido 500 (4mins apróx) :: 115(1min apróx) - 230(2mins apróx) - 345(3mins apróx) - 500(4mins apróx) Cantidad de pulsos que deben superarse para inicar el modo presentación AV
-let aasen		/**/ = 600;//sugerido 600  milisegundos para el cambio de seña
-let accion 		/**/ = 0;//Ocurrio un evento 0NO /1SI
-let ambi 		/**/ = 5;//variable memoria de ambiente, inicia en 5 de ENTRADA ACCESIBLE, ambi debe ir cambiando/actualizarse dependiendo del modo/frondend actual
-//let 	ambi1 		/**/= 0;//Primer frontend en Pantalla (0:NO - 1:SI)
-//let 	ambi2 			= '';//variable memoria HTML del ambiente 2
-//let 	ambi3 			= '';//variable memoria HTML del ambiente 3
-//let 	ambi4			= '';//variable memoria HTML del ambiente 4
-//let 	ambi5 			= '';//variable memoria HTML del ambiente 5
-let aMBi 		/**/ = 0;//pasado de ambi
+var aasen		/**/ = 600;//sugerido 600  milisegundos para el cambio de seña
+var accion 		/**/ = 0;//Ocurrio un evento 0NO /1SI
+var ambi 		/**/ = 5;//variable memoria de ambiente, inicia en 5 de ENTRADA ACCESIBLE, ambi debe ir cambiando/actualizarse dependiendo del modo/frondend actual
+//var 	ambi1 		/**/= 0;//Primer frontend en Pantalla (0:NO - 1:SI)
+//var 	ambi2 			= '';//variable memoria HTML del ambiente 2
+//var 	ambi3 			= '';//variable memoria HTML del ambiente 3
+//var 	ambi4			= '';//variable memoria HTML del ambiente 4
+//var 	ambi5 			= '';//variable memoria HTML del ambiente 5
+var aMBi 		/**/ = 0;//pasado de ambi
 const app 		/**/ = 'iinfo';//'i' R nombre de la app, "feed your mind" "alimenta tu mente" nombre de la fundación infozone / infoline / infoteam
 //const   aPulPre			= 50;//50 Cantidad de pulsos que deben superarse para cambiar el anuncio
-let bMin = 0;//Marca de agua por ventana minimizada 1:Activa
-let bMors = 1;//Esta bandera bMors activada sirve para que no se repita el calculo de las constantes de tiempo Morse sino una vez cada vez que a g00VARS[48][2] se le asigne un valor NUEVO o DIFERENTE del anterior
-let bNoSo = 0;//Bandera de No Sonido, se activa cuando hay click sobre la barrera e indirectamente se activa onFocus
-//let     bPro            = [0,0];//Banderas de progreso local , ingles , orden de pasar al siguiente anuncio
-let bus = 0;//Id buscado en kTapa0
-let camVio      /**/ = 0;//Bandera con Orden de detener las vibraciones morse
+var bMin = 0;//Marca de agua por ventana minimizada 1:Activa
+var bMors = 1;//Esta bandera bMors activada sirve para que no se repita el calculo de las constantes de tiempo Morse sino una vez cada vez que a g00VARS[48][2] se le asigne un valor NUEVO o DIFERENTE del anterior
+var bNoSo = 0;//Bandera de No Sonido, se activa cuando hay click sobre la barrera e indirectamente se activa onFocus
+//var     bPro            = [0,0];//Banderas de progreso local , ingles , orden de pasar al siguiente anuncio
+var bus = 0;//Id buscado en kTapa0
+var camVio      /**/ = 0;//Bandera con Orden de detener las vibraciones morse
 const canVibrate 	/**/ = window.navigator;//https://stackoverflow.com/questions/56926591/navigator-vibrate-break-the-code-on-ios-browsers
 const canTts 		/**/ = window.speechSynthesis;//(tts= text to speech) tts es el nombre asignado al 'objeto' que 'habla' y es parte de la ventana window
-let casi;//casilla que contiene la imagen y la glosa de la seña que se va a animar
+var casi;//casilla que contiene la imagen y la glosa de la seña que se va a animar
 const centro 		/**/ = [];//vacio o true para mostrar el div en el top de la pantalla {	behavior: 'auto', block: 'center'};//https://stackoverflow.com/questions/8922107/javascript-scrollintoview-middle-alignment  https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
-let colBra1		/**/;//Coleccion de todos los cBra1
-let colBrai		/**/;//Coleccion de todos los cBrai
-let colLife7	/**/;//Coleccion de todos los cLifes SEÑAS EN CARRUSEL de ruta
-let colPros3	/**/;//Coleccion de todas las cPros PROSAS de ruta
-//let 	colTxtL			;//Prueba - - Coleccion de todas los zTxtL TEXTOS LOCALES de la ruta
-let contPre = [0, 0];//Control de la presentación AV o cambio de cada titular off[0=0] NO hay cambio o on[0=1] en on es decir SI va a ver cambio de titular y la cantidad de titulares de la presentación AV que van se almacena en [1]  - - Contador acumulado de los Pulsos QUE lleva de duración cada anuncio [1] de la presentación AV
+var colBra1		/**/;//Coleccion de todos los cBra1
+var colBrai		/**/;//Coleccion de todos los cBrai
+var colLife7	/**/;//Coleccion de todos los cLifes SEÑAS EN CARRUSEL de ruta
+var colPros3	/**/;//Coleccion de todas las cPros PROSAS de ruta
+//var 	colTxtL			;//Prueba - - Coleccion de todas los zTxtL TEXTOS LOCALES de la ruta
+var contPre = [0, 0];//Control de la presentación AV o cambio de cada titular off[0=0] NO hay cambio o on[0=1] en on es decir SI va a ver cambio de titular y la cantidad de titulares de la presentación AV que van se almacena en [1]  - - Contador acumulado de los Pulsos QUE lleva de duración cada anuncio [1] de la presentación AV
 const conteo 		/**/ = [aaini, 1, 0];//[0]Contador acumulado de los Pulsos del punto desde que no hay actividad, [1]contador on/off, [0]iniciar tablón desde el menú off/on 
-let copia0 		/**/ = 0;//Aid seña actual - 1A- Actualizar el id de la seña actual
-let copia1 		/**/ = 2;//Bcapacidad de repeticiones de A 1B- Actualzar la capacidad de repeticiones de la seña actual
-let copia2 		/**/ = 0;//Cid seña anterior
-let copia3 		/**/ = 1;//Drepetición actual de A o anterior de C
-let deltAV = (Math.min(window.outerHeight, window.outerWidth) * 0.065);//6.5%
-let dExt = [0, '', '', '', ''];//Datos Extra del sitio local [1IdColor,,,,] el número de casillas debe ser igual a ext
-let fiLa = [0, 0];//Control de filas que pasan por la marquesina Local[0] Ingles[1]
-let flip 		/**/ = 0;//Cambio estado pulsos "lentos"
-let focBan		/**/ = 0;//Bandera de onfocus
-let focCon 		/**/ = 0;//Contador desborde de onfocus
-let focCsE		/**/ = 0;//Contador de Segundos de Espera on focus
-let focMem 		/**/ = 0;//Memoria del contador desborde de onfocus
-let funsi 		/**/ = '';//Parte 1 del mensaje por consola...
-let gFoco		/**/ = 1;//Localización del cursor/foco, número de la casilla dentro de la ruta (gRuta)......
-let gFoCo		/**/ = 0;//Pasado de gFoco
-let gMemF = 1;//memorizar el Foco principal temporalmente mientras pivota, por ejemplo las rutas de ajustes
-let gMemR = 3;//memorizar la Ruta principal temporalmente mientras pivota, por ejemplo las rutas de ajustes
-let gRuta		/**/ = 3;//7 to 3; se toman de g02RUTA: 1Modo, 2Configuración, 3Libro comunitario, 7ACCESO etc......
-let gRuTa		/**/ = 0;//Pasado de gRuTa
-let hFila;//alto de una fila de la marquesina
-let hid = 10;//Sitio con información oculta [2-9]	
-let ii = [0, 0, 0];//Contadores de los indicadores para asignarles colores 0:gris  1:azul 2:naranja 3:violeta 4:verde 5-6-7-8-9:amarillo +10:blanco
-let ini1 = true;//Activa la marquesina local
-let ini2 = true;//Activa la marquesina en ingles
-let iniR = 1;//Activar la ruta inicial
-let intBan		/**/ = 0;//1:Bandera con interprete /0:Sin interprete
+var copia0 		/**/ = 0;//Aid seña actual - 1A- Actualizar el id de la seña actual
+var copia1 		/**/ = 2;//Bcapacidad de repeticiones de A 1B- Actualzar la capacidad de repeticiones de la seña actual
+var copia2 		/**/ = 0;//Cid seña anterior
+var copia3 		/**/ = 1;//Drepetición actual de A o anterior de C
+var deltAV = (Math.min(window.outerHeight, window.outerWidth) * 0.065);//6.5%
+var dExt = [0, '', '', '', ''];//Datos Extra del sitio local [1IdColor,,,,] el número de casillas debe ser igual a ext
+var fiLa = [0, 0];//Control de filas que pasan por la marquesina Local[0] Ingles[1]
+var flip 		/**/ = 0;//Cambio estado pulsos "lentos"
+var focBan		/**/ = 0;//Bandera de onfocus
+var focCon 		/**/ = 0;//Contador desborde de onfocus
+var focCsE		/**/ = 0;//Contador de Segundos de Espera on focus
+var focMem 		/**/ = 0;//Memoria del contador desborde de onfocus
+var funsi 		/**/ = '';//Parte 1 del mensaje por consola...
+var gFoco		/**/ = 1;//Localización del cursor/foco, número de la casilla dentro de la ruta (gRuta)......
+var gFoCo		/**/ = 0;//Pasado de gFoco
+var gMemF = 1;//memorizar el Foco principal temporalmente mientras pivota, por ejemplo las rutas de ajustes
+var gMemR = 3;//memorizar la Ruta principal temporalmente mientras pivota, por ejemplo las rutas de ajustes
+var gRuta		/**/ = 3;//7 to 3; se toman de g02RUTA: 1Modo, 2Configuración, 3Libro comunitario, 7ACCESO etc......
+var gRuTa		/**/ = 0;//Pasado de gRuTa
+var hFila;//alto de una fila de la marquesina
+var hid = 10;//Sitio con información oculta [2-9]	
+var ii = [0, 0, 0];//Contadores de los indicadores para asignarles colores 0:gris  1:azul 2:naranja 3:violeta 4:verde 5-6-7-8-9:amarillo +10:blanco
+var ini1 = true;//Activa la marquesina local
+var ini2 = true;//Activa la marquesina en ingles
+var iniR = 1;//Activar la ruta inicial
+var intBan		/**/ = 0;//1:Bandera con interprete /0:Sin interprete
 //const 	kDoc		/**/= document.documentElement;//documento HTML
 const kEY = { KCAP: 20, K1: 49, N1: 188, K3: 51, N3: 88, K4: 52, N4: 77, K6: 54, N6: 67, K7: 55, N7: 78, K9: 57, N9: 86, K0: 48, N0: 66, KBAC: 8, K11: 97, K22: 98, K33: 99, K44: 100, K55: 101, K66: 102, K77: 103, K88: 104, K99: 105, K00: 96, KTAB: 9, KESP: 32 }//PRE?GUN¿,KTAB:9,KENT:13,KESP:32};
-let kmar		/**/ = 0.1;//constante de velocidad de la marquesina
-let loC = '';//Ruta actual de location valida
-let luZ = ['', ''];//String del color de la luz - tinte[0] - temperatura[1]
-let MaMi = 1;//Bandera para verificar si maxi o mini: 1:Bandera activada
-let marquee		/**/;//Coleccion de todas las marquee
-let marquei		/**/;//Coleccion de todas las marquei en Ingles
-let maX 		/**/ = false;//estado actual de la pantalla max/min
-let mAX 		/**/ = false;//pasado de la variable maX
-let memAnt = 0;//Recuerda el id del anuncio previo
+var kmar		/**/ = 0.1;//constante de velocidad de la marquesina
+var loC = '';//Ruta actual de location valida
+var luZ = ['', ''];//String del color de la luz - tinte[0] - temperatura[1]
+var MaMi = 1;//Bandera para verificar si maxi o mini: 1:Bandera activada
+var marquee		/**/;//Coleccion de todas las marquee
+var marquei		/**/;//Coleccion de todas las marquei en Ingles
+var maX 		/**/ = false;//estado actual de la pantalla max/min
+var mAX 		/**/ = false;//pasado de la variable maX
+var memAnt = 0;//Recuerda el id del anuncio previo
 const miliH		/**/ = 6000;//3000 o 5300 milisegundos que dura cada intermitencia de la mano (Hand) click
 const miliS		/**/ = 500;//300 o 1000 milisegundos que dura cada intermitencia de un ciclo
-let mRuta;//ALMACENAR HTML de lLINES, usarlo para recuperar el código si luego regresa a la misma ruta
-let naSenia;//nombre achivo imagen seña
-let naBD = 0;//1 Numero anterior de la consulta a la base de datos, debe iniciar en uno
-let ncBD = 0;//Numero de consultas a la base de datos
-let nFila = [0, 0, 1, 100, 1, 1];//número de filas la marquesina local[0], en ingles[1], capacidad de filas de la marquesina [2], ancho de la marquesina en pixeles[3], capacidad promedio de letras de cada fila de la marquesina [4] y Capacidad teorica de la marquesina para mostrar letras [5], entre más letras necesita más tiempo para cada cambio de texto
-//let 	nmarqe			= 0;//Número de veces que ha pasado la marquesina local
-let nmarqi = 0;//Número de veces que ha pasado la marquesina internacional
-let nruta;//quita el # ajusta el string ruta y se vuelve array
-let nUm;//Variable del estado de la luz
-let orig = ['', ''];//String original del ingles[0] ASL[1]
-let papas = [7, 1, 8, 4, 0, 0, 0, 0, 0, 0, ''];//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
-//let 	papas			= [7,1,8,2,2,0,0,0,0,0,0,''];//7,1,1,1,2,5,2,4,2,2,0 Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
-let papas0 = [];//array limpio de papas y sin ceros.
-let papas1 = [];//array de lo que falta a papas para completar la ruta sugerida
-//let 	per				= [1,1,1,1,1,1,1,1,1,1,1];//Permisos de los sitios (papas) 1:ON 0:OFF(por mostrar carteleras)
-let progresi;//la mitad del ancho del body que debe recorrer la marquesina en ingles, controla el avance de la marquesina en ingles		
-let progreso;//la mitad del ancho del body que debe recorrer la marquesina local, no cambia porque se usa para cambiar los anuncios	
-let progress;//la mitad del ancho del body que debe recorrer la marquesina local, controla el avance de la marquesina local		
+var mRuta;//ALMACENAR HTML de lLINES, usarlo para recuperar el código si luego regresa a la misma ruta
+var naSenia;//nombre achivo imagen seña
+var naBD = 0;//1 Numero anterior de la consulta a la base de datos, debe iniciar en uno
+var ncBD = 0;//Numero de consultas a la base de datos
+var nFila = [0, 0, 1, 100, 1, 1];//número de filas la marquesina local[0], en ingles[1], capacidad de filas de la marquesina [2], ancho de la marquesina en pixeles[3], capacidad promedio de letras de cada fila de la marquesina [4] y Capacidad teorica de la marquesina para mostrar letras [5], entre más letras necesita más tiempo para cada cambio de texto
+//var 	nmarqe			= 0;//Número de veces que ha pasado la marquesina local
+var nmarqi = 0;//Número de veces que ha pasado la marquesina internacional
+var nruta;//quita el # ajusta el string ruta y se vuelve array
+var nUm;//Variable del estado de la luz
+var orig = ['', ''];//String original del ingles[0] ASL[1]
+var papas = [7, 1, 8, 4, 0, 0, 0, 0, 0, 0, ''];//7,1,8,4,0,0,0,0,0,0,'' Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
+//var 	papas			= [7,1,8,2,2,0,0,0,0,0,0,''];//7,1,1,1,2,5,2,4,2,2,0 Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
+var papas0 = [];//array limpio de papas y sin ceros.
+var papas1 = [];//array de lo que falta a papas para completar la ruta sugerida
+//var 	per				= [1,1,1,1,1,1,1,1,1,1,1];//Permisos de los sitios (papas) 1:ON 0:OFF(por mostrar carteleras)
+var progresi;//la mitad del ancho del body que debe recorrer la marquesina en ingles, controla el avance de la marquesina en ingles		
+var progreso;//la mitad del ancho del body que debe recorrer la marquesina local, no cambia porque se usa para cambiar los anuncios	
+var progress;//la mitad del ancho del body que debe recorrer la marquesina local, controla el avance de la marquesina local		
 const reGis = 0;//Mostrar registros[1] o no[0] por consola
-let roto 		/**/ = 0;//1:Cancelar orden reciente de focus sobre un punto - 0:Permitir focus	
-let rumba = '';//Pasado de rumbi en el navegador
-let rumbo = [];//Array con el nuevo rumbo que asigna el usuario desde el navegador
-let rumbi = '';//String de rumbo unida con i'es para hacer consultas a la BD
-let salTO = 1;//Tamaño del salto					
-let sizBan		/**/ = 0;//Bandera de resize
-let sizCon 		/**/ = 0;//Contador desborde de resize
-let sizCsE		/**/ = 0;//Contador de Segundos de Espera
-let sizMem 		/**/ = 0;//Memoria del contador desborde de resize
-let sonCap		/**/ = 1;//1:Bandera sonar click cuando se activa capslok
-let speed 		/**/ = 1;//Velocidad del reproductor
-let tamYT		/**/;//ALTO DE LA VENTANA sin barra //= [0,0];//[ALTO DE LA VENTANA sin barra, ALTO DE LA VENTANA disponible con barra]
-let tics 		/**/ = 0;//CONTADOR de pulsos "rápidos"
-let traer = ['', ''];//almacena la traduccion 1i del idioma[0] o la seña[1]
-let v02			/**/ = '';//variable global de v2 en f0012() html parcial 
-let v03			/**/ = '';//variable global de v3 en f0012() html acumulado
-let vFocoI		/**/ = '';//Guíon de la casilla actual FOCO en Ingles - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
-let vFocoIz		/**/ = '';//Guíon de la casilla actual FOCO en Ingles - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
-let vFocoIe		/**/ = '';//Guíon extra de la casilla actual FOCO en Ingles - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
-let vFocoL		/**/ = '';//Guíon de la casilla actual FOCO en lengua Local - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
-let vFocoLz		/**/ = '';//Guíon de la casilla actual FOCO en lengua Local - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
-let vFocoLe		/**/ = '';//Guíon extra de la casilla actual FOCO en lengua Local - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
-let vFocoT		/**/ = '';//Guíon de la casilla actual FOCO en Ingles para la TAPA, siempre se debe EXISTIR así vFocoI este vacio - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
-let vFocoTz		/**/ = '';//Guíon de la casilla actual FOCO en Ingles para la TAPA, siempre se debe EXISTIR así vFocoI este vacio - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
-let vis3;//Copia del arreglo de las casillas visibles de los anuncios comunitarios				
-let voices		/**/ = [];//Variable que consigue las voces que esten disponibles
-let vHtml2		/**/;//variable auxiliar y global de v2
-let visON		/**/ = '';//		--STRING con las casillas visibles, entre "arriba" y "abajo", visON almacena un arreglo con SOLO los valores de las casillas que SON VISIBLES más las casillas "arriba" y "abajo"
-let visOK		/**/ = [];//ARREGLO con las casillas visibles, entre limite superior e inferior
-let vMul		/**/ = 0;//Variable de ruta que indica si al menos un elemento es multi
-let vSub  		/**/;//Variable de Glosa MAYUSCULA o texto subtitulo de la seña
-let wIDI = [];//Array hijo, se construye desde el array padre wIdi pero solo contiene todos sus elementos visibles (wIdi[x][5]=1  Estado:Visible1)
-let wPAPA1 = [];//Array hijo, se construye desde el array padre wPapa1 pero solo contiene todos sus elementos visibles
-let wPAPA2 = [];//Array hijo, se construye desde el array padre wPapa2 pero solo contiene todos sus elementos visibles
-let wPAPA3 = [];//Array hijo, se construye desde el array padre wPapa3 pero solo contiene todos sus elementos visibles
-let wPAPA4 = [];//Array hijo, se construye desde el array padre wPapa4 pero solo contiene todos sus elementos visibles
-let wPAPA5 = [];//Array hijo, se construye desde el array padre wPapa5 pero solo contiene todos sus elementos visibles
-let wPAPA6 = [];//Array hijo, se construye desde el array padre wPapa6 pero solo contiene todos sus elementos visibles
-let wPAPA7 = [];//Array hijo, se construye desde el array padre wPapa7 pero solo contiene todos sus elementos visibles
-let wPAPA8 = [];//Array hijo, se construye desde el array padre wPapa8 pero solo contiene todos sus elementos visibles
-let wPAPA9 = [];//Array hijo, se construye desde el array padre wPapa9 pero solo contiene todos sus elementos visibles
-let wPAPA10 = [];//Array hijo, se construye desde el array padre wPapa10 pero solo contiene todos sus elementos visibles
-let wSIGN = [];//Array hijo, se construye desde el array padre wSign pero solo contiene todos sus elementos visibles (wSign[x][5]=1  Estado:Visible1)
-let zTime = [0, 0, 0];//Dia[0] - Hora[1] - minutos[2]
+var roto 		/**/ = 0;//1:Cancelar orden reciente de focus sobre un punto - 0:Permitir focus	
+var rumba = '';//Pasado de rumbi en el navegador
+var rumbo = [];//Array con el nuevo rumbo que asigna el usuario desde el navegador
+var rumbi = '';//String de rumbo unida con i'es para hacer consultas a la BD
+var salTO = 1;//Tamaño del salto					
+var sizBan		/**/ = 0;//Bandera de resize
+var sizCon 		/**/ = 0;//Contador desborde de resize
+var sizCsE		/**/ = 0;//Contador de Segundos de Espera
+var sizMem 		/**/ = 0;//Memoria del contador desborde de resize
+var sonCap		/**/ = 1;//1:Bandera sonar click cuando se activa capslok
+var speed 		/**/ = 1;//Velocidad del reproductor
+var tamYT		/**/;//ALTO DE LA VENTANA sin barra //= [0,0];//[ALTO DE LA VENTANA sin barra, ALTO DE LA VENTANA disponible con barra]
+var tics 		/**/ = 0;//CONTADOR de pulsos "rápidos"
+var traer = ['', ''];//almacena la traduccion 1i del idioma[0] o la seña[1]
+var v02			/**/ = '';//variable global de v2 en f0012() html parcial 
+var v03			/**/ = '';//variable global de v3 en f0012() html acumulado
+var vFocoI		/**/ = '';//Guíon de la casilla actual FOCO en Ingles - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
+var vFocoIz		/**/ = '';//Guíon de la casilla actual FOCO en Ingles - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
+var vFocoIe		/**/ = '';//Guíon extra de la casilla actual FOCO en Ingles - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
+var vFocoL		/**/ = '';//Guíon de la casilla actual FOCO en lengua Local - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
+var vFocoLz		/**/ = '';//Guíon de la casilla actual FOCO en lengua Local - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
+var vFocoLe		/**/ = '';//Guíon extra de la casilla actual FOCO en lengua Local - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
+var vFocoT		/**/ = '';//Guíon de la casilla actual FOCO en Ingles para la TAPA, siempre se debe EXISTIR así vFocoI este vacio - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
+var vFocoTz		/**/ = '';//Guíon de la casilla actual FOCO en Ingles para la TAPA, siempre se debe EXISTIR así vFocoI este vacio - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA, ES CLAVE PARA TENER LISTO EL GUION DE TAPA INFORMATIVA [BOTON 9]
+var vis3;//Copia del arreglo de las casillas visibles de los anuncios comunitarios				
+var voices		/**/ = [];//Variable que consigue las voces que esten disponibles
+var vHtml2		/**/;//variable auxiliar y global de v2
+var visON		/**/ = '';//		--STRING con las casillas visibles, entre "arriba" y "abajo", visON almacena un arreglo con SOLO los valores de las casillas que SON VISIBLES más las casillas "arriba" y "abajo"
+var visOK		/**/ = [];//ARREGLO con las casillas visibles, entre limite superior e inferior
+var vMul		/**/ = 0;//Variable de ruta que indica si al menos un elemento es multi
+var vSub  		/**/;//Variable de Glosa MAYUSCULA o texto subtitulo de la seña
+var wIDI = [];//Array hijo, se construye desde el array padre wIdi pero solo contiene todos sus elementos visibles (wIdi[x][5]=1  Estado:Visible1)
+var wPAPA1 = [];//Array hijo, se construye desde el array padre wPapa1 pero solo contiene todos sus elementos visibles
+var wPAPA2 = [];//Array hijo, se construye desde el array padre wPapa2 pero solo contiene todos sus elementos visibles
+var wPAPA3 = [];//Array hijo, se construye desde el array padre wPapa3 pero solo contiene todos sus elementos visibles
+var wPAPA4 = [];//Array hijo, se construye desde el array padre wPapa4 pero solo contiene todos sus elementos visibles
+var wPAPA5 = [];//Array hijo, se construye desde el array padre wPapa5 pero solo contiene todos sus elementos visibles
+var wPAPA6 = [];//Array hijo, se construye desde el array padre wPapa6 pero solo contiene todos sus elementos visibles
+var wPAPA7 = [];//Array hijo, se construye desde el array padre wPapa7 pero solo contiene todos sus elementos visibles
+var wPAPA8 = [];//Array hijo, se construye desde el array padre wPapa8 pero solo contiene todos sus elementos visibles
+var wPAPA9 = [];//Array hijo, se construye desde el array padre wPapa9 pero solo contiene todos sus elementos visibles
+var wPAPA10 = [];//Array hijo, se construye desde el array padre wPapa10 pero solo contiene todos sus elementos visibles
+var wSIGN = [];//Array hijo, se construye desde el array padre wSign pero solo contiene todos sus elementos visibles (wSign[x][5]=1  Estado:Visible1)
+var zTime = [0, 0, 0];//Dia[0] - Hora[1] - minutos[2]
 
 
 
@@ -1323,7 +1323,7 @@ const g00eREG =/**/[[0, 'Expresión Regular', 'FUNCION - Uso'],
 
 
 //VOCES
-let tVoces = [[0, 'lang', 'name'],
+var tVoces = [[0, 'lang', 'name'],
 [1, 'es-MX', 'Paulina'],
 [2, 'en-US', 'Alex'],
 [3, 'it-IT', 'Alice'],
@@ -2897,12 +2897,12 @@ const 	r003B		=[	['Recursos/ Casillas..'										,1			,2			,3		,4			,5],
 
 
 //1Permitir,0Bloquear teclas del teclado [2]1B,[3]3C,[4]4,[5]6,[6]7,[7]9,[8]0,[9]ZXNM+ESPACIO
-let yKEYS =/**/[[0, 1, 2, 3, 4, 5, 6, 7, 8],
+var yKEYS =/**/[[0, 1, 2, 3, 4, 5, 6, 7, 8],
 [1, '1^', '3v', '4x', '6Clic', '7Menú', '9i', '0Inputs o HuecoTapa', '4x, 3v, 1^ y 6Clic'],
 [2, 1, 1, 0, 1, 0, 1, 0, 1]
 ];
 
-let s00EXIT =/**/[[0, 'variable de salida HTML', 'string HTML'],
+var s00EXIT =/**/[[0, 'variable de salida HTML', 'string HTML'],
 [1, '--1--Texto Local', ''],
 [2, '--1--Texto Inter', ''],
 [3, '--1--Señas Locales animadas', ''],
@@ -2926,7 +2926,7 @@ let s00EXIT =/**/[[0, 'variable de salida HTML', 'string HTML'],
 ]
 
 
-let g00HTML =/**/[[0, '--1--Parrafo original (+LINK->12)', 'ii2 dog You are in Setting,Read lines 012 345 678 9 123   vec, e,s,57hola8?@htt ps://gm,a.....;il.com_ve     ,ces,578@g; mail.com   You a      ;re in Setting,Read lines, 012,345 678 1 and 2 )(?...,.,;;9__        '],
+var g00HTML =/**/[[0, '--1--Parrafo original (+LINK->12)', 'ii2 dog You are in Setting,Read lines 012 345 678 9 123   vec, e,s,57hola8?@htt ps://gm,a.....;il.com_ve     ,ces,578@g; mail.com   You a      ;re in Setting,Read lines, 012,345 678 1 and 2 )(?...,.,;;9__        '],
 [1, '--1--Si 0 contiene algún LINK pone 1, 0NoLink, los links no sirven por que tienen , y ;', 0],
 [2, '--1--Parrafo 0 NORMALIZADO SI 1=0->ajusta {,;espacios}, SI 1=1->ajusta solo los {espacios}', 'ii2 dog You are in Setting, Read lines 012 345 678 9 123 vec, e, s, 57hola8?@htt ps://gm, a.....;il.com_ve, ces, 578@g; mail.com You a; re in Setting, Read lines, 012, 345 678 1 and 2 )(?..., ., ; ; 9__'],//SI 1=1->'ii2 dog You are in Setting,Read lines 012 345 678 9 123 vec, e,s,57hola8?@https://gm,a.....;il.com_ve ,ces,578@g; mail.com You a ;re in Setting,Read lines, 012,345 678 1 and 2 )(?...,.,;;9__'				
 [3, '--1--Partir 2 en un arreglo de PALABRAS', ['ii2', 'dog', 'You', 'are', 'in', 'Setting,', 'Read', 'lines', '012', '345', '678', '9', '123', 'vec,', 'e,', 's,', '57hola8?@htt', 'ps://gm,', 'a.....;il.com_ve,', 'ces,', '578@g;', 'mail.com', 'You', 'a;', 're', 'in', 'Setting,', 'Read', 'lines,', '012,', '345', '678', '1', 'and', '2', ')(?...,', '.,', ';', ';', '9__']],
@@ -2970,7 +2970,7 @@ let g00HTML =/**/[[0, '--1--Parrafo original (+LINK->12)', 'ii2 dog You are in S
 
 
 
-let tLanPAIS = [[0, 'langABR', 'langPais'],
+var tLanPAIS = [[0, 'langABR', 'langPais'],
 [1, 'ar', 'ar-SA'],
 [2, 'cs', 'cs-CZ'],
 [3, 'da', 'da-DK'],
@@ -3151,7 +3151,7 @@ d001[A][B]->B columna de la matriz: 1,2,3,etc y cada columna representa a un ANU
 
 */
 
-let d000 = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+var d000 = [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
 [1, [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []],
 [2, [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []],
 [3, [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
@@ -3536,7 +3536,7 @@ var esTAS = false;//SI ENCUENTRA EL EQUIVALENTE MORSE SE PONE TRUE
 //+ + + const 	key={			A1:49,B1:82,C1:97,A2:50,B2:84,C2:98,A3:51,B3:89,C3:99,A4:52,B4:70,C4:100,A6:54,B6:72,C6:102,A7:55,B7:67,C7:103,A8:56,B8:86,C8:104,A9:57,B9:66,C9:105,A0:53,B0:71,C0:101,SP0:32};
 var libre = [true, true, true, true, true, true, true, true, true, true, true];//POSICION DE LA TTTECLA
 var lin = [false, false, false, false, false, false, false, false, false, false, false];//SI ES una RAYA - SE PONE TRUE (sino es un punto FALSE)
-let m;//HORA/DIA ACTUAL EN mILISEGUNDOS DESDE EL 1ERO DE ENERO DE 1970
+var m;//HORA/DIA ACTUAL EN mILISEGUNDOS DESDE EL 1ERO DE ENERO DE 1970
 var max = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];//ESPACIO maxIMO EN MILISEGUNDOS PERMITIDO
 var min = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];//RAYA minIMA EN MILISEGUNDOS PERMITIDA
 var mn = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];//HORA/DIA FINAL EN MILISEGUNDOS DESDE EL 1ERO DE ENERO DE 1970
@@ -3557,7 +3557,7 @@ const vF = 5;//8? TIEMPO DE ESPERA: 4 DA TIEMPO PARA PENSAR; 3 ESTRICTO DE NORMA
 const vT = 50;//20 -70 MILISEGUNDOS DE CADA DELTA DE TIEMPO
 
 
-let touch;
+var touch;
 //const 	touch 			= "ontouchstart" in window || window.navigator.maxTouchPoints;//este metodo no parece ser tan "acertado"
 const
 	isTouchDevice = () =>//DETECTAR si es touch al intentar crear un evento Touch, si falla en el intento retorna un error ES DECIR NO ES TOUCH

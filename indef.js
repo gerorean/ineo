@@ -3,7 +3,7 @@
 	hh1() 	... hh111()
 */
 //============================================================
-f0000=()=>	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (SI ya cargo el documento)
+function f0000()	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (SI ya cargo el documento)
 		{	//console.timeEnd('tiempoDeCarga');//:/SwitchS0//INFORMAR cuánto tiempo demoró en cargar
 			lOI(0);
 			iTitle.innerHTML = app;//CARGAR el titulo
@@ -103,7 +103,7 @@ f0000=()=>	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (SI ya c
 			fff();
 		}
 
-f0001=()=>//CONSEGUIR la hora local actual
+function f0001()//CONSEGUIR la hora local actual
 		{	lOG(1);
 			zTime[0] = new Date();
   			zTime[1] = zTime[0].getHours();
@@ -112,7 +112,7 @@ f0001=()=>//CONSEGUIR la hora local actual
   			miHora = ''.concat(zTime[1] + ':' + zTime[2]);
   		}
  
-f0002=()=>//CONSEGUIR la voz (GetVoices), Manejador de eventos cuando las voces cambian...
+function f0002()//CONSEGUIR la voz (GetVoices), Manejador de eventos cuando las voces cambian...
 		{	lOL(2);
 			//console.time('duracionCargaVoces');//:/Switch S1
 			iV1e.style.backgroundColor = 'white';
@@ -152,7 +152,7 @@ f0002=()=>//CONSEGUIR la voz (GetVoices), Manejador de eventos cuando las voces 
 			  	{	iV1b.style.backgroundColor = 'red';
 			  	}
 			  	timeout += interval;
-			  	setTimeout(()=>
+			  	setTimeout(function()
 			  	{	loadVoices(cb)
 			  	}	,interval);
 			}	
@@ -174,7 +174,7 @@ f0002=()=>//CONSEGUIR la voz (GetVoices), Manejador de eventos cuando las voces 
 			});
 		}
 
-f0003=()=>//PRODUCIR pulsaciones
+function f0003()//PRODUCIR pulsaciones
 		{	lOC(3);//Se oculta para no contar pulsaciones
 			if(tics > 2)//DETECTAR cuando van más de N pulsos rapidos
 			{	tics = 0;//REINICIAR conteo de pulsos rapidos
@@ -313,7 +313,7 @@ f0003=()=>//PRODUCIR pulsaciones
 
 		}
 
-f0007=()=>	//CONVERTIR texto NORMALIZADO a braille - IN g00HTML[3][2] OUT g00HTML[19][2] pro7
+function f0007()	//CONVERTIR texto NORMALIZADO a braille - IN g00HTML[3][2] OUT g00HTML[19][2] pro7
 		{	lOL(7);
 			let v4;
 			let v6;
@@ -422,7 +422,7 @@ f0007=()=>	//CONVERTIR texto NORMALIZADO a braille - IN g00HTML[3][2] OUT g00HTM
 			g00HTML[19][2] = g00VARS[49][2];
 		}
 
-f0008=(let)=>//PASAR caracteres especiales o letras SUELTAS a id braille //o0063
+function f0008(let)//PASAR caracteres especiales o letras SUELTAS a id braille //o0063
 		{	lOL(8);
 			let v3 = 0;
 			switch (let)//-ASIGNA NUMERO A V3 QUE INDICA LA LETRA PARA PASARLA A BRAILLE
@@ -536,7 +536,7 @@ f0008=(let)=>//PASAR caracteres especiales o letras SUELTAS a id braille //o0063
 			}
 		}
 
-f0009=()=>//CONVERTIR puntos y rayas Morse a tiempo Morse (milisegundos) y ACTUALIZAR cada constante de tiempo Morse según la constante de velocidad morse actual
+function f0009()//CONVERTIR puntos y rayas Morse a tiempo Morse (milisegundos) y ACTUALIZAR cada constante de tiempo Morse según la constante de velocidad morse actual
 		{	lOG(9);
 			let v1;
 			let v2;
@@ -562,7 +562,7 @@ f0009=()=>//CONVERTIR puntos y rayas Morse a tiempo Morse (milisegundos) y ACTUA
 			}
 		}
 
-f0010=(on)=>//CONVERTIR texto NORMALIZADO a morse  -> on: hacer los ·s y -s DEL HTML -> off: los tiempos DEL VIBRADOR
+function f0010(on)//CONVERTIR texto NORMALIZADO a morse  -> on: hacer los ·s y -s DEL HTML -> off: los tiempos DEL VIBRADOR
 		{	lOL(10);
 			let vt1 = '';//RESET de los ·'s, -'s y espacios acumulados que van a salir en HTML		
 			let vt2 = '';//Reset de tiempos de vibrado
@@ -619,7 +619,7 @@ f0010=(on)=>//CONVERTIR texto NORMALIZADO a morse  -> on: hacer los ·s y -s DEL
 			}
 		}
 
-f0011=(let)=>//ASIGNAR número representativo a cada caracter g00VARS[23] para luego pasarlo a morse//o0065
+function f0011(let)//ASIGNAR número representativo a cada caracter g00VARS[23] para luego pasarlo a morse//o0065
 		{	lOL(11);
 			let v3 = 0;
 			switch (let)
@@ -743,7 +743,7 @@ f0011=(let)=>//ASIGNAR número representativo a cada caracter g00VARS[23] para l
 			}		
 		}
 
-f0012=(int)=>//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,gRuta 
+function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,gRuta 
 		{	lOL(12);
 			f0090();//L BORRAR memoria de animación: señas y glosas
 			let le = 0;//length del array
@@ -1680,7 +1680,7 @@ f0012=(int)=>//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,gRuta
 		}
 
 /*
-f0014=(ale)=>//CARGAR los guiones de la tapa (o alerta) y posicionar el cursor
+function f0014(ale)//CARGAR los guiones de la tapa (o alerta) y posicionar el cursor
 		{	lOU(14);
 			//f0015();// - * + TEMPORIZAR la duración de la tapa
 		//NOTA PENDIENTE!!!! ESTA FUNCION anterior f15() es decir la f20()interna ponerla al final de la vibracion
@@ -1689,7 +1689,7 @@ f0014=(ale)=>//CARGAR los guiones de la tapa (o alerta) y posicionar el cursor
 		}
 */
 
-f0015=(reg)=>//"MENU" CARGAR la ruta 4 en pantalla
+function f0015(reg)//"MENU" CARGAR la ruta 4 en pantalla
 		{	lOG(15);
 			if(reg)//reg: interacción sobre la pantalla
 			{	f0093(reg);//REGISTRAR el primer clic sobre pantalla
@@ -1708,7 +1708,7 @@ f0015=(reg)=>//"MENU" CARGAR la ruta 4 en pantalla
 		}
 
 
-f0016=()=>//CARGAR los guiones de la tapa
+function f0016()//CARGAR los guiones de la tapa
 		{	lOG(16);
 			f0090();//L BORRAR memoria de animación: señas y glosas
 			let id = g00VARS[27][2];//id Idioma local
@@ -1942,7 +1942,7 @@ f0016=()=>//CARGAR los guiones de la tapa
 			f0086();//* *ENCONTRAR todos los elementos cLife y cPros (ruta) o de cPros0 y cLife0 (tapa)
 		}
 
-f0017=(scr)=>//CARGAR Ambiente RUTA X - HTML de capa ruta, (scr) se usa para POSICIONAR foco donde este el cursor actual (gFoco)
+function f0017(scr)//CARGAR Ambiente RUTA X - HTML de capa ruta, (scr) se usa para POSICIONAR foco donde este el cursor actual (gFoco)
 		{	lOL(17);
 			ambi = 5;//RUTA X:: persona, Ruta Comunitaria, etc..
 			g00VARS[55][3] = 1;//Modo normal
@@ -1968,10 +1968,10 @@ f0017=(scr)=>//CARGAR Ambiente RUTA X - HTML de capa ruta, (scr) se usa para POS
 
 		}
 
-f0018=()=>//ESPERAR un segundo, el tamaño de la pantalla cambio, si no hay más eventos RESIZE tomar ACCIONES
+function f0018()//ESPERAR un segundo, el tamaño de la pantalla cambio, si no hay más eventos RESIZE tomar ACCIONES
 		{	lOG(18);
 			sizMem = sizCon;//Guardar en memoria el conteo de sizCon
-			setTimeout(()=>{//ESPERAR un segundo, verificar que no exista un nuevo evento RESIZE
+			setTimeout(function(){//ESPERAR un segundo, verificar que no exista un nuevo evento RESIZE
 				//console.log('Transcurrio 1 seg, maX=',maX,'\n\n');
 				sizCsE += 1;//Nuevo evento de esperar 1 segundo
 				if(sizCsE < 100)//Si lleva muchos segundos de espera sin poder terminar
@@ -2109,7 +2109,7 @@ f0018=()=>//ESPERAR un segundo, el tamaño de la pantalla cambio, si no hay más
 			}, 1500);//duración de los segundos de espera sujerencia 1500 poner en 4000 para pruebas
 		}
 
-f0019=(i)=>//hora0(i) ADICIONAR 0 al frente de números menores de 10
+function f0019(i)//hora0(i) ADICIONAR 0 al frente de números menores de 10
 		{	//lOU(19);
 			if(i < 10)
 			{	i = '0'+i;
@@ -2117,7 +2117,7 @@ f0019=(i)=>//hora0(i) ADICIONAR 0 al frente de números menores de 10
 			return i;
 		}
 /*
-f0020=()=>//OCULTAR tapa y mostrar ruta
+function f0020()//OCULTAR tapa y mostrar ruta
 		{	lOU(20);
 
 			iTAPA.classList.add('cX');
@@ -2134,7 +2134,7 @@ f0020=()=>//OCULTAR tapa y mostrar ruta
 			f0017();
 		}
 */
-f0021=()=>//NORMALIZAR el texto y volverlo PALABRAS para ser traducidas a señas, morse o braille// g00VARS[21] - INICIO DEL analisis   IN g00VARS[21][2] OUT g00HTML[0,1,2,3][2]
+function f0021()//NORMALIZAR el texto y volverlo PALABRAS para ser traducidas a señas, morse o braille// g00VARS[21] - INICIO DEL analisis   IN g00VARS[21][2] OUT g00HTML[0,1,2,3][2]
 		{	lOL(21);
 			g00HTML[0][2] = g00VARS[21][2];
 			g00HTML[1][2] = 0;
@@ -2155,7 +2155,7 @@ f0021=()=>//NORMALIZAR el texto y volverlo PALABRAS para ser traducidas a señas
 			g00HTML[3][2] = g00HTML[2][2].split(' ');
 		}
 	
-f0022=()=>//MAXIMIZAR la pantalla
+function f0022()//MAXIMIZAR la pantalla
 		{	lOL(22);
 			if(!maX)//Si es minima debe maximizar la ventana
 			{	/*if(!g00VARS[55][2])
@@ -2226,14 +2226,14 @@ f0022=()=>//MAXIMIZAR la pantalla
 
 		}
 
-f0023=()=>//ACTIVAR capa de alerta
+function f0023()//ACTIVAR capa de alerta
 		{	lOG(23);
 			iTAPA.classList.remove('cX');
 	 		line.classList.remove('cEsqi');
 	 		line.classList.add('rEsqi');	
 		}
 
-f0024=(reg)=>//i - Clic en botón 9 Tapa Info | REINICIAR animación, OCULTAR la ruta actual, MOSTRAR Tapa Informativa X e INFORMAR en que ruta se encuentra el usuario (reg: interacción tipo click sobre la pantalla FrontEnd)
+function f0024(reg)//i - Clic en botón 9 Tapa Info | REINICIAR animación, OCULTAR la ruta actual, MOSTRAR Tapa Informativa X e INFORMAR en que ruta se encuentra el usuario (reg: interacción tipo click sobre la pantalla FrontEnd)
 		{	lOG(24);
 			//hh88(1);//Luz blanca por info
 			hh88(4);//Luz blanca por info
@@ -2262,7 +2262,7 @@ f0024=(reg)=>//i - Clic en botón 9 Tapa Info | REINICIAR animación, OCULTAR la
 			f0143(1);//ENCONTRAR todos los elementos cBrai
 		}
 
-f0025=(textLoc,textInt)=>//Decir() PREPARAR los anuncios local e internacional de la TAPA
+function f0025(textLoc,textInt)//Decir() PREPARAR los anuncios local e internacional de la TAPA
 		{	lOG(25);
 			g00VARS[12][2] = true;//Permiso ok
 
@@ -2277,7 +2277,7 @@ f0025=(textLoc,textInt)=>//Decir() PREPARAR los anuncios local e internacional d
 			f0026(textLoc,textInt);//DECIR el anuncio uno (local) y darle el paso al anuncio dos de la TAPA
 		}
 
-f0026=(textLoc,textInt)=>//Enunc1() DECIR el anuncio uno (local) y darle el paso al anuncio dos de la TAPA
+function f0026(textLoc,textInt)//Enunc1() DECIR el anuncio uno (local) y darle el paso al anuncio dos de la TAPA
 		{	lOG(26);
 			//iV3e.style.backgroundColor = 'white';
 			hh82(1);//AJUSTAR velocidad por defecto
@@ -2373,7 +2373,7 @@ f0026=(textLoc,textInt)=>//Enunc1() DECIR el anuncio uno (local) y darle el paso
 			}
 		}
 
-f0027=(textInt)=>//L Enunc2() DECIR el anuncio dos de la TAPA
+function f0027(textInt)//L Enunc2() DECIR el anuncio dos de la TAPA
 		{	lOU(27);//lOL
 			console.log('mmm');
 			hh82(1);//AJUSTAR velocidad por defecto
@@ -2419,7 +2419,7 @@ f0027=(textInt)=>//L Enunc2() DECIR el anuncio dos de la TAPA
 			}
 		}
 
-f0028=(def)=>//ACTUALIZAR el tamaño/altura del texto:: standar o por defecto(def) / configuración del usuario
+function f0028(def)//ACTUALIZAR el tamaño/altura del texto:: standar o por defecto(def) / configuración del usuario
 		{	lOL(28);
 			let aux;//variable auxiliar
 			if(def)
@@ -2460,7 +2460,7 @@ f0028=(def)=>//ACTUALIZAR el tamaño/altura del texto:: standar o por defecto(de
 			iBody.style.setProperty('--a',aa+'px');//109.5px 49   139
 		}
 
-f0029=(val)=>//ORGANIZAR 1 pulso limpio de onfocus, ACTUALIZAR variable del foco <= La casilla (val) de la RUTA acaba de recibir el foco
+function f0029(val)//ORGANIZAR 1 pulso limpio de onfocus, ACTUALIZAR variable del foco <= La casilla (val) de la RUTA acaba de recibir el foco
 		{	lOK(29);
 			if(val || (val == 0))
 			{	gFoco = val;//actualiza la posicion del foco
@@ -2478,7 +2478,7 @@ f0029=(val)=>//ORGANIZAR 1 pulso limpio de onfocus, ACTUALIZAR variable del foco
 			}
 		}
 
-f0030=()=>//ACTUALIZAR variables locales e internacionales del FOCO para tener listo el sonido multimedia (vMul) o de la Tapa Informativa [BOTON 9], trabaja de la mano de f0012() y f0016()//o0016() - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA
+function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para tener listo el sonido multimedia (vMul) o de la Tapa Informativa [BOTON 9], trabaja de la mano de f0012() y f0016()//o0016() - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA
 		{	lOC(30);
 			let v1 = g00VARS[27][2];//idioma
 			let v2 = visOK[gFoco];//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
@@ -3072,7 +3072,7 @@ f0030=()=>//ACTUALIZAR variables locales e internacionales del FOCO para tener l
 			}
 		}
 
-f0031=(scr)=>//Pintar el marco (scr)POSICIONAR al usuario sobre el foco(cursor) sobre la casilla/hoja actual (gFoco) dentro de una RUTA (forms[0])//o0016B()
+function f0031(scr)//Pintar el marco (scr)POSICIONAR al usuario sobre el foco(cursor) sobre la casilla/hoja actual (gFoco) dentro de una RUTA (forms[0])//o0016B()
 		{	lOL(31);
 			f0030();//Si el foco cambio, C ACTUALIZAR variables locales e internacionales del FOCO vFocoL, vFocoLe(multimedia), vFocoI, vFocoIe(multimedia) y vFocoT dependiendo de RUTA y posición actual del FOCO, trabaja de la mano de f0012() y f0016()
 			document.forms[0].elements[gFoco].focus();
@@ -3120,7 +3120,7 @@ f0031=(scr)=>//Pintar el marco (scr)POSICIONAR al usuario sobre el foco(cursor) 
 		}
 
 
-f0032=()=>//I PREPARAR la lectura de la casilla, o Tapa Informativa donde esta el foco (el usuario)
+function f0032()//I PREPARAR la lectura de la casilla, o Tapa Informativa donde esta el foco (el usuario)
 		{	lOI(32);		
 			if(g00VARS[55][2])//Si ya ocurrio el primer clic
 			{ 	let v1 = '';
@@ -3134,7 +3134,7 @@ f0032=()=>//I PREPARAR la lectura de la casilla, o Tapa Informativa donde esta e
 			}
 		}
 
-f0033=(textLoc,textInt)=>//25Decir() PREPARAR los anuncios local e internacional de la RUTA
+function f0033(textLoc,textInt)//25Decir() PREPARAR los anuncios local e internacional de la RUTA
 		{	lOI(33);
 			iV3e.style.backgroundColor = 'white';	
 
@@ -3153,7 +3153,7 @@ f0033=(textLoc,textInt)=>//25Decir() PREPARAR los anuncios local e internacional
 			f0034(textLoc,textInt);//LEER los anuncios local e internacional de la RUTA
 		}
 
-f0034=(textLoc,textInt)=>//26Enunc1() DAR el anuncio local de la RUTA
+function f0034(textLoc,textInt)//26Enunc1() DAR el anuncio local de la RUTA
 		{	lOG(34);
 			hh82();//AJUSTAR velocidad DEL USUARIO
 			//iV3e.style.backgroundColor = 'white';
@@ -3270,7 +3270,7 @@ f0034=(textLoc,textInt)=>//26Enunc1() DAR el anuncio local de la RUTA
 			}
 		}
 
-f0035=(textInt)=>//27Enunc2() DAR el anuncio internacional de la RUTA
+function f0035(textInt)//27Enunc2() DAR el anuncio internacional de la RUTA
 		{	lOU(35);
 			hh82();//AJUSTAR velocidad DEL USUARIO
 			let toSpeak2 = new SpeechSynthesisUtterance();//es el nombre del 'enunciado' que se van a 'decir'
@@ -3315,7 +3315,7 @@ f0035=(textInt)=>//27Enunc2() DAR el anuncio internacional de la RUTA
 		}
 
  
-f0036=()=>//REINICIAR parte de las variables de control del SPEAK
+function f0036()//REINICIAR parte de las variables de control del SPEAK
 		{	lOG(36);
 			g00VARS[56][2] = 0;
 			g00VARS[56][3] = 2;
@@ -3324,7 +3324,7 @@ f0036=()=>//REINICIAR parte de las variables de control del SPEAK
 			g00VARS[56][6] = 0;
 		}
 
-f0037=()=>//REINICIAR las variables de control del speak SI HAY ERROR de desbordamiento
+function f0037()//REINICIAR las variables de control del speak SI HAY ERROR de desbordamiento
 		{	lOG(37);
 			if(canTts.speaking)//Si esta dando un anuncio
 			{	g00VARS[56][9] = 1;
@@ -3344,7 +3344,7 @@ f0037=()=>//REINICIAR las variables de control del speak SI HAY ERROR de desbord
 			//console.log('END2B x1='+g00VARS[56][2]+', x2='+g00VARS[56][3]+', e='+g00VARS[56][4]+', k='+g00VARS[56][5]+', r='+g00VARS[56][6]+', t='+g00VARS[56][7]+', i='+g00VARS[56][8]+', SPK='+g00VARS[56][9]+', Omit='+g00VARS[56][10]);
 		}
 /* 
-f0038=()=>//REGRESAR a la ruta y foco principales junto con sus respectivos guiones
+function f0038()//REGRESAR a la ruta y foco principales junto con sus respectivos guiones
 		{	lOU(38);
 			gRuta = gMemR;//Regresa a la ruta ppal
 			gFoco = gMemF;//Regresa al foco ppal
@@ -3352,7 +3352,7 @@ f0038=()=>//REGRESAR a la ruta y foco principales junto con sus respectivos guio
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
  
-f0039=()=>//PRODUCIR y GUARDAR el HTML DE RUTA en señas, Braille Y Morse del guión global para cuando se llame
+function f0039()//PRODUCIR y GUARDAR el HTML DE RUTA en señas, Braille Y Morse del guión global para cuando se llame
 		{	lOU(39);
 			//console.log('g00VARS[21][2]='+g00VARS[21][2]);
 			
@@ -3373,8 +3373,8 @@ f0039=()=>//PRODUCIR y GUARDAR el HTML DE RUTA en señas, Braille Y Morse del gu
 			g00HTML[30][2] = g00HTML[23][2];
 		}
  
-//f0040=(v2,id,vi)=>//ADICIONAR a v2 código HTML de la RUTA (dependiendo del modo) del guión en Local y en Ingles
-f0040=(v2,id)=>//ADICIONAR a v2 (html acumulado) código HTML de la RUTA (dependiendo del modo) del guión en Local y en Ingles
+//function f0040(v2,id,vi)//ADICIONAR a v2 código HTML de la RUTA (dependiendo del modo) del guión en Local y en Ingles
+function f0040(v2,id)//ADICIONAR a v2 (html acumulado) código HTML de la RUTA (dependiendo del modo) del guión en Local y en Ingles
 		{	lOU(40);
 			
 
@@ -3443,7 +3443,7 @@ f0040=(v2,id)=>//ADICIONAR a v2 (html acumulado) código HTML de la RUTA (depend
 		}
 */
 		 
-f0041=()=>//CONSEGUIR los milisegundos actuales
+function f0041()//CONSEGUIR los milisegundos actuales
 		{	//lOU(41);
 			miMors = new Date().getTime();
   		}
@@ -3458,7 +3458,7 @@ function isIOS() {
 }
 
 
-f0042=()=>//HACER faro on y VIBRAR
+function f0042()//HACER faro on y VIBRAR
 		{	lOL(42);
 			//console.log(' + + + + f0042');
 			if(g00VARS[55][2] && g00VARS[60][3])//Si ya ocurrio el primer clic y permite vibración
@@ -3574,7 +3574,7 @@ f0042=()=>//HACER faro on y VIBRAR
 
 
  		 
-f0043=()=>//L HACER faro off y si puede vibrar PARAR cualquier vibración anterior - - - HACER faro off y PARAR vibración
+function f0043()//L HACER faro off y si puede vibrar PARAR cualquier vibración anterior - - - HACER faro off y PARAR vibración
 		{	lOL(43);
 			//console.log(' + + + + f0043');
 			if(g00VARS[55][2] && g00VARS[60][3])//Si ya ocurrio el primer clic y permite vibración
@@ -3642,7 +3642,7 @@ f0043=()=>//L HACER faro off y si puede vibrar PARAR cualquier vibración anteri
 			}
 		}
 		 
-f0044=(text,texInt,ruta)=>//VIBRAR y parpadear 0 local, 1 inter
+function f0044(text,texInt,ruta)//VIBRAR y parpadear 0 local, 1 inter
 		{	lOG(44);
 			//console.log(' + + + + f0044');
 			if(g00VARS[60][3])//SI puede vibrar..
@@ -3712,7 +3712,7 @@ f0044=(text,texInt,ruta)=>//VIBRAR y parpadear 0 local, 1 inter
 			}
 		}
  		 
-f0045=()=>//DETENER vibraciones parpadeos e intervalos pendientes
+function f0045()//DETENER vibraciones parpadeos e intervalos pendientes
 		{	lOL(45);
 			//console.log(' + + + + f0045');
 			if(g00VARS[60][3])//SI puede vibrar..
@@ -3727,7 +3727,7 @@ f0045=()=>//DETENER vibraciones parpadeos e intervalos pendientes
 			}
 		}
 
-f0046=()=>//L CARGAR las variables s00EXIT con los STRINGS HTML INTERNACIONALES y LOCALES que se necesitan
+function f0046()//L CARGAR las variables s00EXIT con los STRINGS HTML INTERNACIONALES y LOCALES que se necesitan
 		{	lOL(46);
 			if((g00VARS[27][2]!=1)&&(g00VARS[5][2]))//si idioma local no es el idioma ingles y esta i1
 			{	//ACTUALIZAR las variables INTERNACIONALES s00EXIT[2-4-6-8-10]
@@ -3755,7 +3755,7 @@ f0046=()=>//L CARGAR las variables s00EXIT con los STRINGS HTML INTERNACIONALES 
 			s00EXIT[7][2] = g00HTML[19][2];//braille Local
 		}
 
-f0047=(reg)=>//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta secundaria o principal anterior
+function f0047(reg)//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta secundaria o principal anterior
 		{	lOG(47);
 			if(reg)
 			{	f0093(reg);//REGISTRAR el primer clic sobre pantalla
@@ -3789,13 +3789,13 @@ f0047=(reg)=>//"UNDO CANCEL" - click en botón 4 | REGRESAR a una ruta secundari
 			}
 		}
 
-f0048=()=>//RETORNAR a la ruta principal
+function f0048()//RETORNAR a la ruta principal
 		{	lOG(48);
 			gFoco =	gMemF;
 			gRuta =	gMemR;
 		}
 
-f0049=()=>//OCULTAR botón 4 de deshacer (x UNDO) y 7 de menu cuando no se necesiten
+function f0049()//OCULTAR botón 4 de deshacer (x UNDO) y 7 de menu cuando no se necesiten
 		{	lOL(49);
 			if((g02RUTA[gRuta][5])&&(!g02RUTA[gRuta][8]))//ruta es principal y no tiene padre
 			{	//ocultar el icono de botón undo
@@ -3835,7 +3835,7 @@ f0049=()=>//OCULTAR botón 4 de deshacer (x UNDO) y 7 de menu cuando no se neces
 
 		}
 
-f0050=()=>//OCULTAR ambientes, DEJAR pantalla vacia, DETENER vibraciones y BORRAR guíon del interprete
+function f0050()//OCULTAR ambientes, DEJAR pantalla vacia, DETENER vibraciones y BORRAR guíon del interprete
 		{	lOC(50);
 			intBan = 0;//VENTANA sin Interpretes
 			f0045();//L detener vibraciones
@@ -3891,7 +3891,7 @@ f0050=()=>//OCULTAR ambientes, DEJAR pantalla vacia, DETENER vibraciones y BORRA
 			g00VARS[26][4] = 0;//Botones ocultos 
 		}
 
-f0051=()=>//HABILITAR botones de RUTA (1,3,4 y 7)
+function f0051()//HABILITAR botones de RUTA (1,3,4 y 7)
 		{	lOL(51);
 			if(!g00VARS[26][4])//Si BOTONES ocultos {0}
 			{	g00VARS[26][4] = 1;//BOTONES visibles
@@ -3935,7 +3935,7 @@ f0051=()=>//HABILITAR botones de RUTA (1,3,4 y 7)
 		}
 
 /*
-f0052=()=>//INICIALIZAR la API de Youtube
+function f0052()//INICIALIZAR la API de Youtube
 		{	lOU(52);
 			var tag = document.createElement('script');
 			tag.src = "https://www.youtube.com/iframe_api";
@@ -3945,7 +3945,7 @@ f0052=()=>//INICIALIZAR la API de Youtube
 			//EL SCRIPT ANTERIOR DESDE INTERNET LLAMA LA FUNCION onYouTubeIframeAPIReady()
 		}
  
-f0053=()=>//RESTABLECER el video de YouTube desde el comienzo [STOP]
+function f0053()//RESTABLECER el video de YouTube desde el comienzo [STOP]
 		{	lOU(53);
 			//l01Repro[1] = 0;
 			if(vPlayer)
@@ -3958,7 +3958,7 @@ f0053=()=>//RESTABLECER el video de YouTube desde el comienzo [STOP]
 			//}
 		}
 
-f0054=(a,b)=>//CARGAR video de YouTube
+function f0054(a,b)//CARGAR video de YouTube
 		{	lOU(54);
 			vPlayer.loadVideoById(
 			{	'videoId': kTapa3[a][b],
@@ -3972,7 +3972,7 @@ f0054=(a,b)=>//CARGAR video de YouTube
 			f0055();
 		}
 
-f0055=()=>//RESTABLECER el video de YouTube desde el comienzo [STOP]
+function f0055()//RESTABLECER el video de YouTube desde el comienzo [STOP]
 		{	lOU(55);
 			if (vPlayer)
 			{	vPlayer.stopVideo();
@@ -3983,7 +3983,7 @@ f0055=()=>//RESTABLECER el video de YouTube desde el comienzo [STOP]
 			f0056();
 		}
 
-f0056=()=>//PAUSAR [PAUSE] el video de YouTube
+function f0056()//PAUSAR [PAUSE] el video de YouTube
 		{	lOU(56);
 			//l01Taps[4][1] = 2;
 			//o012(4);
@@ -3991,7 +3991,7 @@ f0056=()=>//PAUSAR [PAUSE] el video de YouTube
 		}
 */
 
-f0057=(id,ruta)=>//ALMACENAR el guíon o guiones parcial(es) tipo texto, por ej:menús, o fila de imagenes de la tapa y traerlo desde las RUTAS, dando el número de la columna que contiene el texto que va a tomar dentro de la ruta
+function f0057(id,ruta)//ALMACENAR el guíon o guiones parcial(es) tipo texto, por ej:menús, o fila de imagenes de la tapa y traerlo desde las RUTAS, dando el número de la columna que contiene el texto que va a tomar dentro de la ruta
 		{	lOG(57);
 			preTAP = '';
 			switch (g02RUTA[ruta][2])
@@ -4045,7 +4045,7 @@ f0057=(id,ruta)=>//ALMACENAR el guíon o guiones parcial(es) tipo texto, por ej:
 			}
 		}
 
-f0061=(v2,id)=>//ADICIONAR a v2 (html acumulado) el código HTML de la RUTA que va justo luego del visor y es dependiente del modo, completa el guión faltante Local y en Ingles, id = id del idioma
+function f0061(v2,id)//ADICIONAR a v2 (html acumulado) el código HTML de la RUTA que va justo luego del visor y es dependiente del modo, completa el guión faltante Local y en Ingles, id = id del idioma
 		{	lOL(61);
 			hh47();//L PERMITIR o NO el botón/hoja fila de señas en menu ESTILO
 			v2 += '<div aria-hidden="true"><hr>';//Inicia strings de modos
@@ -4073,7 +4073,7 @@ f0061=(v2,id)=>//ADICIONAR a v2 (html acumulado) el código HTML de la RUTA que 
 			vHtml2 = v2;
 		}
 
-f0067=()=>//K ORGANIZAR 1 pulso limpio de resize//OBTENER medidas de la ventana y ACTIVAR/CONMUTAR/MANTENER capa RUTA o ALERTA
+function f0067()//K ORGANIZAR 1 pulso limpio de resize//OBTENER medidas de la ventana y ACTIVAR/CONMUTAR/MANTENER capa RUTA o ALERTA
 		{	lOK(67);
 			if(!sizBan)
 			{	sizBan = 1;//ACTUAR RESIZE
@@ -4084,7 +4084,7 @@ f0067=()=>//K ORGANIZAR 1 pulso limpio de resize//OBTENER medidas de la ventana 
 			}			
 		}
 
-f0068=(def)=>//AJUSTAR tamaño / altura del VISOR e Interpretes:: standar o por defecto(def) / configuración del usuario
+function f0068(def)//AJUSTAR tamaño / altura del VISOR e Interpretes:: standar o por defecto(def) / configuración del usuario
 		{	lOL(68);
 			let aux;//variable auxiliar
 			if(def == 2)//si es una presentación AV
@@ -4133,7 +4133,7 @@ f0068=(def)=>//AJUSTAR tamaño / altura del VISOR e Interpretes:: standar o por 
 			iBody.style.setProperty('--cHTex',ht);
 		}
 
-f0070=()=>//CONFIRMAR pantalla minimizada! CUANDO SE QUITA SOLO MAXIMIZA LA PRIMER VEZ!
+function f0070()//CONFIRMAR pantalla minimizada! CUANDO SE QUITA SOLO MAXIMIZA LA PRIMER VEZ!
 		{	lOL(70);
 			document.onwebkitfullscreenchange = null;	
 		 	if (iBody.exitFullscreen) 
@@ -4146,22 +4146,22 @@ f0070=()=>//CONFIRMAR pantalla minimizada! CUANDO SE QUITA SOLO MAXIMIZA LA PRIM
 		}
 
 /*
-f0070=(son)=>//REGISTRAR primer clic maximizando/ f0070(1) sonar clic
+function f0070(son)//REGISTRAR primer clic maximizando/ f0070(1) sonar clic
 		{	lOL(70);
 			if(son)
 			{	f0078();//L SONAR Clic
 			}
 		}
 */
-f0071=()=>//AÑADIR más HTML a g00VARS[69] si es fila de señas
+function f0071()//AÑADIR más HTML a g00VARS[69] si es fila de señas
 		{	lOL(71);
 			if (g00VARS[19][2])//si fila de señas
 			{	g00VARS[69][2] += g00VARS[22][2];
 			}
 		}
 
-f0072=(id)=>//ADICIONAR HTML para terminar los botones/hojas de la Ruta
-//f0072=(id,ru)=>//ADICIONAR HTML para terminar los botones/hojas de la Ruta
+function f0072(id)//ADICIONAR HTML para terminar los botones/hojas de la Ruta
+//function f0072(id,ru)//ADICIONAR HTML para terminar los botones/hojas de la Ruta
 		{	lOL(72);
 			v02 += '</div><div class="cPadd4A cCent"><div>'+s00EXIT[1][2]+'</div>';//"arriba"
 			if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles, esta i1, y modo general o señas.. adiciona el interprete Internacopnal de la izquierda..
@@ -4174,7 +4174,7 @@ f0072=(id)=>//ADICIONAR HTML para terminar los botones/hojas de la Ruta
 			v03 += v02;//AGREGAR v02 parcial al consolidado
 		}
  		
-f0073=()=>//R AUDIO ALERTA!
+function f0073()//R AUDIO ALERTA!
 		{	lOL(73);
 			if(g00VARS[55][2])//Si ya ocurrio el primer clic
 			{	myPito.play();
@@ -4182,7 +4182,7 @@ f0073=()=>//R AUDIO ALERTA!
 		}
 
 
-f0074=()=>//REGISTRAR clic y SONAR donde está el foco por click sobre la Barrera
+function f0074()//REGISTRAR clic y SONAR donde está el foco por click sobre la Barrera
 		{	lOI(74);
 			bNoSo = 1;//Se activa la Bandera de No Sonido, se activa cuando hay click sobre la barrera e indirectamente se activa onFocus
 			f0093();//REGISTRAR primer clic maximizando
@@ -4196,7 +4196,7 @@ f0074=()=>//REGISTRAR clic y SONAR donde está el foco por click sobre la Barrer
 
 
 /*
-f0074=(min)=>//I DETERMINAR cúal ambiente debe continuar en el frontEnd // REINICIAR animación, OCULTAR la ruta o cambiar la tapa actual, MOSTRAR tapa de ALERTA e INFORMAR la alerta simil a f0024()
+function f0074(min)//I DETERMINAR cúal ambiente debe continuar en el frontEnd // REINICIAR animación, OCULTAR la ruta o cambiar la tapa actual, MOSTRAR tapa de ALERTA e INFORMAR la alerta simil a f0024()
 		{	lOI(74);
 			//////probando a quitar este bloque..
 			//////Nota la funcion f45 que sigue, da la orden de detener la vibraciones pero se requiere mirar primero si el ambiente que sigue lo permite o no!!
@@ -4213,7 +4213,7 @@ f0074=(min)=>//I DETERMINAR cúal ambiente debe continuar en el frontEnd // REIN
 			}
 		}*/
 
-f0075=(reg)=>//CLIC de [Input] o sobre la tapa desde el "hueco" central
+function f0075(reg)//CLIC de [Input] o sobre la tapa desde el "hueco" central
 		{	lOG(75);
 			if(reg)
 			{	f0093(reg);//REGISTRAR el primer clic sobre pantalla
@@ -4227,7 +4227,7 @@ f0075=(reg)=>//CLIC de [Input] o sobre la tapa desde el "hueco" central
 			}
 		}
 
-f0076=(scr)=>//PASAR de la capa TAPA a la capa RUTA porque estando en Tapa Info X se oprimió un botón diferente de "info"
+function f0076(scr)//PASAR de la capa TAPA a la capa RUTA porque estando en Tapa Info X se oprimió un botón diferente de "info"
 		{	lOG(76);
 			hh88(5);//Recupera el color de la luz
 		 	//hh88(2);//Recupera el color de la luz
@@ -4242,7 +4242,7 @@ f0076=(scr)=>//PASAR de la capa TAPA a la capa RUTA porque estando en Tapa Info 
 		}
 
 /*
-f0077=()=>//ACTUAR para "solucionar" la alerta
+function f0077()//ACTUAR para "solucionar" la alerta
 		{	lOG(77);
 			switch(g00VARS[20][2])
 			{	case 1:
@@ -4254,7 +4254,7 @@ f0077=()=>//ACTUAR para "solucionar" la alerta
 		}
 */
 
-f0078=()=>//SONAR Clic y REGISTRAR evento
+function f0078()//SONAR Clic y REGISTRAR evento
 		{	lOL(78);
 			f0079();//L Registrar el evento
 			if(g00VARS[55][2])//Si ya ocurrio el primer clic
@@ -4262,7 +4262,7 @@ f0078=()=>//SONAR Clic y REGISTRAR evento
 			}
 		}
 
-f0079=(scr)=>//REGISTRAR evento y REINICIAR conteo para activar la presentación
+function f0079(scr)//REGISTRAR evento y REINICIAR conteo para activar la presentación
 		{	lOL(79);
 			if(scr)
 			{	//console.log('[ - - - rrrrrr ... scroll]');
@@ -4276,7 +4276,7 @@ f0079=(scr)=>//REGISTRAR evento y REINICIAR conteo para activar la presentación
 			}
 		}
 
-f0080=()=>//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5-6-7-8-9-14-32->26->31->36][2];g00VARS[4-19-50-69][2]// anterior:f0004()]
+function f0080()//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5-6-7-8-9-14-32->26->31->36][2];g00VARS[4-19-50-69][2]// anterior:f0004()]
 		{	lOL(80);//(11) lOUs(1);
 			//INPUTS g00HTML[3]Arreglo de palabras
 			let v4;
@@ -4429,7 +4429,7 @@ f0080=()=>//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5-6-7-8
 			//IMPLICA QUE g00VARS[0, 1 Y 3] deben estar vacios???
 		}
 
-f0081=()=>//PASAR caracteres especiales o letras SUELTAS a id señas... //f0005()//s002()
+function f0081()//PASAR caracteres especiales o letras SUELTAS a id señas... //f0005()//s002()
 		{	lOL(81);//lOUs(2);
 			let v3 = 0;		
 			switch (g00VARS[4][2].toLowerCase())
@@ -4489,7 +4489,7 @@ f0081=()=>//PASAR caracteres especiales o letras SUELTAS a id señas... //f0005(
 			}
 		}
 
-f0082=(par)=>//GENERAR html para una seña(imagen) tipo letra o palabra, dado el id imagen/seña pasado como parámetro //f0006(par)//s003(par)
+function f0082(par)//GENERAR html para una seña(imagen) tipo letra o palabra, dado el id imagen/seña pasado como parámetro //f0006(par)//s003(par)
 		{	lOL(82);//lOUs(3);
 			g00VARS[22][2] = '';
 			for (let v9 = 0; v9 < par.length; v9++)//RECORRE TODAS LAS IMAGENES DE ESA "SEÑA" SE USA SI ESA SEÑA SE COMPONE DE OTRAS SEÑAS (COMO SI FUERAN SUBSEÑAS)
@@ -4523,7 +4523,7 @@ f0082=(par)=>//GENERAR html para una seña(imagen) tipo letra o palabra, dado el
 			}
 		}
 /*
-f0083=()=>//s004()//g00HTML[26-31-36] INICIAR [ serie de señales y prosas //f0058(tap)
+function f0083()//s004()//g00HTML[26-31-36] INICIAR [ serie de señales y prosas //f0058(tap)
 		{	lOU(83);//lOUs(4);
 			//if (vREC)
 			//{	g00HTML[26][2] += '[';
@@ -4535,14 +4535,14 @@ f0083=()=>//s004()//g00HTML[26-31-36] INICIAR [ serie de señales y prosas //f00
 		}
 */
 
-f0084=()=>//L REINICIAR sizBan, sizCon y sizCsE permite que "Resize calcule de nuevo todo" la proxima vez que ocurra ese evento
+function f0084()//L REINICIAR sizBan, sizCon y sizCsE permite que "Resize calcule de nuevo todo" la proxima vez que ocurra ese evento
 		{	lOL(84);
 			sizCon = 0;//contador de resize
 			sizBan = 0;//bandera de resize
 			sizCsE = 0;//Contador segundos de Espera por resize
 		}
 
-f0085=()=>//ANIMAR el interprete (i) con cada pulso mediante una serie de señales(g00VARS[1]) y prosas(g00VARS[3]) ya programadas //f0060()//	s006()//////sLOGS1[6] lOU() ANT60 00 - 
+function f0085()//ANIMAR el interprete (i) con cada pulso mediante una serie de señales(g00VARS[1]) y prosas(g00VARS[3]) ya programadas //function f0060()//	s006()//////sLOGS1[6] lOU() ANT60 00 - 
 		{	lOL(85);//lOUs(6);
 			let i;
 			if((intBan)&&(!sizBan)&&(colLife7 !== undefined))//SI INTERPRETE Y NO OCURRE evento bandera RESIZE
@@ -4573,7 +4573,7 @@ f0085=()=>//ANIMAR el interprete (i) con cada pulso mediante una serie de señal
 			}
 		}
 
-f0086=()=>//ENCONTRAR todos los elementos de zProsa y z70 (tapa) //f0062()//s007()//
+function f0086()//ENCONTRAR todos los elementos de zProsa y z70 (tapa) //function f0062()//s007()//
 		{	lOL(86);//lOUs(7);
 			colPros3 = document.getElementsByClassName("zProsa");
 			colLife7 = document.getElementsByClassName("z70");
@@ -4584,7 +4584,7 @@ f0086=()=>//ENCONTRAR todos los elementos de zProsa y z70 (tapa) //f0062()//s007
 			}
 		}
 
-f0087=()=>//REINICIAR contadores de señas //f0064()//s008()//
+function f0087()//REINICIAR contadores de señas //f0064()//s008()//
 		{	lOL(87);//lOUs(8);
 			g00VARS[62] = [];//contador de señas animadas máximas de las tapas
 		 	g00VARS[63] = [];//contador de señas animadas de las tapas
@@ -4594,10 +4594,10 @@ f0087=()=>//REINICIAR contadores de señas //f0064()//s008()//
 			}		
 		}
 
-f0088=()=>//ESPERAR un segundo y verificar que no exista un nuevo evento FOCUS para tomar ACCIONES       //LIBRE - s009()//INCREMENTAR en 1 los contadores de señas //f0065()
+function f0088()//ESPERAR un segundo y verificar que no exista un nuevo evento FOCUS para tomar ACCIONES       //LIBRE - s009()//INCREMENTAR en 1 los contadores de señas //f0065()
 		{	lOG(88);
 			focMem = focCon;//Guardar en memoria el conteo de focCon
-			const segus = setTimeout(()=>//ESPERAR un segundo, verificar que no exista un nuevo evento FOCUS
+			const segus = setTimeout(function()//ESPERAR un segundo, verificar que no exista un nuevo evento FOCUS
 			{	focCsE += 1;//Nuevo evento de esperar 1 segundo
 				if(focCsE < 100)//Si lleva muchos segundos de espera sin poder terminar
 				{	//console.log('ACABO de pasar1\n\n');
@@ -4639,7 +4639,7 @@ f0088=()=>//ESPERAR un segundo y verificar que no exista un nuevo evento FOCUS p
 			}, 500);//duración de los milisegundos de espera sujerencia 500 poner en 4000 para pruebas, con 50000 puede ayudar a resolver el misterio de roto y segus		
 		}
 
-f0089=()=>//ENFOCAR y DECIR la Alerta
+function f0089()//ENFOCAR y DECIR la Alerta
 		{	lOU(89);
 	 		line.focus();
 			aFoco.scrollIntoView(centro);
@@ -4648,14 +4648,14 @@ f0089=()=>//ENFOCAR y DECIR la Alerta
 			}
 		}
 
-f0090=()=>//BORRAR memoria de animación: señas y glosas//s011()
+function f0090()//BORRAR memoria de animación: señas y glosas//s011()
 		{	lOL(90);//(11)
 			g00VARS[0] = [];
 			g00VARS[1] = [];//[0,30,23,34,47,0,0])
 			g00VARS[3] = [];
 		}
 /*
-s011=()=>//REINICIAR animación //f0069()
+function s011()//REINICIAR animación //f0069()
 		{	lOUs(11);
 			g00VARS[0] = [];
 			g00VARS[1] = [];//[0,30,23,34,47,0,0])
@@ -4663,7 +4663,7 @@ s011=()=>//REINICIAR animación //f0069()
 			console.log('E -i222- g00VARS[3] =',g00VARS[3]);
 		}
 */
-f0091=(v9,par,glo,j)=>//AÑADIR código HTML(SERIES DE NUMEROS DE SEÑAS Y TEXTOS GLOSA PARA LA ANIMACION) para la seña//s012(v9,par,glo,j)
+function f0091(v9,par,glo,j)//AÑADIR código HTML(SERIES DE NUMEROS DE SEÑAS Y TEXTOS GLOSA PARA LA ANIMACION) para la seña//s012(v9,par,glo,j)
 		{   lOL(91);//lOUs(12);
 			g00HTML[26][2] += par[v9]+',';//Número de la seña
 			g00HTML[36][2] += j+',';//Número de la imagen de esa seña (secuencia/repeticion)
@@ -4674,7 +4674,7 @@ f0091=(v9,par,glo,j)=>//AÑADIR código HTML(SERIES DE NUMEROS DE SEÑAS Y TEXTO
 			}
 		}
 
-f0092=()=>//hh10 HABILITAR bordes superior e inferior
+function f0092()//hh10 HABILITAR bordes superior e inferior
 		{	lOG(92);//
 			if(!g00VARS[35][2])//Si no hay barrera de proteccion----poner botones grandes
 			{	g00VARS[35][2] = 1;
@@ -4683,7 +4683,7 @@ f0092=()=>//hh10 HABILITAR bordes superior e inferior
 			}
 		}
 
-f0093=(reg)=>//Registrar primer click o interacción tipo toque (reg: interacción desde pantalla)
+function f0093(reg)//Registrar primer click o interacción tipo toque (reg: interacción desde pantalla)
 		{	lOG(93);
 			if(!g00VARS[55][2])//SI NO HA OCURRIDO EL primer clic
 			{	g00VARS[55][2] = 1;//ya ocurrio el primer click
@@ -4705,7 +4705,7 @@ f0093=(reg)=>//Registrar primer click o interacción tipo toque (reg: interacci�
 			}
 		}
 
-f0094=(reg)=>//Arrow Up
+function f0094(reg)//Arrow Up
 		{	lOG(94);
 			if(reg)
 			{	f0093(reg);//REGISTRAR el primer clic
@@ -4727,7 +4727,7 @@ f0094=(reg)=>//Arrow Up
 			}
 		}
 
-f0095=(reg)=>//Arrow Down
+function f0095(reg)//Arrow Down
 		{	lOG(95);
 			if(reg)
 			{	f0093(reg);//REGISTRAR el primer clic
@@ -4752,7 +4752,7 @@ f0095=(reg)=>//Arrow Down
 			}
 		}
 
-f0096=(reg,scr,rev)=>//Click sobre el boton actual que tiene el "foco"
+function f0096(reg,scr,rev)//Click sobre el boton actual que tiene el "foco"
 		{  	lOG(96);
 			if(reg)
 			{	f0093(reg);//REGISTRAR el primer clic
@@ -4971,14 +4971,14 @@ f0096=(reg,scr,rev)=>//Click sobre el boton actual que tiene el "foco"
 			}
 		}
 
-f0097=()=>//L REINICIAR focBan, focCon y focCsE permite que "onfocus vuelva a trabajar" la proxima vez que ocurra ese evento
+function f0097()//L REINICIAR focBan, focCon y focCsE permite que "onfocus vuelva a trabajar" la proxima vez que ocurra ese evento
 		{	lOL(97);
 			focCon = 0;//contador de focus
 			focBan = 0;//bandera de focus
 			focCsE = 0;//Contador segundos de Espera por focus	
 		}
 
-f0098=(now)=>//INICIAR una tarea porque se oprimío una tecla del teclado.. //eKb
+function f0098(now)//INICIAR una tarea porque se oprimío una tecla del teclado.. //eKb
 		{	lOG(98);
 			//console.log('_____@- eKb()');
 			if(window.event && window.event.keyCode == 27)//Bloquear la tecla ESC
@@ -5109,7 +5109,7 @@ f0098=(now)=>//INICIAR una tarea porque se oprimío una tecla del teclado.. //eK
 			}*/
 		}
 
-f0099=()=>//ACTIVAR icono central de Pantalla Minimizada
+function f0099()//ACTIVAR icono central de Pantalla Minimizada
 		{	lOG(99);
 			g00VARS[20][2] = 1;//notificación 1 activada de ventana minimizada!
 	 		bMin = 1;//Bandera on
@@ -5117,7 +5117,7 @@ f0099=()=>//ACTIVAR icono central de Pantalla Minimizada
 	 		iCLIC.classList.remove('cX');//muestre boton clic
 		}
 
-f0100=(now)=>//TERMINAR una tarea porque se soltó una tecla del teclado//AL SUBIR UNA TECLA..
+function f0100(now)//TERMINAR una tarea porque se soltó una tecla del teclado//AL SUBIR UNA TECLA..
 		{	lOG(100);
 			if (!now.getModifierState('CapsLock'))//detecta si capslock esta off
      		{	if(!sonCap)
@@ -5134,7 +5134,7 @@ f0100=(now)=>//TERMINAR una tarea porque se soltó una tecla del teclado//AL SUB
        		}
 		}
 
-f0101=()=>//REGRESAR color texto-boton previo
+function f0101()//REGRESAR color texto-boton previo
 		{	lOG(101);
 			hh85();//OCULTAR los botones de color de texto/fondo
 			switch(g00VARS[34][2])
@@ -5164,18 +5164,18 @@ f0101=()=>//REGRESAR color texto-boton previo
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-f0102=()=>//AJUSTAR el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+function f0102()//AJUSTAR el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		{	lOG(102);//mIS(34);
 			f0028();//ajusta el tamaño del texto
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-f0103=()=>//hh13   PREPARAR el cambio de estado de REPRODUCIR [PLAY] o\n\tPAUSAR [PAUSE] del video A de YouTube del menu D
+function f0103()//hh13   PREPARAR el cambio de estado de REPRODUCIR [PLAY] o\n\tPAUSAR [PAUSE] del video A de YouTube del menu D
 		{	lOG(103);
 			f0104();
 		}
 
-f0104=()=>//hh14 CAMBIAR el estado actual del control de video de YouTube (REPRODUCIR[PLAY] <= => PAUSAR[PAUSE])
+function f0104()//hh14 CAMBIAR el estado actual del control de video de YouTube (REPRODUCIR[PLAY] <= => PAUSAR[PAUSE])
 		{	lOG(104);
 			switch (l01Taps[4][1])//OJO l01Taps NO ESTA AUN DEFINIDO!!!
 			{	case 2:
@@ -5189,7 +5189,7 @@ f0104=()=>//hh14 CAMBIAR el estado actual del control de video de YouTube (REPRO
 			}
 		}
 
-f0105=()=>//hh88 RESET de velocidad -> 1.0
+function f0105()//hh88 RESET de velocidad -> 1.0
 		{	lOG(105);
 			if(g00VARS[44][2] != 1)
 			{	hh76();//OCULTAR velocidades del reproductor
@@ -5198,12 +5198,12 @@ f0105=()=>//hh88 RESET de velocidad -> 1.0
 			}
 		}
 
-f0106=()=>//hh16 PAUSAR [PAUSE] el video de YouTube
+function f0106()//hh16 PAUSAR [PAUSE] el video de YouTube
 		{	lOG(106);
 			vPlayer.pauseVideo();
 		}
 
-f0107=()=>//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta #
+function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta #
 		{	lOG(107);
 			/*
 			for (var i = wIdi.length - 1; i >= 1; i--)//Recorre el array de idiomas
@@ -5356,7 +5356,7 @@ f0107=()=>//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta #
 
 		}
 
-f0108=()=>//hh18 DESHABILITAR bordes superior e inferior
+function f0108()//hh18 DESHABILITAR bordes superior e inferior
 		{	lOG(108);
 			if(g00VARS[35][2])//quitar barrera de proteccion   ----botones grandes
 			{	g00VARS[35][2] = 0;
@@ -5365,7 +5365,7 @@ f0108=()=>//hh18 DESHABILITAR bordes superior e inferior
 			}
 		}
 
-f0109=()=>//hh89 QUITAR la presentación
+function f0109()//hh89 QUITAR la presentación
 		{	lOG(109);
 			if(g00VARS[11][2] == 3)
 			{ 	iBrail.classList.remove('cX');
@@ -5393,9 +5393,9 @@ f0109=()=>//hh89 QUITAR la presentación
 			}
 		}
 
-f0110=()=>//hh90 PERMITIR el sonido despues de un tiempo
+function f0110()//hh90 PERMITIR el sonido despues de un tiempo
 		{	lOG(110);
-			setTimeout(()=>//Espera para cambiar la orden
+			setTimeout(function()//Espera para cambiar la orden
 			{	if(bNoSo)//Si la bandera de no sonido se activo..
 				{	bNoSo = 0;//Desactivar la bandera de No Sonido
 					console.log('Decir gFoco');
@@ -5404,7 +5404,7 @@ f0110=()=>//hh90 PERMITIR el sonido despues de un tiempo
 			,500);
 		}
 
-f0111=(can)=>//hh91 CANCELAR salida de audio y vibraciones
+function f0111(can)//hh91 CANCELAR salida de audio y vibraciones
 		{	lOG(111);
 			iV3d.style.backgroundColor = 'white';	
 			f0045();//DETENER vibraciones parpadeos e intervalos pendientes	
@@ -5431,7 +5431,7 @@ f0111=(can)=>//hh91 CANCELAR salida de audio y vibraciones
 			}
 		}
 
-f0112=()=>//hh92 ACTIVAR el manejador de marquesinas handleMarquee() - tomado de https://www.w3docs.com/tools/code-editor/2123#google_vignette
+function f0112()//hh92 ACTIVAR el manejador de marquesinas handleMarquee() - tomado de https://www.w3docs.com/tools/code-editor/2123#google_vignette
         {	lOG(112);
 			f0113();//ENCONTRAR todos los elementos de marquesina
 
@@ -5445,7 +5445,7 @@ f0112=()=>//hh92 ACTIVAR el manejador de marquesinas handleMarquee() - tomado de
 			}
 		}
 
-f0113=()=>//hh93 ENCONTRAR todos los elementos de marquesina
+function f0113()//hh93 ENCONTRAR todos los elementos de marquesina
 		{	lOG(113);//
 			marquee = document.querySelectorAll('.marquee');//https://www.w3schools.com/JSREF/met_document_queryselectorall.asp
 			//console.log('marquee=',marquee);
@@ -5457,7 +5457,7 @@ f0113=()=>//hh93 ENCONTRAR todos los elementos de marquesina
 			}*/
 		}
 
-f0114=(el)=>//hh94 PONER a marchar la marquesina local
+function f0114(el)//hh94 PONER a marchar la marquesina local
 		{	lOG(114);//
 			//bPro[0] = 1;//Habilita la bandera bPro[0]
 			console.log('... 7 contPre[0]=',contPre[0],'; contPre[1]=',contPre[1]);
@@ -5502,14 +5502,14 @@ f0114=(el)=>//hh94 PONER a marchar la marquesina local
 				if(ini1)//si no hay bloqueo.. si tengo orden de pintar pinto y luego espero para dar la orden de iniciar otro ciclo
 				{	//console.log(' == uuu progress=',progress+'; klHeight=',klHeight+' ini1=',ini1);
 					kontainer.style.transform = 'translateY(' + progress + 'px)';//para mostrar todo el anuncio progress debe barrer desde progreso(+1/2 marque) hasta klHeight(-1)
-					setTimeout(()=>
+					setTimeout(function()
 					{	koop();
 					}
 					,aafil);//CONTROL CAMBIO DE BRINCO DEL TEXTO en la presentación AV
 				}
 				//Si hay bloqueo ini1 = 0/false se sale, termina aquí la función, y ya no vuelve a esperar
 			}
-			setTimeout(()=>//inicio del ciclo..
+			setTimeout(function()//inicio del ciclo..
 			{	ini1 = true;//activa la pintada y el ciclo
 				iBody.style.setProperty('--cOL','white');//(g00VARS[68][2]/5)+'px, 45px)')
 				iBody.style.setProperty('--cOw','black');//(g00VARS[68][2]/5)+'px, 45px)')
@@ -5518,7 +5518,7 @@ f0114=(el)=>//hh94 PONER a marchar la marquesina local
 			,1500);//Tiempo antes de iniciar el texto de la marquesina, util mientras se carga la imagen
 		}
 /*
-f0114=(el)=>//PONER a marchar la marquesina local
+function f0114(el)//PONER a marchar la marquesina local
 		{	hOG(94);//
 			let kontainer = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
 			let kontent = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
@@ -5546,14 +5546,14 @@ f0114=(el)=>//PONER a marchar la marquesina local
 					window.requestAnimationFrame(koop);//https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 				}
 			}
-			setTimeout(()=>
+			setTimeout(function()
 			{	ini1 = true;
 				koop()
 			}//Activa la marquesina
 			,50);//Tiempo para bloquear un koop anterior e iniciar un nuevo
 		}
 */
-f0115=(el)=>//hh95 PONER a marchar la marquesina en ingles
+function f0115(el)//hh95 PONER a marchar la marquesina en ingles
 		{	lOG(115);//
 
 			//bPro[1] = 1;//Habilita la bandera bPro[1]
@@ -5595,14 +5595,14 @@ f0115=(el)=>//hh95 PONER a marchar la marquesina en ingles
 				fiLa[1] = fiLa[1] + nFila[2];//sube la filas posibles que tenga la marquesina
 				if(ini2)//si no hay bloqueo.. si tengo orden de pintar pinto y luego espero para dar la orden de iniciar otro ciclo
 				{	container.style.transform = 'translateY(' + progresi + 'px)';//para mostrar todo el anuncio progress debe barrer desde progreso(+1/2 marque) hasta elHeight(-1)
-					setTimeout(()=>
+					setTimeout(function()
 					{	loop();
 					}
 					,aafil);//CONTROL CAMBIO DE BRINCO DEL TEXTO en la presentación AV
 				}
 				//Si hay bloqueo ini2 = 0/false se sale, termina aquí la función, y ya no vuelve a esperar
 			}
-			setTimeout(()=>//inicio del ciclo..
+			setTimeout(function()//inicio del ciclo..
 			{	ini2 = true;//activa la pintada y el ciclo
 				iBody.style.setProperty('--cOI','lightyellow');
 				iBody.style.setProperty('--cOy','black');
@@ -5651,7 +5651,7 @@ f0115=(el)=>//hh95 PONER a marchar la marquesina en ingles
 					window.requestAnimationFrame(loop);//https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 				}
 			}
-			setTimeout(()=>
+			setTimeout(function()
 			{	ini2 = true;
 				iBody.style.setProperty('--cOI','lightyellow');//(g00VARS[68][2]/5)+'px, 45px)')
 				iBody.style.setProperty('--cOy','black');//(g00VARS[68][2]/5)+'px, 45px)')		
@@ -5663,7 +5663,7 @@ f0115=(el)=>//hh95 PONER a marchar la marquesina en ingles
 
 
 /*
-f0115=(el)=>//PONER a marchar la marquesina en ingles
+function f0115(el)//PONER a marchar la marquesina en ingles
 		{	hOG(95);//
 			let container = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
 			let content = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
@@ -5690,7 +5690,7 @@ f0115=(el)=>//PONER a marchar la marquesina en ingles
 					window.requestAnimationFrame(loop);//https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
 				}
 			}
-			setTimeout(()=>
+			setTimeout(function()
 			{	ini2 = true;
 				loop()
 			}//Activa la marquesina
@@ -5698,13 +5698,13 @@ f0115=(el)=>//PONER a marchar la marquesina en ingles
       }
 */
 
-f0116=()=>//hh96 PONER a marchar las marquesinas
+function f0116()//hh96 PONER a marchar las marquesinas
 		{	lOG(116);
 			iV2a.style.backgroundColor = 'black';
 			iV2b.style.backgroundColor = 'black';
 			iV2c.style.backgroundColor = 'black';
 			//iV2d.style.backgroundColor = 'black';
-			setTimeout(()=>
+			setTimeout(function()
 			{	
 				//progreso = parseInt(iNot2.offsetHeight);//;parseInt(iNot2.offsetHeight/2);//la mitad del alto de la marquesina!!
 				// - - - > progreso(+1/2 marque) hasta klHeight(-1)
@@ -5719,7 +5719,7 @@ f0116=()=>//hh96 PONER a marchar las marquesinas
 			,0);
 		}
 
-f0117=()=>//RESETEAR todos los apuntadores
+function f0117()//RESETEAR todos los apuntadores
 		{	lOG(117);
 			//console.log('+++ Resetea todos los apuntadores');
 			if(gRuta == 3)
@@ -5740,14 +5740,14 @@ f0117=()=>//RESETEAR todos los apuntadores
 			//console.log('+++ después r008B[3] =',r008B[3]);
 		}
 
-f0118=()=>//ENCENDER la luz
+function f0118()//ENCENDER la luz
 		{	lOG(118);
 			//g00VARS[32][2] = 0;//Como si no tuviera Luz
 			//hh88();//establecer la luz - encenderia la Luz, internamente g00VARS[32][2]=1
 			hh88(1);//establecer la luz - encenderia la Luz, internamente g00VARS[32][2]=1
 		}
 
-f0119=(sign)=>//CONMUTAR el botón seña(1) o idioma visible()
+function f0119(sign)//CONMUTAR el botón seña(1) o idioma visible()
 		{	lOG(119);
 			if(sign)
 			{	f0122(1);//Actualizar la seña (ingles)
@@ -5761,7 +5761,7 @@ f0119=(sign)=>//CONMUTAR el botón seña(1) o idioma visible()
 			}
 		}
 
-f0120=()=>//HACER color del borde igual al color del texto
+function f0120()//HACER color del borde igual al color del texto
 		{	lOG(120);
 			if(g00VARS[31][2]==11)//Color neutro
 			{	let cTex;
@@ -5775,7 +5775,7 @@ f0120=()=>//HACER color del borde igual al color del texto
 			}
 		}
 
-f0121=()=>//ACTUALIZAR el texto del botón señas
+function f0121()//ACTUALIZAR el texto del botón señas
 		{	lOG(121);
 			let ee = 1;//activa la busqueda
 			for (var i = wSIGN.length - 1; i >= 1; i--)//Recorre el array de señas
@@ -5791,7 +5791,7 @@ f0121=()=>//ACTUALIZAR el texto del botón señas
 			};
 		}
 
-f0122=(sign)=>//Actualizar el idioma (ingles)
+function f0122(sign)//Actualizar el idioma (ingles)
 		{	lOU(122);
 			let run = 1;//activa el permiso
 			let ss;
@@ -5830,7 +5830,7 @@ f0122=(sign)=>//Actualizar el idioma (ingles)
 
 		}
 
-f0123=(busca)=>//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
+function f0123(busca)//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 		{	lOG(123);
 			//console.error('- - - busca=',busca);
 			for (var i = 1; i < kTapa0.length; i++)
@@ -5841,7 +5841,7 @@ f0123=(busca)=>//BUSCAR id/Fila que corresponde a cierto id Buscado en kTapa0
 			}
 		}
 
-f0124=(ini)=>//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
+function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extensiones a partir de la lista/columna(ini)[0-8] que cambio de valor, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 		{	lOG(124);
 			for (var i = 6 + ini; i <= 14; i++)//5-[12-5]13 - 4 = 9 si ini= 0 los oculta todos
 			{	r002B[4][i]=0;//r002B[4][6-14] Ocultar botones de Ajustes 2 desde el actual (ini)
@@ -6193,7 +6193,7 @@ f0124=(ini)=>//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extensiones 
 
 		}
 
-f0125=(ini)=>//ESTABLECER O ACTUALIZAR el string de los botones de los sitios y de la presentación AV desde ini (con ini incluido).
+function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sitios y de la presentación AV desde ini (con ini incluido).
 		{	lOG(125);
 			r003A = res3A;//RESET CONTENIDOS DE r003A
 			//console.error(' - - - r003A=',r003A,'; g00VARS[86][2]=',g00VARS[86][2]);			
@@ -6638,7 +6638,7 @@ f0125=(ini)=>//ESTABLECER O ACTUALIZAR el string de los botones de los sitios y 
 			f0126();//ACTUALIZAR la ruta
 		}
 
-f0126=()=>//ACTUALIZAR la ruta
+function f0126()//ACTUALIZAR la ruta
 		{	lOG(126);
 			let ruta = '';
 			for (var i = 0; i < 11; i++)
@@ -6662,7 +6662,7 @@ f0126=()=>//ACTUALIZAR la ruta
 			}
 		}
 
-f0127=()=>//REGRESAR al tamaño de texto previo
+function f0127()//REGRESAR al tamaño de texto previo
 		{	lOG(127);
 			switch(g00VARS[33][2])
 			{	case 1:
@@ -6697,10 +6697,10 @@ f0127=()=>//REGRESAR al tamaño de texto previo
 		}
 
 /*NOTA!
-las funciones de la f0128() a la f0137() estan reservadas en inded.js para el servidor, aquí no se pueden usar ver tabla de registros en indet.js
+las funciones de la function f0128() a la function f0137() estan reservadas en inded.js para el servidor, aquí no se pueden usar ver tabla de registros en indet.js
 */
 
-f0138=()=>//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
+function f0138()//ACTUALIZAR tablas wPAPAx y datos debido al cambio de rumbo desde el navegador, si no existen tablas las deja vacias y oculta los botones respectivos de los sitios 
 		{	lOG(138);
 
 
@@ -7026,7 +7026,7 @@ quitar???
 		}
 
 /*
-f0139=()=>//CARGAR el anuncio vacio en r003
+function f0139()//CARGAR el anuncio vacio en r003
 		{	lOG(139);
 
 		}
@@ -7034,7 +7034,7 @@ f0139=()=>//CARGAR el anuncio vacio en r003
 */
 
 /*
-f0139=()=>//CARGAR el anuncio vacio en r003
+function f0139()//CARGAR el anuncio vacio en r003
 		{	lOG(139);
 			r003A = o003A;
 			console.error(' r003A=',r003A);
@@ -7044,7 +7044,7 @@ f0139=()=>//CARGAR el anuncio vacio en r003
 			//g00VARS[86][2]=2;
 		}
 
-f0140=()=>//CARGAR anuncios en r003
+function f0140()//CARGAR anuncios en r003
 		{	lOG(140);
 			r003A = c003A;
 			console.error(' r003A=',r003A);
@@ -7055,7 +7055,7 @@ f0140=()=>//CARGAR anuncios en r003
 
 */
 
-f0141=()=>//ENRUTAR al usuario con rutas validas y TRAER anuncios de la ruta actual de la base de datos
+function f0141()//ENRUTAR al usuario con rutas validas y TRAER anuncios de la ruta actual de la base de datos
 		{	lOG(141);
 			let ruta = window.location.hash;
 			nruta = ruta.slice(1);//quita el # ajusta el string ruta
@@ -7084,7 +7084,7 @@ f0141=()=>//ENRUTAR al usuario con rutas validas y TRAER anuncios de la ruta act
 		}
 
 /* - - - USANDO MONGO - - - */
-f0142=()=>//CONSULTAR a la base de datos por cierta collección Valida
+function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 		{	lOG(142);
 			//BUSCANDO DATOS
 			r003A = res3A;
@@ -7123,7 +7123,7 @@ f0142=()=>//CONSULTAR a la base de datos por cierta collección Valida
 				console.log(' - - - consulta ',ncBD,' a la base de datos con rumbi=',rumbi);
 
 				//INICIAR la consulta..
-				setTimeout(()=>//Reduce el conteo para activar la presentación
+				setTimeout(function()//Reduce el conteo para activar la presentación
 				{	naBD = naBD + 1;//Actualiza el pasado de rumbi en la base de datos
 					if(naBD>ncBD)//Si las respuestas resultan mayores que las solicitudes
 					{  ncBD = naBD;//Iguala los dos valores para corregir ese error por si alguna vez sucede
@@ -7278,7 +7278,7 @@ f0142=()=>//CONSULTAR a la base de datos por cierta collección Valida
 /***/
 
 /* - - - SIN USAR MONGO - - - * /
-f0142=()=>//CONSULTAR a la base de datos por cierta collección Valida
+function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 		{	lOG(142);
 			//BUSCANDO DATOS
 			r003A = res3A;
@@ -7325,7 +7325,7 @@ f0142=()=>//CONSULTAR a la base de datos por cierta collección Valida
 			if(rumbi!=rumba)//Si no es igual a su pasado en el navegador
 			{	ncBD = ncBD + 1;//Nueva consulta a la BD
 				console.error(' - - - consulta ',ncBD,' a la base de datos con iads=',rumbi);
-				setTimeout(()=>//Reduce el conteo para activar la presentación
+				setTimeout(function()//Reduce el conteo para activar la presentación
 				{	naBD = naBD + 1;//Actualiza el pasado de rumbi en la base de datos
 					if(naBD>ncBD)//Si las respuestas resultan mayores que las solicitudes
 					{  ncBD = naBD;//Iguala los dos valores para corregir ese error por si alguna vez sucede
@@ -7387,7 +7387,7 @@ f0142=()=>//CONSULTAR a la base de datos por cierta collección Valida
 /***/
 
 
-f0143=(info)=>//ENCONTRAR todos los elementos cBrai
+function f0143(info)//ENCONTRAR todos los elementos cBrai
 		{	lOL(143);
 			if(info)
 			{	colBrai = document.getElementsByClassName("cBraIl");
@@ -7410,10 +7410,10 @@ f0143=(info)=>//ENCONTRAR todos los elementos cBrai
 		}
 
 
-f0144=()=>//ESPERAR un momento y dar la orden de cambiar de anuncio
+function f0144()//ESPERAR un momento y dar la orden de cambiar de anuncio
 		{	lOL(144);
 			//console.error(' - 1seg -');
-			setTimeout(()=>
+			setTimeout(function()
 			{	contPre[0] = 1;
 			}
 			,0);//este valor se puede dejar en 0, se puede modificar por ejemplo 1000 para dar 1000 miliseg más de lectura
@@ -7427,7 +7427,7 @@ f0144=()=>//ESPERAR un momento y dar la orden de cambiar de anuncio
 // INICIO DE LAS FUNCIONES "H" LLAMADAS DESDE r0xxB[3][x] (inded.js) TAREA PENDIENTE: a partir de este punto hay que ver CUÁLES funciones de hxx() NO SON LLAMADAS POR r0xxB[3][x] y esas funciones pasarlas como funciones normales f0xxx()
 // ===================
 
-hh1=()=>//CAMBIAR a lineas de texto
+function hh1()//CAMBIAR a lineas de texto
 		{	hOG(1);//mIS(1);
 			g00VARS[11][2] = 1;
 			iBrail.classList.add('cX');
@@ -7436,7 +7436,7 @@ hh1=()=>//CAMBIAR a lineas de texto
 			f0017();
 		}
 
-hh2=()=>//CAMBIAR a líneas Morse
+function hh2()//CAMBIAR a líneas Morse
 		{	hOU(2);//mIS(2);
 			g00VARS[11][2] = 2;
 			iBrail.classList.add('cX');
@@ -7445,7 +7445,7 @@ hh2=()=>//CAMBIAR a líneas Morse
 			f0017();
 		}
 
-hh3=()=>//CAMBIAR a líneas Braille
+function hh3()//CAMBIAR a líneas Braille
 		{	hOU(3);//mIS(3);
 			g00VARS[11][2] = 3;
 			iBrail.classList.remove('cX');
@@ -7454,7 +7454,7 @@ hh3=()=>//CAMBIAR a líneas Braille
 			f0017();
 		}
 
-hh4=()=>//CAMBIAR a líneas de Señas
+function hh4()//CAMBIAR a líneas de Señas
 		{	hOU(4);//mIS(4);
 			g00VARS[11][2] = 4;
 			iBrail.classList.add('cX');
@@ -7462,10 +7462,10 @@ hh4=()=>//CAMBIAR a líneas de Señas
 			f0017();
 		}
 
-hh5=(get,rev)=>//CAMBIAR o TRAER el modo actual
+function hh5(get,rev)//CAMBIAR o TRAER el modo actual
 		{	hOU(5);
 
-//hh21=(get,rev)=>//CAMBIAR o TRAER el color actual
+//function hh21(get,rev)//CAMBIAR o TRAER el color actual
 //		{	hOU(21);
 			let i = g00VARS[45][2];
 			if(get == undefined||get == 0)//Si no hay que traer es porque va a cambiar de modo
@@ -7562,7 +7562,7 @@ hh5=(get,rev)=>//CAMBIAR o TRAER el modo actual
 
 		}
 
-hh6=(id,rev)=>//(quitar rev?? sobra??) PONER el foco sobre la casilla actual y (id)CONTROLAR el cambio de páginas, se trata de una casilla informativa
+function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actual y (id)CONTROLAR el cambio de páginas, se trata de una casilla informativa
 		{	hOG(6);
 			if(id > 0)//Si viene con indice se trata de un anuncio/ preguntas frecuente o hola! , muestra el número del anuncio(id) y dependiendo de su logitud, cambia el apuntador
 			{	console.log('+++ id=',id);
@@ -7732,7 +7732,7 @@ hh6=(id,rev)=>//(quitar rev?? sobra??) PONER el foco sobre la casilla actual y (
 			//f0101();//CANCELAR focus reciente (Bandera ON) (f0017())
 		}
 
-hh7=()=>//CARGAR la ruta 2 en pantalla (SEC)
+function hh7()//CARGAR la ruta 2 en pantalla (SEC)
 		{	hOG(7);//mIS(7);
 			if(g02RUTA[gRuta][5])//SI el llamado viene de una ruta principal.. 
 			{	gMemR = gRuta;//memorizar la Ruta principal temporalmente mientras pivota, por ejemplo las rutas de ajustes
@@ -7743,14 +7743,14 @@ hh7=()=>//CARGAR la ruta 2 en pantalla (SEC)
 			f0017();
 		}
 
-hh8=()=>//CARGAR la ruta 3 en pantalla (PPAL)
+function hh8()//CARGAR la ruta 3 en pantalla (PPAL)
 		{	hOU(8);//mIS(8);
 			gRuta = 3;
 			gFoco = 1;
 			f0017();
 		}
 
-hh9=()=>//CARGAR la ruta 1 en pantalla (PPAL)
+function hh9()//CARGAR la ruta 1 en pantalla (PPAL)
 		{	hOG(9);//mIS(9);
 			gRuta = 1;
 			gFoco = 1;
@@ -7758,14 +7758,14 @@ hh9=()=>//CARGAR la ruta 1 en pantalla (PPAL)
 		}
 
 /*
-hh11=()=>//PRESENTAR el tutorial de ESTILO - modo
+function hh11()//PRESENTAR el tutorial de ESTILO - modo
 		{	hOU(111);//mIS(11);
 			gRuta = 5;
 			gFoco = 1;
 			f0017();
 		}
 */
-hh12=()=>//INFORMAR la segunda parte de la casilla informativa tipo multimedia
+function hh12()//INFORMAR la segunda parte de la casilla informativa tipo multimedia
 		{	hOU(12);//mIS(12);
 			let v1 = '';
 			if (vFocoIe)//si vFocoIe es distinto de ''...
@@ -7774,17 +7774,17 @@ hh12=()=>//INFORMAR la segunda parte de la casilla informativa tipo multimedia
 			f0033(vFocoLe,v1);//Da el anuncio uno extra;
 		}
 
-hh15=()=>
+function hh15()
 		{	hOU(15);
 		}
 
 
-hh17=()=>//REPRODUCIR [PLAY] el video de YouTube
+function hh17()//REPRODUCIR [PLAY] el video de YouTube
 		{	hOU(17);//mIS(17);
 			vPlayer.playVideo();
 		}
 
-hh19=(rev)=>//HABILITAR tamaño 2
+function hh19(rev)//HABILITAR tamaño 2
 		{	hOU(19);//mIS(19);
 			hh55();//OCULTAR tamaños texto
 			if(rev)
@@ -7797,7 +7797,7 @@ hh19=(rev)=>//HABILITAR tamaño 2
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh20=(rev)=>//HABILITAR tamaño 1
+function hh20(rev)//HABILITAR tamaño 1
 		{	hOG(20);
 			hh55();//OCULTAR tamaños texto
 			if(rev)
@@ -7810,7 +7810,7 @@ hh20=(rev)=>//HABILITAR tamaño 1
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh21=(get,rev)=>//CAMBIAR o TRAER el color actual
+function hh21(get,rev)//CAMBIAR o TRAER el color actual
 		{	hOU(21);
 			if(get == undefined||get == 0)//Si no hay que traer es porque va a cambiar de color
 			{	if(rev)
@@ -7863,11 +7863,11 @@ hh21=(get,rev)=>//CAMBIAR o TRAER el color actual
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh22=()=>//
+function hh22()//
 		{	hOG(22);
 		}
 
-hh23=()=>//DESHABILITAR lector de pantalla (mudo)
+function hh23()//DESHABILITAR lector de pantalla (mudo)
 		{	hOG(23);//mIS(23);
 			if(g00VARS[59][2])//lector on
 			{	g00VARS[59][2] = 0;
@@ -7877,7 +7877,7 @@ hh23=()=>//DESHABILITAR lector de pantalla (mudo)
 			}
 		}
 
-hh24=()=>//HABILITAR lector de pantalla (sonido)
+function hh24()//HABILITAR lector de pantalla (sonido)
 		{	hOU(24);//mIS(24);
 			if(!g00VARS[59][2])//lector off
 			{	g00VARS[59][2] = 1;
@@ -7887,7 +7887,7 @@ hh24=()=>//HABILITAR lector de pantalla (sonido)
 			}
 		}
 
-hh25=()=>//DESHABILITAR i1 (sin Ingles de apoyo)
+function hh25()//DESHABILITAR i1 (sin Ingles de apoyo)
 		{	hOG(25);//mIS(25);
 			if(g00VARS[5][2])//i1 on
 			{	g00VARS[5][2] = 0;
@@ -7901,7 +7901,7 @@ hh25=()=>//DESHABILITAR i1 (sin Ingles de apoyo)
 			}
 		}
 
-hh26=()=>//HABILITAR i1 (con Ingles de apoyo)
+function hh26()//HABILITAR i1 (con Ingles de apoyo)
 		{	hOU(26);//mIS(26);
 			if(!g00VARS[5][2])//i1 off
 			{	g00VARS[5][2] = 1;
@@ -7915,7 +7915,7 @@ hh26=()=>//HABILITAR i1 (con Ingles de apoyo)
 			}
 		}
 
-hh27=(rev)=>//HABILITAR texto claro boton negro - b0027()	//HABILITAR texto claro
+function hh27(rev)//HABILITAR texto claro boton negro - b0027()	//HABILITAR texto claro
 		{	hOU(27);//mIS(27);
 			if(rev)
 			{	f0101();//REGRESAR color texto-boton previo
@@ -7931,7 +7931,7 @@ hh27=(rev)=>//HABILITAR texto claro boton negro - b0027()	//HABILITAR texto clar
 			}
 		}
 
-hh28=(rev)=>//HABILITAR texto negro, botón amarillo //b0028()	//HABILITAR texto negro 
+function hh28(rev)//HABILITAR texto negro, botón amarillo //b0028()	//HABILITAR texto negro 
 		{	hOG(28);//mIS(28);
 			if(rev)
 			{	f0101();//REGRESAR color texto-boton previo
@@ -7948,7 +7948,7 @@ hh28=(rev)=>//HABILITAR texto negro, botón amarillo //b0028()	//HABILITAR texto
 			}
 		}
 
-hh29=(rev)=>//HABILITAR tamaño 3
+function hh29(rev)//HABILITAR tamaño 3
 		{	hOU(29);//mIS(29);
 			hh55();//OCULTAR tamaños texto
 			if(rev)
@@ -7961,7 +7961,7 @@ hh29=(rev)=>//HABILITAR tamaño 3
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh30=(rev)=>//HABILITAR tamaño 4
+function hh30(rev)//HABILITAR tamaño 4
 		{	hOU(30);//mIS(30);
 			hh55();//OCULTAR tamaños texto
 			if(rev)
@@ -7974,7 +7974,7 @@ hh30=(rev)=>//HABILITAR tamaño 4
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh31=(rev)=>//HABILITAR tamaño 5
+function hh31(rev)//HABILITAR tamaño 5
 		{	hOU(31);//mIS(31);
 			hh55();//OCULTAR tamaños texto
 			if(rev)
@@ -7987,7 +7987,7 @@ hh31=(rev)=>//HABILITAR tamaño 5
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh32=(rev)=>//HABILITAR tamaño 6
+function hh32(rev)//HABILITAR tamaño 6
 		{	hOU(32);//mIS(32);
 			hh55();//OCULTAR tamaños texto
 			if(rev)
@@ -8000,7 +8000,7 @@ hh32=(rev)=>//HABILITAR tamaño 6
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh33=(rev)=>//HABILITAR tamaño 7
+function hh33(rev)//HABILITAR tamaño 7
 		{	hOU(33);//mIS(33);
 			hh55();//OCULTAR tamaños texto
 			if(rev)
@@ -8013,13 +8013,13 @@ hh33=(rev)=>//HABILITAR tamaño 7
 			f0102();//ajusta el tamaño del texto Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh34=()=>//
+function hh34()//
 		{	hOU(34);
 		}
 
-// - - - HASTA AQUI VOY ARREGLANDO EL CODIGO HH TO F00 sigue hh35
+// - - - HASTA AQUI VOY ARREGLANDO EL CODIGO HH TO F00 sigue function hh35
 
-hh35=()=>//L ESTILIZAR: texto negro, botón blanco, fondo oscuro
+function hh35()//L ESTILIZAR: texto negro, botón blanco, fondo oscuro
 		{	hOL(35);
 			iBody.style.setProperty('--cblwh1','rgb(30,30,30)');
 			iBody.style.setProperty('--cblwh2','white');
@@ -8031,7 +8031,7 @@ hh35=()=>//L ESTILIZAR: texto negro, botón blanco, fondo oscuro
 			f0120();//HACER color del borde igual al color del texto
 		}
 
-hh36=()=>//L ESTILIZAR: texto blanco, botón negro, fondo claro
+function hh36()//L ESTILIZAR: texto blanco, botón negro, fondo claro
 		{	hOL(36);
 			iBody.style.setProperty('--cblwh1','white');
 			iBody.style.setProperty('--cblwh2','rgb(30,30,30)');
@@ -8044,7 +8044,7 @@ hh36=()=>//L ESTILIZAR: texto blanco, botón negro, fondo claro
 		 //	iBody.style.setProperty('--cABok','white');
 		}
 
-hh45=()=>//ACTIVAR fila de señas 
+function hh45()//ACTIVAR fila de señas 
 		{	hOU(45);
 			r001B[4][28] = 0;//38
 			r001B[4][29] = 1;//39			
@@ -8055,7 +8055,7 @@ hh45=()=>//ACTIVAR fila de señas
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh46=()=>//DESACTIVAR fila de señas		
+function hh46()//DESACTIVAR fila de señas		
 		{	hOU(46);
 			r001B[4][29] = 0;//39 
 			r001B[4][28] = 1;//38
@@ -8066,7 +8066,7 @@ hh46=()=>//DESACTIVAR fila de señas
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh47=()=>//DESACTIVAR o MOSTRAR el botón/hoja fila de señas//b0047()			
+function hh47()//DESACTIVAR o MOSTRAR el botón/hoja fila de señas//b0047()			
 		{	hOL(47);//mIS(47);
 			if((g00VARS[11][2] == 0)||(g00VARS[11][2] == 4))//todos los modos o señas, mostrar botón fila de señas
 			{	if(g00VARS[19][2])//fila activada
@@ -8084,14 +8084,14 @@ hh47=()=>//DESACTIVAR o MOSTRAR el botón/hoja fila de señas//b0047()
 			}
 		}
 
-hh48=()=>//b0048()	//CARGAR la ruta 7 en pantalla (PPAL)
+function hh48()//b0048()	//CARGAR la ruta 7 en pantalla (PPAL)
 		{	hOG(48);//mIS(48);
 			gRuta = 7;
 			gFoco = 1;
 			f0017();
 		}
 
-hh49=()=>//b0049()	//REGISTRAR la primer selección de ACCESO y habilitar los botones 4 y 7
+function hh49()//b0049()	//REGISTRAR la primer selección de ACCESO y habilitar los botones 4 y 7
 		{	hOG(49);
 			if(!g00VARS[76][2])
 			{	g00VARS[76][2] = 1;
@@ -8105,7 +8105,7 @@ hh49=()=>//b0049()	//REGISTRAR la primer selección de ACCESO y habilitar los bo
 			}
 		}
 
-hh50=()=>//AJUSTAR estilo texto pequeño
+function hh50()//AJUSTAR estilo texto pequeño
 		{	hOG(50);//mIS(50);
 			//***g00VARS[45][2] = 1;
 			f0126();//ACTUALIZAR la ruta
@@ -8129,7 +8129,7 @@ hh50=()=>//AJUSTAR estilo texto pequeño
 			f0118();//HABILITAR la luz
 		}
 
-hh51=()=>//AJUSTAR estilo vibración
+function hh51()//AJUSTAR estilo vibración
 		{	hOU(51);//mIS(51);
 			//***g00VARS[45][2] = 2;
 			f0126();//ACTUALIZAR la ruta
@@ -8152,13 +8152,13 @@ hh51=()=>//AJUSTAR estilo vibración
 			f0118();//HABILITAR la luz
 		}
 
-hh52=()=>//b0052()	//AJUSTAR el tamaño del VISOR Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+function hh52()//b0052()	//AJUSTAR el tamaño del VISOR Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		{	hOU(52);//mIS(52);
 			f0068();//ajusta el tamaño del visor
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh53=()=>//AJUSTAR estilo texto
+function hh53()//AJUSTAR estilo texto
 		{	hOU(53);//mIS(53);
 			//g00VARS[45][2] = 4;
 			f0126();//ACTUALIZAR la ruta
@@ -8180,7 +8180,7 @@ hh53=()=>//AJUSTAR estilo texto
 			f0118();//HABILITAR la luz	
 		}		
 
-hh54=()=>//AJUSTAR estilo audio
+function hh54()//AJUSTAR estilo audio
 		{	hOU(54);//mIS(54);
 			//g00VARS[45][2] = 3;
 			f0126();//ACTUALIZAR la ruta
@@ -8201,7 +8201,7 @@ hh54=()=>//AJUSTAR estilo audio
 		 	f0118();//HABILITAR la luz
 		}
 
-hh55=()=>//b0055()	//OCULTAR todos los botones de tamaño
+function hh55()//b0055()	//OCULTAR todos los botones de tamaño
 		{	hOG(55);//mIS(55);
 			r001B[4][8] = 0;//7		3>8
 			r001B[4][9] = 0;//8		4>9
@@ -8212,7 +8212,7 @@ hh55=()=>//b0055()	//OCULTAR todos los botones de tamaño
 			r001B[4][14] = 0;//13	9>14
 		}
 
-hh56=()=>//AJUSTAR estilo texto máximo
+function hh56()//AJUSTAR estilo texto máximo
 		{	hOU(56);//mIS(56);
 			//***g00VARS[45][2] = 5;
 			f0126();//ACTUALIZAR la ruta
@@ -8235,7 +8235,7 @@ hh56=()=>//AJUSTAR estilo texto máximo
 			f0118();//HABILITAR la luz
 		}
 
-hh57=()=>//AJUSTAR estilo fondo negro
+function hh57()//AJUSTAR estilo fondo negro
 		{	hOU(57);//mIS(57);
 			//g00VARS[45][2] = 6;
 			f0126();//ACTUALIZAR la ruta
@@ -8257,7 +8257,7 @@ hh57=()=>//AJUSTAR estilo fondo negro
 			f0118();//HABILITAR la luz
 		}
 
-hh58=()=>//AJUSTAR estilo señas
+function hh58()//AJUSTAR estilo señas
 		{	hOU(58);//mIS(58);
 			//g00VARS[45][2] = 7;
 			f0126();//ACTUALIZAR la ruta
@@ -8280,7 +8280,7 @@ hh58=()=>//AJUSTAR estilo señas
 			f0118();//HABILITAR la luz
 		}
 
-hh59=()=>//AJUSTAR estilo braille
+function hh59()//AJUSTAR estilo braille
 		{	hOU(59);//mIS(59);
 			//g00VARS[45][2] = 8;
 			f0126();//ACTUALIZAR la ruta
@@ -8304,7 +8304,7 @@ hh59=()=>//AJUSTAR estilo braille
 
 		}
 
-hh60=()=>//AJUSTAR estilo público
+function hh60()//AJUSTAR estilo público
 		{	hOU(60);//mIS(60);
 			//g00VARS[45][2] = 9;
 			f0126();//ACTUALIZAR la ruta
@@ -8326,7 +8326,7 @@ hh60=()=>//AJUSTAR estilo público
 			f0118();//HABILITAR la luz
 		}
 
-hh61=()=>//CARGAR la presentación AV de anuncios de la ruta 3 //b0061()	//
+function hh61()//CARGAR la presentación AV de anuncios de la ruta 3 //b0061()	//
 		{	hOG(61);//mIS(61);
 			if(g00VARS[11][2] == 3)//Si el modo braille esta activo
 			{ 	iBrail.classList.add('cX');//Oculta el braille fijo
@@ -8389,7 +8389,7 @@ hh61=()=>//CARGAR la presentación AV de anuncios de la ruta 3 //b0061()	//
 			f0067();//ORGANIZAR 1 pulso limpio de resize //OBTENER la constante del tamaño de la ventana
 		}
 
-hh62=(anun)=>//CARGAR los guiones de la presentación AV Audio Visual es similar a f0016()	//CARGAR los guiones de la tapa o alerta(ale)
+function hh62(anun)//CARGAR los guiones de la presentación AV Audio Visual es similar a f0016()	//CARGAR los guiones de la tapa o alerta(ale)
 		{	hOG(62);//mIS(62);
 			hFila = tNoFi.offsetHeight;//aquí mide la altura del objeto de texto en px que se va a mostrar
 			console.log(' - - - uuu == hFila='+hFila);
@@ -8516,7 +8516,7 @@ hh62=(anun)=>//CARGAR los guiones de la presentación AV Audio Visual es similar
 			}			
 		}
 /*
-hh63=()=>//ACTUALIZAR la velocidad de la(s) marquesina(s)
+function hh63()//ACTUALIZAR la velocidad de la(s) marquesina(s)
 		{	hOG(63);//mIS(62);
 			tNoti.setAttribute('scrollamount',velo*speed*speed);
 			if(g00VARS[5][2])//Si i1..
@@ -8524,7 +8524,7 @@ hh63=()=>//ACTUALIZAR la velocidad de la(s) marquesina(s)
 			}
 		}
 */
-hh64=(tam,rev)=>//REALIZAR acción o cambio de tamaño DEL VISOR
+function hh64(tam,rev)//REALIZAR acción o cambio de tamaño DEL VISOR
 		{	hOG(64);//
 			hh69();//OCULTAR tamaños VISOR
 			if(tam)
@@ -8607,7 +8607,7 @@ hh64=(tam,rev)=>//REALIZAR acción o cambio de tamaño DEL VISOR
 			hh70();//ajusta el tamaño del VISOR Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 /*
-hh65=()=>//HABILITAR visor tamaño 2
+function hh65()//HABILITAR visor tamaño 2
 		{	hOG(65);//
 			console.log('f165 g00VARS[64][3]=',g00VARS[64][3],'; g00VARS[64][2]=',g00VARS[64][2],'\n\n');
 			g00VARS[64][2] = 1;
@@ -8616,7 +8616,7 @@ hh65=()=>//HABILITAR visor tamaño 2
 			hh70();//ajusta el tamaño del VISOR Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh66=()=>//HABILITAR visor tamaño 3
+function hh66()//HABILITAR visor tamaño 3
 		{	hOG(66);//
 			console.log('f166 g00VARS[64][3]=',g00VARS[64][3],'; g00VARS[64][2]=',g00VARS[64][2],'\n\n');
 			g00VARS[64][2] = 2;
@@ -8625,7 +8625,7 @@ hh66=()=>//HABILITAR visor tamaño 3
 			hh70();//ajusta el tamaño del VISOR Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh67=()=>//HABILITAR visor tamaño 4
+function hh67()//HABILITAR visor tamaño 4
 		{	hOG(67);//
 			console.log('f167 g00VARS[64][3]=',g00VARS[64][3],'; g00VARS[64][2]=',g00VARS[64][2],'\n\n');
 			g00VARS[64][2] = 3;
@@ -8634,7 +8634,7 @@ hh67=()=>//HABILITAR visor tamaño 4
 			hh70();//ajusta el tamaño del VISOR Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh68=()=>//HABILITAR visor tamaño 5
+function hh68()//HABILITAR visor tamaño 5
 		{	hOG(68);//
 			console.log('f168 g00VARS[64][3]=',g00VARS[64][3],'; g00VARS[64][2]=',g00VARS[64][2],'\n\n');
 			g00VARS[64][2] = 4;
@@ -8643,7 +8643,7 @@ hh68=()=>//HABILITAR visor tamaño 5
 			hh70();//ajusta el tamaño del VISOR Y CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 */
-hh69=()=>//OCULTAR todos los botones de tamaño visor
+function hh69()//OCULTAR todos los botones de tamaño visor
 		{	hOG(69);
 			r001B[4][30] = 0;//40
 			r001B[4][31] = 0;//41
@@ -8652,23 +8652,23 @@ hh69=()=>//OCULTAR todos los botones de tamaño visor
 			r001B[4][34] = 0;//44
 		}
 
-hh70=()=>//AJUSTAR el tamaño del visor, CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
+function hh70()//AJUSTAR el tamaño del visor, CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		{	hOG(70);//mIS(34);
 			console.log('f170 g00VARS[64][3]=',g00VARS[64][3],'; g00VARS[64][2]=',g00VARS[64][2],'\n\n');
 			f0068();//ajusta el tamaño del VISOR
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 		}
 
-hh71=()=>//ACTIVAR Ventana i (tablón de anuncios)
+function hh71()//ACTIVAR Ventana i (tablón de anuncios)
 		{	hOG(71);
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
-			setTimeout(()=>//Reduce el conteo para activar la presentación
+			setTimeout(function()//Reduce el conteo para activar la presentación
 			{	conteo[3] = 1;//Orden de iniciar el tablón i
 			}
 			,1000);
 		}
 
-hh72=()=>//COLOREAR borde de la presentación AV, cargar el codigo QR, el logo y la imagen
+function hh72()//COLOREAR borde de la presentación AV, cargar el codigo QR, el logo y la imagen
 		{	hOG(72);
 			//console.log(' - - -  rrrrrr hh72 dExt=',dExt);
 			
@@ -8708,11 +8708,11 @@ hh72=()=>//COLOREAR borde de la presentación AV, cargar el codigo QR, el logo y
 			//iCodQ.innerHTML = "<img src='"+(kTapa0[dExt[4]][2]||'files/qrcode.png')+"' class='cBox'>";
 		}
 
-hh73=()=>//
+function hh73()//
 		{	hOG(73);
 		}
 
-hh74=()=>//DESACTIVAR la presentación AV
+function hh74()//DESACTIVAR la presentación AV
 		{	hOG(74);
 			conteo[1] = 1;//se habilita el conteo porque se desactiva la presentación
 			conteo[0] = aaini;//se reinicia el conteo
@@ -8731,13 +8731,13 @@ hh74=()=>//DESACTIVAR la presentación AV
 			//hh8();
 		}
 
-hh75=()=>//ACTUALIZAR pasado de mAX
+function hh75()//ACTUALIZAR pasado de mAX
 		{	hOG(75);
 			mAX = maX;//Se actualiza el pasado de maX
 			fff();//Se quita la pantalla de alerta por pantalla MINI
 		}
 
-hh76=()=>//OCULTAR velocidades del reproductor
+function hh76()//OCULTAR velocidades del reproductor
 		{	hOG(76);
 			r001B[4][3] = 0;
 			r001B[4][4] = 0;
@@ -8746,7 +8746,7 @@ hh76=()=>//OCULTAR velocidades del reproductor
 			r001B[4][7] = 0;
 		}
 
-hh77=(rev)=>//AJUSTAR Velocidad lenta
+function hh77(rev)//AJUSTAR Velocidad lenta
 		{	hOG(77);
 			r001B[4][5] = 0;//ocultar 1.0
 			if(rev)
@@ -8760,7 +8760,7 @@ hh77=(rev)=>//AJUSTAR Velocidad lenta
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh78=(rev)=>//AJUSTAR Velocidad muy lenta
+function hh78(rev)//AJUSTAR Velocidad muy lenta
 		{	hOG(78);
 			r001B[4][6] = 0;//ocultar 0.75
 			if(rev)
@@ -8774,7 +8774,7 @@ hh78=(rev)=>//AJUSTAR Velocidad muy lenta
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh79=(rev)=>//AJUSTAR Velocidad muy rápida
+function hh79(rev)//AJUSTAR Velocidad muy rápida
 		{	hOG(79);
 			r001B[4][7] = 0;//ocultar 0.6
 			if(rev)
@@ -8788,7 +8788,7 @@ hh79=(rev)=>//AJUSTAR Velocidad muy rápida
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh80=(rev)=>//AJUSTAR Velocidad rápida
+function hh80(rev)//AJUSTAR Velocidad rápida
 		{	hOG(80);
 			r001B[4][3] = 0;//ocultar 2.0
 			if(rev)
@@ -8802,7 +8802,7 @@ hh80=(rev)=>//AJUSTAR Velocidad rápida
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh81=(rev)=>//AJUSTAR Velocidad normal
+function hh81(rev)//AJUSTAR Velocidad normal
 		{	hOG(81);
 			r001B[4][4] = 0;//ocultar 1.5
 			if(rev)
@@ -8816,7 +8816,7 @@ hh81=(rev)=>//AJUSTAR Velocidad normal
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh82=(def)=>//ACTUALIZAR la velocidad:: standar o por defecto(def) / configuración del usuario
+function hh82(def)//ACTUALIZAR la velocidad:: standar o por defecto(def) / configuración del usuario
 		{	hOL(82);
 			if(def)
 			{	if (g00VARS[44][3] < g00VARS[44][2])//si el valor por defecto es mayor que el ajuste del usuario
@@ -8832,7 +8832,7 @@ hh82=(def)=>//ACTUALIZAR la velocidad:: standar o por defecto(def) / configuraci
 		}
 
 
-hh83=(rev)=>//HABILITAR texto amarillo boton negro simil hh27()
+function hh83(rev)//HABILITAR texto amarillo boton negro simil hh27()
 		{	hOU(83);//mIS(27);
 			if(rev)
 			{	f0101();//REGRESAR color texto-boton previo
@@ -8849,7 +8849,7 @@ hh83=(rev)=>//HABILITAR texto amarillo boton negro simil hh27()
 			}
 		}
 
-hh84=(rev)=>//HABILITAR texto negro botón blanco simil hh28()
+function hh84(rev)//HABILITAR texto negro botón blanco simil hh28()
 		{	hOG(84);//mIS(28);
 			if(rev)
 			{	f0101();//REGRESAR color texto-boton previo
@@ -8865,7 +8865,7 @@ hh84=(rev)=>//HABILITAR texto negro botón blanco simil hh28()
 			}
 		}
 
-hh85=()=>//OCULTAR botones de color de texto/botón
+function hh85()//OCULTAR botones de color de texto/botón
 		{	hOG(85);
 			r001B[4][15] = 0;
 			r001B[4][16] = 0;
@@ -8873,11 +8873,11 @@ hh85=()=>//OCULTAR botones de color de texto/botón
 			r001B[4][18] = 0;
 		}
 
-hh86=()=>//OCULTAR todos los marcos de color
+function hh86()//OCULTAR todos los marcos de color
 		{	hOG(86);
 		}
 
-hh87=()=>//RESET de ACCESO
+function hh87()//RESET de ACCESO
 		{	hOG(87);
 			switch (g00VARS[45][2])
 			{	case 1: hh50();break;
@@ -8914,7 +8914,7 @@ hh87=()=>//RESET de ACCESO
 			f0118();//HABILITAR la luz*/
 		}
 
-hh88=(cod,rev)=>//REALIZAR acción o cambio de luz
+function hh88(cod,rev)//REALIZAR acción o cambio de luz
 		{	hOG(88);
 			if(cod)//Forzar acción..
 			{	switch (cod)
@@ -8992,19 +8992,19 @@ hh88=(cod,rev)=>//REALIZAR acción o cambio de luz
 			iBody.style.setProperty('--cLuz',luZ[0]);
 		}
 
-hh98=()=>//CARGAR la ruta 8 en pantalla (PPAL)
+function hh98()//CARGAR la ruta 8 en pantalla (PPAL)
 		{	hOU(98);
 			gRuta = 8;
 			gFoco = 1;
 			f0017();
 		}
 
-hh99=()=>//VOLVER A CARGAR la página
+function hh99()//VOLVER A CARGAR la página
 		{	hOU(99);
 			location.reload();
 		}
 
-hh100=(rev)=>//CAMBIAR el idioma
+function hh100(rev)//CAMBIAR el idioma
 		{	hOU(100);
 			r002A[1][1] = orig[0];//CREO QUE NO HACE NADA!!! Recupera el string original del idioma ingles
 			for (var i = 1; i < wIDI.length; i++)//Recorre el array de idiomas
@@ -9041,7 +9041,7 @@ hh100=(rev)=>//CAMBIAR el idioma
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh101=(rev)=>//CAMBIAR la seña
+function hh101(rev)//CAMBIAR la seña
 		{	hOU(101);
 			r002A[1][2] = orig[1];//Recupera el string original de la ASL (r002A[1][2])
 			for (var i = 1; i < wSIGN.length; i++)//Recorre el array de señas
@@ -9075,7 +9075,7 @@ hh101=(rev)=>//CAMBIAR la seña
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh102=(rev)=>//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click - se deben recalcular las listas 2-10 (wMAPA)
+function hh102(rev)//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click - se deben recalcular las listas 2-10 (wMAPA)
 		{	hOU(102);
 			if(rev)
 			{	if(papas[0]==1)//Si dato actual de papas [0] es el PRIMERO del arreglo de wPAPA1..
@@ -9099,7 +9099,7 @@ hh102=(rev)=>//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click - se d
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh103=(rev)=>//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
+function hh103(rev)//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 		{	hOU(103);
 			let pos;
 			for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
@@ -9141,7 +9141,7 @@ hh103=(rev)=>//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 		}
 
 
-hh104=(rev)=>//CAMBIAR a la siguiente fila(wPAPA3[0=>n]) y poner 0's a la derecha de papas[2]; lugar 2  sitio(2-9) - DEPTOS
+function hh104(rev)//CAMBIAR a la siguiente fila(wPAPA3[0=>n]) y poner 0's a la derecha de papas[2]; lugar 2  sitio(2-9) - DEPTOS
 		{	hOU(104);
 			let pos;
 			for (var i = 1; i < wPAPA3.length; i++)
@@ -9181,7 +9181,7 @@ hh104=(rev)=>//CAMBIAR a la siguiente fila(wPAPA3[0=>n]) y poner 0's a la derech
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh105=(rev)=>//CAMBIAR de lugar 3  sitio(3-9)
+function hh105(rev)//CAMBIAR de lugar 3  sitio(3-9)
 		{	hOU(105);
 			let pos;
 			for (var i = 1; i < wPAPA4.length; i++)
@@ -9221,7 +9221,7 @@ hh105=(rev)=>//CAMBIAR de lugar 3  sitio(3-9)
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh106=(rev)=>//CAMBIAR de lugar 4  sitio(4-9)
+function hh106(rev)//CAMBIAR de lugar 4  sitio(4-9)
 		{	hOU(106);
 			let pos;
 			for (var i = 1; i < wPAPA5.length; i++)
@@ -9261,7 +9261,7 @@ hh106=(rev)=>//CAMBIAR de lugar 4  sitio(4-9)
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh107=(rev)=>//CAMBIAR de lugar 5 sitio(5-9)
+function hh107(rev)//CAMBIAR de lugar 5 sitio(5-9)
 		{	hOU(107);
 			let pos;
 			for (var i = 1; i < wPAPA6.length; i++)
@@ -9301,7 +9301,7 @@ hh107=(rev)=>//CAMBIAR de lugar 5 sitio(5-9)
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh108=(rev)=>//CAMBIAR de lugar 6  sitio(6-9)
+function hh108(rev)//CAMBIAR de lugar 6  sitio(6-9)
 		{	hOU(108);
 			let pos;
 			for (var i = 1; i < wPAPA7.length; i++)
@@ -9341,7 +9341,7 @@ hh108=(rev)=>//CAMBIAR de lugar 6  sitio(6-9)
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh109=(rev)=>//CAMBIAR de lugar 7  sitio(7-9)
+function hh109(rev)//CAMBIAR de lugar 7  sitio(7-9)
 		{	hOU(109);
 			let pos;
 			for (var i = 1; i < wPAPA8.length; i++)
@@ -9381,7 +9381,7 @@ hh109=(rev)=>//CAMBIAR de lugar 7  sitio(7-9)
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh110=(rev)=>//CAMBIAR de lugar 8  sitio(8-9)
+function hh110(rev)//CAMBIAR de lugar 8  sitio(8-9)
 		{	hOU(110);
 			let pos;
 			for (var i = 1; i < wPAPA9.length; i++)
@@ -9421,7 +9421,7 @@ hh110=(rev)=>//CAMBIAR de lugar 8  sitio(8-9)
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 
-hh111=(rev)=>//CAMBIAR de lugar 9  sitio(9-9)
+function hh111(rev)//CAMBIAR de lugar 9  sitio(9-9)
 		{	hOU(111);
 			let pos;
 			for (var i = 1; i < wPAPA10.length; i++)
@@ -9461,7 +9461,7 @@ hh111=(rev)=>//CAMBIAR de lugar 9  sitio(9-9)
 			f0017();//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual (luego de esperar que se maximice la pantalla)
 		}
 /*
-hh112=()=>//CAMBIAR de comunidad
+function hh112()//CAMBIAR de comunidad
 		{	hOG(112);
 			let col = 0;
 			for (var i = 1; i < 10; i++)
