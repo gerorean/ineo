@@ -156,7 +156,7 @@ function f0002()//CONSEGUIR la voz (GetVoices), Manejador de eventos cuando las 
 			  	{	loadVoices(cb)
 			  	}	,interval);
 			}	
-			loadVoices((err, voices) =>
+			loadVoices(function(err, voices)
 			{	iV1d.style.backgroundColor = 'blue';//fin asin
 				if (err)//SI hay error..
 				{	iV2f.style.backgroundColor = 'red';

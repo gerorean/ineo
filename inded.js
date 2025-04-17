@@ -163,7 +163,7 @@ const 	wPapa10		=   [	['0-En ingles(lista ordenada)'		,'1-Abrev.int.'	,'2-id:key
 					
 						];
 
-f0128=()=>//CREAR la lista de rutas del servidor
+function f0128()//CREAR la lista de rutas del servidor
 		{	//lOL(128);//
 			//CREAR LISTA CON TODOS LOS PAPAS visibles completo por cada nivel, la que se genera es parcial, si los elementos no son visibles no deberían pasarse al navegador, eso debería ahorrarle un paso al navegador (wPapax -> wPAPAx)
 			//Cargar los titulos de vPAPA1..
@@ -466,7 +466,7 @@ f0128=()=>//CREAR la lista de rutas del servidor
 			}
 		}
 
-f0129=(h)=>//ENCONTRAR el id padre de un hijo del nivel 2
+function f0129(h)//ENCONTRAR el id padre de un hijo del nivel 2
 		{	//lOL(129);//
 			for (var i2 = 1; i2 < vPAPA2.length; i2++)
 			{	if(vPAPA2[i2][0] == hijos[h][2])//bingo 2
@@ -476,7 +476,7 @@ f0129=(h)=>//ENCONTRAR el id padre de un hijo del nivel 2
 			}
 		}
 
-f0130=(h)=>//ENCONTRAR el id padre de un hijo del nivel 3
+function f0130(h)//ENCONTRAR el id padre de un hijo del nivel 3
 		{	//lOL(130);//
 			for (var i3 = 1; i3 < vPAPA3.length; i3++)
 			{	if(vPAPA3[i3][0] == hijos[h][3])//bingo 3
@@ -487,7 +487,7 @@ f0130=(h)=>//ENCONTRAR el id padre de un hijo del nivel 3
 			}
 		}
 
-f0131=(h)=>//ENCONTRAR el id padre de un hijo del nivel 4
+function f0131(h)//ENCONTRAR el id padre de un hijo del nivel 4
 		{	//lOL(131);//
 			for (var i4 = 1; i4 < vPAPA4.length; i4++)
 			{	if(vPAPA4[i4][0] == hijos[h][4])//bingo 4
@@ -498,7 +498,7 @@ f0131=(h)=>//ENCONTRAR el id padre de un hijo del nivel 4
 			}
 		}
 
-f0132=(h)=>//ENCONTRAR el id padre de un hijo del nivel 5
+function f0132(h)//ENCONTRAR el id padre de un hijo del nivel 5
 		{	//lOL(132);//
 			for (var i5 = 1; i5 < vPAPA5.length; i5++)
 			{	if(vPAPA5[i5][0] == hijos[h][5])//bingo 5
@@ -509,7 +509,7 @@ f0132=(h)=>//ENCONTRAR el id padre de un hijo del nivel 5
 			}
 		}
 
-f0133=(h)=>//ENCONTRAR el id padre de un hijo del nivel 6
+function f0133(h)//ENCONTRAR el id padre de un hijo del nivel 6
 		{	//lOL(133);//
 			for (var i6 = 1; i6 < vPAPA6.length; i6++)
 			{	if(vPAPA6[i6][0] == hijos[h][6])//bingo 6
@@ -520,7 +520,7 @@ f0133=(h)=>//ENCONTRAR el id padre de un hijo del nivel 6
 			}
 		}
 
-f0134=(h)=>//ENCONTRAR el id padre de un hijo del nivel 7
+function f0134(h)//ENCONTRAR el id padre de un hijo del nivel 7
 		{	//lOL(134);//
 			for (var i7 = 1; i7 < vPAPA7.length; i7++)
 			{	if(vPAPA7[i7][0] == hijos[h][7])//bingo 7
@@ -531,7 +531,7 @@ f0134=(h)=>//ENCONTRAR el id padre de un hijo del nivel 7
 			}
 		}
 
-f0135=(h)=>//ENCONTRAR el id padre de un hijo del nivel 8
+function f0135(h)//ENCONTRAR el id padre de un hijo del nivel 8
 		{	//lOL(135);//
 			for (var i8 = 1; i8 < vPAPA8.length; i8++)
 			{	if(vPAPA8[i8][0] == hijos[h][8])//bingo 8
@@ -542,7 +542,7 @@ f0135=(h)=>//ENCONTRAR el id padre de un hijo del nivel 8
 			}
 		}
 
-f0136=(h)=>//ENCONTRAR el id padre de un hijo del nivel 9
+function f0136(h)//ENCONTRAR el id padre de un hijo del nivel 9
 		{	//lOL(136);//
 			for (var i9 = 1; i9 < vPAPA9.length; i9++)
 			{	if(vPAPA9[i9][0] == hijos[h][9])//bingo 9
@@ -553,7 +553,7 @@ f0136=(h)=>//ENCONTRAR el id padre de un hijo del nivel 9
 			}
 		}
 
-f0137=(h)=>//ENCONTRAR el id padre de un hijo del nivel 10
+function f0137(h)//ENCONTRAR el id padre de un hijo del nivel 10
 		{	//lOL(137);//
 			for (var i10 = 1; i10 < vPAPA10.length; i10++)
 			{	if(vPAPA10[i10][0] == hijos[h][10])//bingo 10
@@ -3454,7 +3454,7 @@ const vT = 50;//20 -70 MILISEGUNDOS DE CADA DELTA DE TIEMPO
 var touch;
 //const 	touch 			= "ontouchstart" in window || window.navigator.maxTouchPoints;//este metodo no parece ser tan "acertado"
 const
-	isTouchDevice = () =>//DETECTAR si es touch al intentar crear un evento Touch, si falla en el intento retorna un error ES DECIR NO ES TOUCH
+	isTouchDevice = function()//DETECTAR si es touch al intentar crear un evento Touch, si falla en el intento retorna un error ES DECIR NO ES TOUCH
 	{
 		try {
 			document.createEvent('TouchEvent');
