@@ -9,7 +9,7 @@ function f0000()	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (S
 			iTitle.innerHTML = app;//CARGAR el titulo
 			
 /*
-			let ruta = window.location.hash;
+			var ruta = window.location.hash;
 			nruta = ruta.slice(1);//quita el # ajusta el string ruta
 	
 			rumbi = '';
@@ -116,7 +116,7 @@ function f0002()//CONSEGUIR la voz (GetVoices), Manejador de eventos cuando las 
 		{	lOL(2);
 			//console.time('duracionCargaVoces');//:/Switch S1
 			iV1e.style.backgroundColor = 'white';
-			let timeout = 0;
+			var timeout = 0;
 			const maxTimeout = 10000;//2000 Tiempo máximo para conseguir las voces
 			const interval = 1000;//250
 			const loadVoices = function(cb) 
@@ -315,8 +315,8 @@ function f0003()//PRODUCIR pulsaciones
 
 function f0007()	//CONVERTIR texto NORMALIZADO a braille - IN g00HTML[3][2] OUT g00HTML[19][2] pro7
 		{	lOL(7);
-			let v4;
-			let v6;
+			var v4;
+			var v6;
 			g00VARS[49][2] = '';//RESET DEL HTML
 			for (v6 = 0; v6 < g00HTML[3][2].length; v6++)//RECORRE UNA A UNA TODAS LAS SUBCADENAS "PALABRAS" DEL ARREGLO
 			{	g00HTML[15][2] = g00HTML[3][2][v6];
@@ -379,8 +379,8 @@ function f0007()	//CONVERTIR texto NORMALIZADO a braille - IN g00HTML[3][2] OUT 
 				g00HTML[17][2] = g00HTML[17][2].substring(0, g00HTML[17][2].length - 1);//Se quita la ultima ,
 				g00HTML[17][2] = g00HTML[17][2].split(',');//Arreglo cantidades individuales por cada caracter especial encontrado
 				for (v4 = 0; v4 < g00HTML[16][2].length; v4++)//RECORRER 16 LA SUBCADENA PARA SEPARAR CADA GRUPO
-				{	let v3 = 0;//reset del prefijo
-					for (let v5 = 1; v5 < s00Grupo.length; v5++)//RECORRE los tipos de GRUPO
+				{	var v3 = 0;//reset del prefijo
+					for (var v5 = 1; v5 < s00Grupo.length; v5++)//RECORRE los tipos de GRUPO
 					{	if(((g00VARS[28][2] == 1)&&(g00VARS[5][2]))||(g00VARS[6][2] == 1))//si i1 y es igual a ASL (1internacional) o es una palabra inter
 						//if(g00VARS[28][2])//xxx es igual a true o 1 (internacional)
 						{	if(g00HTML[17][2][v4] == s00Grupo[v5][0])
@@ -394,7 +394,7 @@ function f0007()	//CONVERTIR texto NORMALIZADO a braille - IN g00HTML[3][2] OUT 
 						}
 					}
 					if(v3)//si v3 != 0 ADICIONA EL PREFIJO!
-					{	let v2;//numero intermedio y represantativo del caracter braille
+					{	var v2;//numero intermedio y represantativo del caracter braille
 						
 						if (((g00VARS[28][2] == 1)&&(g00VARS[5][2]))||(g00VARS[6][2] == 1))//si i1 y idioma internacional o es una palabra inter -ASIGNA LOS PREFIJOS INTERNACIONALES
 						//if(g00VARS[28][2])//es igual a true o 1 (internacional)
@@ -411,7 +411,7 @@ function f0007()	//CONVERTIR texto NORMALIZADO a braille - IN g00HTML[3][2] OUT 
 						}
 					}
 					g00HTML[18][2] = g00HTML[16][2][v4].split('');
-					for (let v7 = 0; v7 < g00HTML[18][2].length; v7++)//-RECORRER UNO A UNO TODOS LOS CARACTERES PARA adicionar el braille correspondiente
+					for (var v7 = 0; v7 < g00HTML[18][2].length; v7++)//-RECORRER UNO A UNO TODOS LOS CARACTERES PARA adicionar el braille correspondiente
 					{	f0008(g00HTML[18][2][v7]);//busca el braille correspondiente a ese caracter y lo agrega a g00VARS[49][2] += ;
 					}
 				}
@@ -424,7 +424,7 @@ function f0007()	//CONVERTIR texto NORMALIZADO a braille - IN g00HTML[3][2] OUT 
 
 function f0008(let)//PASAR caracteres especiales o letras SUELTAS a id braille //o0063
 		{	lOL(8);
-			let v3 = 0;
+			var v3 = 0;
 			switch (let)//-ASIGNA NUMERO A V3 QUE INDICA LA LETRA PARA PASARLA A BRAILLE
 			{	case ('a'):v3 =  1;break;
 				case ('b'):v3 =  2;break;
@@ -519,7 +519,7 @@ function f0008(let)//PASAR caracteres especiales o letras SUELTAS a id braille /
 				case ('+'):v3 = 76;break;
 				default:v3 = 54;	
 			}
-			let v2;//número intermedio y representativo del caracter braille
+			var v2;//número intermedio y representativo del caracter braille
 			if (((g00VARS[28][2] == 1)&&(g00VARS[5][2]))||(g00VARS[6][2] == 1))//si i1 y idioma internacional o es una palabra inter -ASIGNA LOS PREFIJOS INTERNACIONALES		
 			{	v2 = s00braIdi[v3][1];
 			}
@@ -538,11 +538,11 @@ function f0008(let)//PASAR caracteres especiales o letras SUELTAS a id braille /
 
 function f0009()//CONVERTIR puntos y rayas Morse a tiempo Morse (milisegundos) y ACTUALIZAR cada constante de tiempo Morse según la constante de velocidad morse actual
 		{	lOG(9);
-			let v1;
-			let v2;
+			var v1;
+			var v2;
 			if(bMors)//Aquí falta crear un ajuste para cambiar el valor de velocidad morse y bMors, Si g00VARS[48][2] cambia de valor entonces el siguiente código actualiza las constantes de tiempo Morse una sola vez gracias a la bandera bMors, es decir las actualiza si hay un cambio:
 			{	bMors = 0;//Desactiva la bandera bMors para que no se repita si no hay un cambio en la velocidad Morse
-				let v4 = (4.5 - (g00VARS[48][2]*2))*10;//la konstante de velocidad Morse varia entre 45(0-Lento) y 5(2-Rapido)
+				var v4 = (4.5 - (g00VARS[48][2]*2))*10;//la konstante de velocidad Morse varia entre 45(0-Lento) y 5(2-Rapido)
 				for (v1 = 1; v1 < s00timeMor.length; v1++)//RECORRE UNA A UNA TODAS LAS SUBCADENAS "PALABRAS" DEL ARREGLO
 				{	s00timeMor[v1][2] = s00timeMor[v1][1]*v4;//les asigna el peso
 				}
@@ -564,10 +564,10 @@ function f0009()//CONVERTIR puntos y rayas Morse a tiempo Morse (milisegundos) y
 
 function f0010(on)//CONVERTIR texto NORMALIZADO a morse  -> on: hacer los ·s y -s DEL HTML -> off: los tiempos DEL VIBRADOR
 		{	lOL(10);
-			let vt1 = '';//RESET de los ·'s, -'s y espacios acumulados que van a salir en HTML		
-			let vt2 = '';//Reset de tiempos de vibrado
-			let v1;
-			let v2;
+			var vt1 = '';//RESET de los ·'s, -'s y espacios acumulados que van a salir en HTML		
+			var vt2 = '';//Reset de tiempos de vibrado
+			var v1;
+			var v2;
 			g00HTML[24][2] = '';//Reset tiempos 50,100,300,100,80,350,80,
 			for (v1 = 0; v1 < g00HTML[3][2].length; v1++)//RECORRE UNA A UNA TODAS LAS SUBCADENAS "PALABRAS" DEL ARREGLO
 			{	//in B:
@@ -575,7 +575,7 @@ function f0010(on)//CONVERTIR texto NORMALIZADO a morse  -> on: hacer los ·s y 
 				g00HTML[21][2] = g00HTML[20][2].toLowerCase();//[20] en minúsculas
 				g00HTML[22][2] = g00HTML[21][2].split('');//[21] separado en caracteres sueltos
 				for (v2 = 0; v2 < g00HTML[22][2].length; v2++)//-RECORRER UNO A UNO TODOS LOS CARACTERES PARA adicionar el braille correspondiente
-				{	let v3 = 1;//el que sigue es un caracter:1
+				{	var v3 = 1;//el que sigue es un caracter:1
 					if((v2 + 1) == g00HTML[22][2].length)
 					{	v3 = 0;//es el último caracter de la subcadena o 'palabra'
 					}				
@@ -621,7 +621,7 @@ function f0010(on)//CONVERTIR texto NORMALIZADO a morse  -> on: hacer los ·s y 
 
 function f0011(let)//ASIGNAR número representativo a cada caracter g00VARS[23] para luego pasarlo a morse//o0065
 		{	lOL(11);
-			let v3 = 0;
+			var v3 = 0;
 			switch (let)
 			{	case ('a' ):v3 =  1;break;
 				case ('b' ):v3 =  2;break;
@@ -746,11 +746,11 @@ function f0011(let)//ASIGNAR número representativo a cada caracter g00VARS[23] 
 function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,gRuta 
 		{	lOL(12);
 			f0090();//L BORRAR memoria de animación: señas y glosas
-			let le = 0;//length del array
-			let v1;//ciclo for
+			var le = 0;//length del array
+			var v1;//ciclo for
 			v02 = '';//html parcial
 			v03 = '';//html acumulado
-			let id = g00VARS[27][2];//idioma
+			var id = g00VARS[27][2];//idioma
 			if(gRuta == 3)
 			{
 				//Esta parte debe usarse para crear el primer anuncio local, de forma similar el primer anuncio tipo JSON
@@ -953,7 +953,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 				{	case 1://
 						iMenu.innerHTML = '<i class="'+kTapa1[2][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
-						{	let v4 = visOK[v1];//v4:Número de la casilla que sigue
+						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
 							s00EXIT[1][2] = r001A[id][v4].charAt(0).toUpperCase() + r001A[id][v4].slice(1);//carga el guión local: haz clic para entrar
 							s00EXIT[2][2] = 'i1, '+r001A[1][v4];//carga el guión internacional:click to enter
@@ -1002,7 +1002,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 					case 2://AJUSTES información palanca - idioma i1 etc
 						iMenu.innerHTML = '<i class="'+kTapa1[50][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
-						{	let v4 = visOK[v1];//v4:Número de la casilla que sigue
+						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
 							s00EXIT[1][2] = r002A[id][v4].charAt(0).toUpperCase() + r002A[id][v4].slice(1);//carga el guión local: haz clic para entrar
 							//s00EXIT[2][2] = 'i1, '+r002A[1][v4];//carga el guión internacional:click to enter
@@ -1057,7 +1057,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 						iMenu.innerHTML = '<i class="'+kTapa1[3][2]+'"></i>';
 						vis3 = visOK;//ESTA LINEA ES POR LA PRESENTACION AV: CREAR copia del arreglo de las casillas visibles de los anuncios comunitarios
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
-						{	let v4 = visOK[v1];//v4:Número de la casilla que sigue
+						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
 							if(r003B[3][v4] < r003B[2][v4].length)
 							{	
@@ -1144,7 +1144,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 					case 4:
 						iMenu.innerHTML = '<i class="'+kTapa1[4][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
-						{	let v4 = visOK[v1];//v4:Número de la casilla que sigue
+						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
 							s00EXIT[1][2] = r004A[id][v4].charAt(0).toUpperCase() + r004A[id][v4].slice(1);//carga el guión local: haz clic para entrar
 							s00EXIT[2][2] = 'i1, '+r004A[1][v4];//carga el guión internacional:click to enter
@@ -1201,7 +1201,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 					break;
 					case 5://Multimedia - contenidos con información GENERAL
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
-						{	let v4 = visOK[v1];//v4:Número de la casilla que sigue
+						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
 							s00EXIT[1][2] = r005A[id][v4].charAt(0).toUpperCase() + r005A[id][v4].slice(1);//carga el guión local: haz clic para entrar
 							s00EXIT[2][2] = 'i1, '+r005A[1][v4];//carga el guión internacional:click to enter
@@ -1249,7 +1249,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 					break;
 					case 6:
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
-						{	let v4 = visOK[v1];//v4:Número de la casilla que sigue
+						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							//PRECARGA de textos:
 							s00EXIT[1][2] = r006A[id][v4].charAt(0).toUpperCase() + r006A[id][v4].slice(1);//carga el guión local: haz clic para entrar
 							s00EXIT[2][2] = 'i1, '+r006A[1][v4];//carga el guión internacional:click to enter
@@ -1300,7 +1300,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 					case 7:
 						iMenu.innerHTML = '<i class="'+kTapa1[43][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
-						{	let v4 = visOK[v1];//v4:Número de la casilla que sigue
+						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							
 
 
@@ -1523,7 +1523,7 @@ function f0012(int)//CARGAR HTML desde 0 de capa ruta//vars IN: g00VARS[27][2] ,
 
 						iMenu.innerHTML = '<i class="'+kTapa1[73][2]+'"></i>';
 						for (v1 = 1; v1 < (visOK.length - 1); v1++)//SE CORRE UNA COLUMNA A LA DERECHA PARA PODER AGREGAR EL LIMITE SUPERIOR Y SE RESTA 1 POR EL LIMITE INFERIOR
-						{	let v4 = visOK[v1];//v4:Número de la casilla que sigue
+						{	var v4 = visOK[v1];//v4:Número de la casilla que sigue
 							
 
 							/*
@@ -1711,9 +1711,9 @@ function f0015(reg)//"MENU" CARGAR la ruta 4 en pantalla
 function f0016()//CARGAR los guiones de la tapa
 		{	lOG(16);
 			f0090();//L BORRAR memoria de animación: señas y glosas
-			let id = g00VARS[27][2];//id Idioma local
-			let ss = '<img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div>';
-			let v0 = '';//Inicio HTML del guíon local.. CON CÓDIGO HTML
+			var id = g00VARS[27][2];//id Idioma local
+			var ss = '<img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div>';
+			var v0 = '';//Inicio HTML del guíon local.. CON CÓDIGO HTML
 			//CONTROL SENTIDO DE LECTURA DEPENDIENDO DEL IDIOMA:
 			if(kControl[id][2])//1LeftToR
 			{	v0 += '<span>';//Inicio del div HTML del guíon local..
@@ -1723,10 +1723,10 @@ function f0016()//CARGAR los guiones de la tapa
 			{	v0 += '<span class="cRTL">';//Inicio del div HTML del guíon local..
 				bTapaA1.style.textAlign = 'right';
 			}
-			let v1 = '';//inicio guion local SIN CÓDIGO HTML
-			let v2;//inicio guion internacional SIN CÓDIGO HTML
+			var v1 = '';//inicio guion local SIN CÓDIGO HTML
+			var v2;//inicio guion internacional SIN CÓDIGO HTML
 			//,elemento x de y y ayuda de botones:
-			let v3 = kTapaI[id][17]+' '+(gFoco + 1)+' '+kTapaI[id][18]+' '+visOK.length;
+			var v3 = kTapaI[id][17]+' '+(gFoco + 1)+' '+kTapaI[id][18]+' '+visOK.length;
 			if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles y esta i1..
 			{	v2 = 'i1, ';//Inicio del guíon internaional..
 			}
@@ -2006,7 +2006,7 @@ function f0018()//ESPERAR un segundo, el tamaño de la pantalla cambio, si no ha
 						g00VARS[65][3] = window.outerWidth;//.innerWidth;//ventana actual con navegador , outerWidth;navegador completo
 						g00VARS[65][4] = window.innerHeight;//Altura ventana actual sin el navegador - "más pequeño"
 						deltAV = (Math.min(g00VARS[65][2],g00VARS[65][3]) * 0.065);
-						let q = g00VARS[65][3]/g00VARS[65][2];
+						var q = g00VARS[65][3]/g00VARS[65][2];
 						
 						if(g00VARS[65][3] < 400)//Si ancho menor de 400 px AJUSTAR altura de los iconos según ancho de la pantalla
 						{	if(g00VARS[65][3] < 200)//ancho menor de 200 px
@@ -2033,8 +2033,8 @@ function f0018()//ESPERAR un segundo, el tamaño de la pantalla cambio, si no ha
 								}
 
 
-							/*let w = 0;
-								for (let v = 3; v < g00VARS[20].length; v++)//recorre el arreglo de notificaciones/alertas, todas deben estar en 0, sino debe activarse la notificación/alerta o notificaciones/alertas correspondientes
+							/*var w = 0;
+								for (var v = 3; v < g00VARS[20].length; v++)//recorre el arreglo de notificaciones/alertas, todas deben estar en 0, sino debe activarse la notificación/alerta o notificaciones/alertas correspondientes
 								{	if(g00VARS[20][v])
 									{	w = 1;//Se activa la señal de alerta
 										console.log('[[ v=',v,' w=',w);
@@ -2283,7 +2283,7 @@ function f0026(textLoc,textInt)//Enunc1() DECIR el anuncio uno (local) y darle e
 			hh82(1);//AJUSTAR velocidad por defecto
 			if(textLoc !== '')//Si - no esta vacio
 			{	iV1l.style.backgroundColor = 'yellow';
-				let toSpeak1 = new SpeechSynthesisUtterance();
+				var toSpeak1 = new SpeechSynthesisUtterance();
 				toSpeak1.text = textLoc;//(variable con el texto que va a leer)//Prueba
 			  	toSpeak1.rate = speed;//velocidad 0 - 3.6	
 				toSpeak1.volume = 1;//g00VARS[45][2];
@@ -2378,7 +2378,7 @@ function f0027(textInt)//L Enunc2() DECIR el anuncio dos de la TAPA
 			console.log('mmm');
 			hh82(1);//AJUSTAR velocidad por defecto
 			iV1i.style.backgroundColor = 'yellow';
-			let toSpeak2 = new SpeechSynthesisUtterance();//es el nombre del 'enunciado' que se van a 'decir'
+			var toSpeak2 = new SpeechSynthesisUtterance();//es el nombre del 'enunciado' que se van a 'decir'
 			toSpeak2.text = textInt;
 			toSpeak2.rate = speed;//velocidad 0 - 3.6
 			toSpeak2.volume = 1;//g00VARS[45][2];
@@ -2421,7 +2421,7 @@ function f0027(textInt)//L Enunc2() DECIR el anuncio dos de la TAPA
 
 function f0028(def)//ACTUALIZAR el tamaño/altura del texto:: standar o por defecto(def) / configuración del usuario
 		{	lOL(28);
-			let aux;//variable auxiliar
+			var aux;//variable auxiliar
 			if(def)
 			{	if (g00VARS[33][3] > g00VARS[33][2])//si el valor por defecto es mayor que el ajuste del usuario
 				{	aux = g00VARS[33][3];//tomar el valor por defecto
@@ -2433,7 +2433,7 @@ function f0028(def)//ACTUALIZAR el tamaño/altura del texto:: standar o por defe
 			else
 			{	aux = g00VARS[33][2];//valor ajustado por el usuario
 			}
-			let aa;
+			var aa;
 			switch (aux)//ajusta el tamaño del texto
 			{	case 1:
 					aa = 12;//15px 1 + 1
@@ -2480,8 +2480,8 @@ function f0029(val)//ORGANIZAR 1 pulso limpio de onfocus, ACTUALIZAR variable de
 
 function f0030()//ACTUALIZAR variables locales e internacionales del FOCO para tener listo el sonido multimedia (vMul) o de la Tapa Informativa [BOTON 9], trabaja de la mano de f0012() y f0016()//o0016() - DEBE ACTUALIZARSE CADA VEZ QUE EL USUARIO CAMBIE DE BOTON/HOJA DENTRO DE UNA RUTA
 		{	lOC(30);
-			let v1 = g00VARS[27][2];//idioma
-			let v2 = visOK[gFoco];//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
+			var v1 = g00VARS[27][2];//idioma
+			var v2 = visOK[gFoco];//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 11]
 			//LOCAL..
 			if(gFoco == 0)//ACTUALIZAR LA VARIABLE vFocoL (texto/audio de la casilla/hoja, local)
 			{	vFocoL = kTapaI[v1][10];//"arriba"
@@ -3080,7 +3080,7 @@ function f0031(scr)//Pintar el marco (scr)POSICIONAR al usuario sobre el foco(cu
 			{	document.forms[0].elements[gFoco].scrollIntoView(centro);	
 			}
 			//Detectar todos los botones:
-		 	let cBut = document.getElementsByClassName("cButton");
+		 	var cBut = document.getElementsByClassName("cButton");
 		 	for (var i = 0; i < cBut.length; i++)
 		 	{	cBut[i].classList.remove('cBoRd');//quitar marcos sobre botones
 		 	}
@@ -3123,7 +3123,7 @@ function f0031(scr)//Pintar el marco (scr)POSICIONAR al usuario sobre el foco(cu
 function f0032()//I PREPARAR la lectura de la casilla, o Tapa Informativa donde esta el foco (el usuario)
 		{	lOI(32);		
 			if(g00VARS[55][2])//Si ya ocurrio el primer clic
-			{ 	let v1 = '';
+			{ 	var v1 = '';
 				if (vFocoI)//si vFocoI NO ES VACIO ...
 				{	v1 = 'i1, '+ vFocoI;
 				}
@@ -3160,7 +3160,7 @@ function f0034(textLoc,textInt)//26Enunc1() DAR el anuncio local de la RUTA
 		    iVol.style.backgroundColor = 'purple';
 			if(textLoc !== '')
 			{	//iV3d.style.backgroundColor = 'green';
-				let toSpeak1 = new SpeechSynthesisUtterance();
+				var toSpeak1 = new SpeechSynthesisUtterance();
 			//++iVol.style.backgroundColor = 'yellow';
 				toSpeak1.text = textLoc;//(variable con el texto que va a leer)//Prueba
 				toSpeak1.rate = speed;//velocidad 0 - 3.6	
@@ -3273,7 +3273,7 @@ function f0034(textLoc,textInt)//26Enunc1() DAR el anuncio local de la RUTA
 function f0035(textInt)//27Enunc2() DAR el anuncio internacional de la RUTA
 		{	lOU(35);
 			hh82();//AJUSTAR velocidad DEL USUARIO
-			let toSpeak2 = new SpeechSynthesisUtterance();//es el nombre del 'enunciado' que se van a 'decir'
+			var toSpeak2 = new SpeechSynthesisUtterance();//es el nombre del 'enunciado' que se van a 'decir'
 			iVoi.style.backgroundColor = 'yellow';
 			toSpeak2.text = textInt;
 			toSpeak2.rate = speed;//velocidad 0 - 3.6
@@ -3656,15 +3656,15 @@ function f0044(text,texInt,ruta)//VIBRAR y parpadear 0 local, 1 inter
 				f0021();//normaliza el guión global (g00VARS[21][2])
 				f0009();//ACTUALIZAR cada constante de tiempo morse según la constante de velocidad morse actual
 				f0010();//CONVERTIR texto NORMALIZADO a morse  -> on: hacer los ·s y -s DEL HTML -> off: los tiempos DEL VIBRADOR - g00HTML[24][2] TIEMPO VIBRADOR - MORSE
-				let gap = Math.round(s00timeMor[1][2]/7);//deltas de tiempo
+				var gap = Math.round(s00timeMor[1][2]/7);//deltas de tiempo
 				console.log('gap='+gap);
 				f0042();//ON CAMBIAR el icono de off a on y vibrar DURANTE 5 SEGUNDOS??
 				iFaro.classList.remove('cX');//MOSTRAR el faro/punto
-				let b = 1;		
+				var b = 1;		
 				f0041();//CONSEGUIR los milisegundos actuales - Milis actuales
 				g00HTML[25][2] = [];//reset de Vibracion Local 24 acumulada ONTIME
-				let c = g00HTML[24][2][0];//Duración primer vibración
-				let i;
+				var c = g00HTML[24][2][0];//Duración primer vibración
+				var i;
 				for (i = 0; i < g00HTML[24][2].length; i++)
 				{	g00HTML[25][2][i] = miMors + c;
 					c += g00HTML[24][2][i+1];
@@ -4086,7 +4086,7 @@ function f0067()//K ORGANIZAR 1 pulso limpio de resize//OBTENER medidas de la ve
 
 function f0068(def)//AJUSTAR tamaño / altura del VISOR e Interpretes:: standar o por defecto(def) / configuración del usuario
 		{	lOL(68);
-			let aux;//variable auxiliar
+			var aux;//variable auxiliar
 			if(def == 2)//si es una presentación AV
 			{	aux = 5;//tomar el valor máximo
 				//aux = 4;//tomar el valor máximo
@@ -4103,7 +4103,7 @@ function f0068(def)//AJUSTAR tamaño / altura del VISOR e Interpretes:: standar 
 			{	aux = g00VARS[64][2];//valor ajustado por el usuario
 			}
 			fff();
-			let aa;
+			var aa;
 			switch (aux)//ajusta el tamaño del visor
 			{	case 1:
 					aa = ((g00VARS[68][2]*0.1) - 2);//(g00VARS[68][2]/5)+'px, 45px)')
@@ -4123,13 +4123,13 @@ function f0068(def)//AJUSTAR tamaño / altura del VISOR e Interpretes:: standar 
 			}
 			iBody.style.setProperty('--chico','max('+aa+'px, 10px)');
 			//AJUSTAR TAMAÑO INTERPRETES DE ACUERDO AL VISOR
-			let divIcon = dIcon.getBoundingClientRect();//ALMACENA LA MEDIDA DEL ELEMENTO
-			let w = divIcon.width;
-			let h = divIcon.height;
-			let q = w/h;
+			var divIcon = dIcon.getBoundingClientRect();//ALMACENA LA MEDIDA DEL ELEMENTO
+			var w = divIcon.width;
+			var h = divIcon.height;
+			var q = w/h;
 			iBody.style.setProperty('--cWH',q);
-			let divSign = dSign.getBoundingClientRect();
-			let ht = divSign.height/20;// 17;
+			var divSign = dSign.getBoundingClientRect();
+			var ht = divSign.height/20;// 17;
 			iBody.style.setProperty('--cHTex',ht);
 		}
 
@@ -4279,8 +4279,8 @@ function f0079(scr)//REGISTRAR evento y REINICIAR conteo para activar la present
 function f0080()//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5-6-7-8-9-14-32->26->31->36][2];g00VARS[4-19-50-69][2]// anterior:f0004()]
 		{	lOL(80);//(11) lOUs(1);
 			//INPUTS g00HTML[3]Arreglo de palabras
-			let v4;
-			let v2;
+			var v4;
+			var v2;
 			//INICIAR la serie de señales y prosas
 			g00HTML[26][2] = '';//INICIALIZAR la serie de señas animadas
 			g00HTML[36][2] = '';//INICIALIZAR la serie de imagenes/ seña
@@ -4290,13 +4290,13 @@ function f0080()//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5
 			//si tiene glosa manual..
 
 			//si no tiene glosa manual..
-			for (let v6 = 0; v6 < g00HTML[3][2].length; v6++)//RECORRE UNA A UNA TODAS LAS SUBCADENAS "PALABRAS" DEL ARREGLO
+			for (var v6 = 0; v6 < g00HTML[3][2].length; v6++)//RECORRE UNA A UNA TODAS LAS SUBCADENAS "PALABRAS" DEL ARREGLO
 			{	g00HTML[4][2] = g00HTML[3][2][v6];
 				g00HTML[5][2] = '';//RESET LISTA DE CARACTERES ESPECIALES DENTRO DE LA SUBCADENA "PALABRA"
 				g00HTML[5][2] = g00HTML[4][2].replace(g00eREG[2][1],'').split('');//ARREGLO DE CARACTERES ESPECIALES DENTRO DE LA SUBCADENA "PALABRA"
 				g00HTML[6][2] = '';//RESUMEN DE TODOS LOS CARACTERES ESPECIALES ENCONTRADOS EN LA SUBCADENA
 				for (v2 = 0; v2 < g00HTML[5][2].length; v2++)//RECORRE TODOS LOS CARACTERES ESPECIALES DE LA SUBCADENA "PALABRA"
-				{	let v1 = false;//RESET DE COINCIDENCIAS
+				{	var v1 = false;//RESET DE COINCIDENCIAS
 					for (v4 = 0; v4 < g00HTML[6][2].length; v4++)//RECORRE LA LISTA DE TODOS LOS CARACTERES ESPECIALES "ENCONTRADOS" DEL ARREGLO
 					{ 	if (g00HTML[6][2][v4] == g00HTML[5][2][v2])
 						{	v1 = true;//SI ENCUENTRA EL CARACTER ESPECIAL QUIERE DECIR QUE YA ESTABA
@@ -4309,7 +4309,7 @@ function f0080()//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5
 				g00HTML[6][2] = g00HTML[6][2].split('');
 				g00HTML[7][2] = '';//RESUMEN DE CANTIDAD DE CADA CARACTER ESPECIAL ENCONTRADO DENTRO DE LA PALABRA
 				for (v4 = 0; v4 < g00HTML[6][2].length; v4++)//-RECORRER LISTA CARACTERES ESPECIALES RESUMIDOS DE LA PALABRA
-				{ 	let v5 = 0;//RESET DEL CONTADOR DE CARACTERES ESPECIALES
+				{ 	var v5 = 0;//RESET DEL CONTADOR DE CARACTERES ESPECIALES
 					for (v2 = 0; v2 < g00HTML[5][2].length; v2++)//-RECORRER TODOS LOS CARACTERES ESPECIALES DE LA PALABRA
 					{	if (g00HTML[6][2][v4] == g00HTML[5][2][v2])//ENCONTRO EL CARACTER DENTRO DEL ARREGLO..
 						{	v5 += 1;//CONTADOR DE EXISTENCIAS
@@ -4323,7 +4323,7 @@ function f0080()//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5
 				if(g00HTML[4][2].match(g00eREG[3][1]))//ESTA SUBCADENA ES UNA CADENA ESPECIAL LINK O CORREO QUE NO SE PUEDE DESCOMPONER EN PALABRAS SUELTAS
 				{	g00HTML[8][2] = 1;
 					g00HTML[9][2] = g00HTML[4][2].split('');
-					for (let v7 = 0; v7 < g00HTML[9][2].length; v7++)//RECORRER 9 LA SUBCADENA LETRA X LETRA Y CARACTER X CARACTER
+					for (var v7 = 0; v7 < g00HTML[9][2].length; v7++)//RECORRER 9 LA SUBCADENA LETRA X LETRA Y CARACTER X CARACTER
 					{	g00VARS[4][2] = g00HTML[9][2][v7];
 						f0081();//L PASAR caracteres especiales o letras SUELTAS a id señas...
 						f0071();//L AÑADIR más HTML a g00VARS[69] si es fila de señas	
@@ -4349,11 +4349,11 @@ function f0080()//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5
 					g00HTML[10][2] = g00HTML[10][2].split(',');//Arreglo cantidades individuales por cada caracter especial encontrado
 					for (v4 = 0; v4 < g00HTML[9][2].length; v4++)//RECORRE 9 LA SUBCADENA FRACCIONADA: Arreglo de palabras, letras y caracteres especiales sueltos de 4
 					{	//vSub = '*';
-						let v3 = g00HTML[9][2][v4];//Recorre cada division de la subcadena, v3 es variable División "miníma" de una subcadena, expresion minima de una subcadena, puede estar conformada por palabras, letras o caracteres especiales
+						var v3 = g00HTML[9][2][v4];//Recorre cada division de la subcadena, v3 es variable División "miníma" de una subcadena, expresion minima de una subcadena, puede estar conformada por palabras, letras o caracteres especiales
 						g00HTML[11][2] = v3;//"USO" COMO REFERENCIA RAPIDA
 						if(g00HTML[10][2][v4] == 1)//DETECTA SI ES UNA PALABRA SUELTA (de minimo 2 letras)
 						{	g00HTML[12][2] = false;//RESET DE PALABRA ENCONTRADA
-							let v7;
+							var v7;
 							for (v7 = 1; v7 < g01WORDSb.length; v7++)//-RECORRER UNA A UNA TODAS LAS PALABRAS DEL BANCO QUE TIENEN SEÑAS
 							{	if (((g00VARS[28][2] == 1)&&(g00VARS[5][2]))||(g00VARS[6][2] == 1))//si i1 y idioma internacional o es una palabra inter 
 								{	if(g01WORDSb[v7][1] == v3.toLowerCase())//ESTA palabra EXISTE en el BANCO DE SEÑAS INTERNACIONAL! 
@@ -4431,7 +4431,7 @@ function f0080()//CONVERTIR texto NORMALIZADO a señas//s001()//OUTS:g00HTML[4-5
 
 function f0081()//PASAR caracteres especiales o letras SUELTAS a id señas... //f0005()//s002()
 		{	lOL(81);//lOUs(2);
-			let v3 = 0;		
+			var v3 = 0;		
 			switch (g00VARS[4][2].toLowerCase())
 			{	case ('a'):v3 =  1;break;
 				case ('á'):v3 =  1;break;
@@ -4492,13 +4492,13 @@ function f0081()//PASAR caracteres especiales o letras SUELTAS a id señas... //
 function f0082(par)//GENERAR html para una seña(imagen) tipo letra o palabra, dado el id imagen/seña pasado como parámetro //f0006(par)//s003(par)
 		{	lOL(82);//lOUs(3);
 			g00VARS[22][2] = '';
-			for (let v9 = 0; v9 < par.length; v9++)//RECORRE TODAS LAS IMAGENES DE ESA "SEÑA" SE USA SI ESA SEÑA SE COMPONE DE OTRAS SEÑAS (COMO SI FUERAN SUBSEÑAS)
+			for (var v9 = 0; v9 < par.length; v9++)//RECORRE TODAS LAS IMAGENES DE ESA "SEÑA" SE USA SI ESA SEÑA SE COMPONE DE OTRAS SEÑAS (COMO SI FUERAN SUBSEÑAS)
 			{	//console.log('***  SEÑA (par=',par,' ,vSub(String glosa)=',vSub,')');
 				//REVISAR BIEN LAS SALIDAS POR CONSOLA
-				//let j = 0;//sub contador para señas en movimiento
+				//var j = 0;//sub contador para señas en movimiento
 				if(s00Senias[par][1])//si la seña contiene secuencias de movimiento
-				{  	for (let h = 0; h <= s00Senias[par][3]; h++)//RECORRE LAS REPETICIONES PARA ESA SECUENCIA
-					{	for (let j = 1; j <= s00Senias[par][2]; j++)//RECORRE TODAS LAS SECUENCIAS DEL MOVIMIENTO DE LA "SEÑA"
+				{  	for (var h = 0; h <= s00Senias[par][3]; h++)//RECORRE LAS REPETICIONES PARA ESA SECUENCIA
+					{	for (var j = 1; j <= s00Senias[par][2]; j++)//RECORRE TODAS LAS SECUENCIAS DEL MOVIMIENTO DE LA "SEÑA"
 						{	f0091(v9,par,vSub,j);
 						}
 					}
@@ -4544,7 +4544,7 @@ function f0084()//L REINICIAR sizBan, sizCon y sizCsE permite que "Resize calcul
 
 function f0085()//ANIMAR el interprete (i) con cada pulso mediante una serie de señales(g00VARS[1]) y prosas(g00VARS[3]) ya programadas //function f0060()//	s006()//////sLOGS1[6] lOU() ANT60 00 - 
 		{	lOL(85);//lOUs(6);
-			let i;
+			var i;
 			if((intBan)&&(!sizBan)&&(colLife7 !== undefined))//SI INTERPRETE Y NO OCURRE evento bandera RESIZE
 			{	for (i = 0; i < colLife7.length; i++)//recorre todos los interpretes (local e internacional)
 				{	casi = g00VARS[63][i];//trae el valor del contador para ese interprete(i)
@@ -4605,7 +4605,7 @@ function f0088()//ESPERAR un segundo y verificar que no exista un nuevo evento F
 					{	//console.log('ACABO de pasar 2 son iguales!!\n\n');
 						f0097();//L REINICIAR focBan, focCon y focCsE permite que "onfocus vuelva a trabajar" la proxima vez que ocurra ese evento
 						//console.log('Tomar acciones!!, gFoco=',gFoco);
-						let vFo = 1;//Actualizar foco se activo
+						var vFo = 1;//Actualizar foco se activo
 						if((gFoCo == gFoco)&&(gRuTa == gRuta)&&(aMBi == ambi))//Si el último foco es igual al foco anterior y es el mismo ambiente entonces
 						{	vFo = 0;//Cancela actualizar foco
 						}
@@ -5213,7 +5213,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 					//console.log(' - - - rrr bingo! i=',i,'; traer=',traer);
 				}
 			}*/
-			let ee = 1;
+			var ee = 1;
 			// - - - wIDI:
 			for (var i = 1; i < wIdi.length; i++)//Recorre el array de idiomas
 			{	if(wIdi[i][5] == 1)//si es visible
@@ -5289,7 +5289,7 @@ function f0107()//ACTUALIZAR el idioma, la seña (desde wIdi y wSign) y la ruta 
 
 
 			//Simulación de un cambio en un botón de ruta [1-8]:
-//			let ini = 0;//[0-8]   4 ini  ini!=9 ini = número de la casilla(lista) que cambio (wPAPA5[4]-(1>2))
+//			var ini = 0;//[0-8]   4 ini  ini!=9 ini = número de la casilla(lista) que cambio (wPAPA5[4]-(1>2))
 			//nuevo valor 1=>2:
 //			papas[ini] = 7;
 			//despues 7,1,1,1,2,5,2,4,2,2,0 Arreglo con la ruta actualizada activa de todos los padres: wPapa1[0] wPapa2[1] wPapa3[2] wPapa4[3] wPapa5[4] wPapa6[5] wPapa7[6] wPapa8[7] wPapa9[8] wPapa10[9] ; [10]almacena la última casilla antes del primer cero que encuentre (fin de la ruta) y [11] el string de la ruta
@@ -5436,9 +5436,9 @@ function f0112()//hh92 ACTIVAR el manejador de marquesinas handleMarquee() - tom
 			f0113();//ENCONTRAR todos los elementos de marquesina
 
         	/*const marquee = document.querySelectorAll('.marquee');//https://www.w3schools.com/JSREF/met_document_queryselectorall.asp
-        	let speed = 2;
-        	let lastScrollPos = 0;
-        	let timer;*/
+        	var speed = 2;
+        	var lastScrollPos = 0;
+        	var timer;*/
 			marquee.forEach(f0114);//https://www.w3schools.com/jsref/jsref_foreach.asp
 			if(g00VARS[5][2])//Si esta i1
 			{	marquei.forEach(f0115);//https://www.w3schools.com/jsref/jsref_foreach.asp
@@ -5461,10 +5461,10 @@ function f0114(el)//hh94 PONER a marchar la marquesina local
 		{	lOG(114);//
 			//bPro[0] = 1;//Habilita la bandera bPro[0]
 			console.log('... 7 contPre[0]=',contPre[0],'; contPre[1]=',contPre[1]);
-			let kontainer = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
-			let kontent = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
+			var kontainer = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
+			var kontent = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
 			//Get total Height
-			let klHeight = kontent.offsetHeight;//aquí mide la altura del objeto de texto LOCAL en px que se va a mostrar
+			var klHeight = kontent.offsetHeight;//aquí mide la altura del objeto de texto LOCAL en px que se va a mostrar
 			nFila[0] = Math.round(klHeight/hFila);//Cantidad de filas que tiene el texto LOCAL que se va a presentar
 			nFila[2] = Math.round(iFila.offsetHeight/hFila);//Capacidad de filas actual de la marquesina oculta
 			nFila[3] = Math.round(iFila.offsetWidth);//Ancho de la marquesina oculta
@@ -5520,16 +5520,16 @@ function f0114(el)//hh94 PONER a marchar la marquesina local
 /*
 function f0114(el)//PONER a marchar la marquesina local
 		{	hOG(94);//
-			let kontainer = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
-			let kontent = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
+			var kontainer = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
+			var kontent = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
 			//Get total width
-			let klWidth = kontent.offsetWidth;//https://www.w3schools.com/jsref/prop_element_offsetwidth.asp
+			var klWidth = kontent.offsetWidth;//https://www.w3schools.com/jsref/prop_element_offsetwidth.asp
 			//console.log('elWidth=',klWidth);
 			//Duplicate content
-			let klone = kontent.cloneNode(true);//https://www.w3schools.com/jsref/met_node_clonenode.asp
+			var klone = kontent.cloneNode(true);//https://www.w3schools.com/jsref/met_node_clonenode.asp
 			kontainer.appendChild(klone);//https://www.w3schools.com/jsref/met_node_appendchild.asp
-			//let progress = 0;
-			//let progress = parseInt(iBody.offsetWidth/2);//la mitad del ancho!!
+			//var progress = 0;
+			//var progress = parseInt(iBody.offsetWidth/2);//la mitad del ancho!!
 			//progress = parseInt(iNot2.offsetWidth/2);//la mitad del ancho!!
 			//iBody.style.setProperty('--cDelta',progress+'px');
 			//console.log('progress='+progress+'px');
@@ -5557,10 +5557,10 @@ function f0115(el)//hh95 PONER a marchar la marquesina en ingles
 		{	lOG(115);//
 
 			//bPro[1] = 1;//Habilita la bandera bPro[1]
-			let container = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
-			let content = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
+			var container = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
+			var content = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
 			//Get total Height
-			let elHeight = content.offsetHeight;//aquí mide la altura del objeto de texto EN INGLES en px que se va a mostrar
+			var elHeight = content.offsetHeight;//aquí mide la altura del objeto de texto EN INGLES en px que se va a mostrar
 			nFila[1] = Math.round(elHeight/hFila);//Cantidad de filas que tiene el texto EN INGLES que se va a presentar
 			
 
@@ -5614,13 +5614,13 @@ function f0115(el)//hh95 PONER a marchar la marquesina en ingles
 			/*
 			nmarqi = 1;
 			bPro[1] = 1;//Habilita la bandera bPro[1]
-			let container = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
-			let content = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
+			var container = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
+			var content = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
 			//Get total width
-			let elHeight = content.offsetHeight;//https://www.w3schools.com/jsref/prop_element_offsetwidth.asp
+			var elHeight = content.offsetHeight;//https://www.w3schools.com/jsref/prop_element_offsetwidth.asp
 			nFila[1] = Math.round(elHeight/hFila);//parece que el resultado siempre es un entero positivo
 			//Duplicate content
-			let clone = content.cloneNode(true);//https://www.w3schools.com/jsref/met_node_clonenode.asp
+			var clone = content.cloneNode(true);//https://www.w3schools.com/jsref/met_node_clonenode.asp
 			container.appendChild(clone);//https://www.w3schools.com/jsref/met_node_appendchild.asp
 			ini2 = false;//Desactiva la marquesina en ingles
 			iV2c.style.backgroundColor = 'orange';
@@ -5665,15 +5665,15 @@ function f0115(el)//hh95 PONER a marchar la marquesina en ingles
 /*
 function f0115(el)//PONER a marchar la marquesina en ingles
 		{	hOG(95);//
-			let container = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
-			let content = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
+			var container = el.querySelector('.inner');//https://www.w3schools.com/jsref/met_document_queryselector.asp
+			var content = el.querySelector('.inner > *');//https://www.w3schools.com/css/css_combinators.asp
 			//Get total width
-			let elWidth = content.offsetWidth;//https://www.w3schools.com/jsref/prop_element_offsetwidth.asp
+			var elWidth = content.offsetWidth;//https://www.w3schools.com/jsref/prop_element_offsetwidth.asp
 			//Duplicate content
-			let clone = content.cloneNode(true);//https://www.w3schools.com/jsref/met_node_clonenode.asp
+			var clone = content.cloneNode(true);//https://www.w3schools.com/jsref/met_node_clonenode.asp
 			container.appendChild(clone);//https://www.w3schools.com/jsref/met_node_appendchild.asp
-			//let progress = 0;
-			//let progress = parseInt(iBody.offsetWidth/2);//la mitad del ancho!!
+			//var progress = 0;
+			//var progress = parseInt(iBody.offsetWidth/2);//la mitad del ancho!!
 			//progress = parseInt(iNot2.offsetWidth/2);//la mitad del ancho!!
 			//iBody.style.setProperty('--cDelta',progress+'px');
 			//console.log('progres2='+progresi+'px');
@@ -5764,7 +5764,7 @@ function f0119(sign)//CONMUTAR el botón seña(1) o idioma visible()
 function f0120()//HACER color del borde igual al color del texto
 		{	lOG(120);
 			if(g00VARS[31][2]==11)//Color neutro
-			{	let cTex;
+			{	var cTex;
 				switch(g00VARS[34][2])//Color del texto
 				{	case 0:cTex='white';break;
 					case 1:cTex='black';break;
@@ -5777,12 +5777,12 @@ function f0120()//HACER color del borde igual al color del texto
 
 function f0121()//ACTUALIZAR el texto del botón señas
 		{	lOG(121);
-			let ee = 1;//activa la busqueda
+			var ee = 1;//activa la busqueda
 			for (var i = wSIGN.length - 1; i >= 1; i--)//Recorre el array de señas
 			{	//r002A[wSIGN[i][3]][2]= i +', '+ wSIGN[i][1];//toma la seña de wSIGN;
 				if(ee&&(g00VARS[67][2] == wSIGN[i][3]))//id clave de esa seña = id seña
 				{	ee = 0;//Termina la busqueda
-					let ii = wSIGN[i][6]//captura el idioma de esa seña
+					var ii = wSIGN[i][6]//captura el idioma de esa seña
 					g00VARS[27][2] = ii;//El idioma se hace igual al idioma padre
 					//console.log(' - - - rrr 10A bingo! i=',i,'; ii=',ii);
 					r002A[ii][2]= i +', '+ wSIGN[i][1];//toma la seña local de wSIGN;
@@ -5793,8 +5793,8 @@ function f0121()//ACTUALIZAR el texto del botón señas
 
 function f0122(sign)//Actualizar el idioma (ingles)
 		{	lOU(122);
-			let run = 1;//activa el permiso
-			let ss;
+			var run = 1;//activa el permiso
+			var ss;
 			//console.log(' - - - 99 rrr SIGN |> Flag  -> (sign)=',sign);		
 			if(sign)
 			{	ss = g00VARS[67][2];//Ruta actual de la seña
@@ -5856,10 +5856,10 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 				}
 			}
 			//buscar dentro de rutas sugeridas a papa0 (papas paralelo) y ver si lo encuentra..
-			let siga = 1;
+			var siga = 1;
 			for (var i = 0; i < wSug.length; i++)//busca en todas las sugerencias una por una
 			{	if(siga)//buscar
-				{	let oks = 0;
+				{	var oks = 0;
 					for (var j = 0; j < papas0.length; j++)
 					{ 	if(wSug[i][j] == papas0[j])//compara la casilla j de la sugerencia i con la casilla j de papas0
 						{	oks++;//suma un ok
@@ -5888,7 +5888,7 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 			/*
 			//ruta sugerida: 7,1,1,1,2,5,2,4,2,2
 			//si ese cambio es parte de una ruta sugerida completa la ruta sugerida(conocida) sino pone los números auto que se puedan..
-			let sug = [5,2,4,2];//ruta de Tecnoparque, ver si puede llegar a alguna línea y mostrarla en menu
+			var sug = [5,2,4,2];//ruta de Tecnoparque, ver si puede llegar a alguna línea y mostrarla en menu
 			for (var i = 0; i < sug.length; i++)//Recorre el array de papas [0-9]
 			{	papas[i + ini + 1] = sug[i];
 			}
@@ -5898,14 +5898,14 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 			if(ini == 0)//Si el cambio es en lugar 0
 			{	wPAPA2 = [];//Borra wPAPA2, hace de nuevo la lista wPAPA2
 				
-				let go = 1;//Buscando un elemento
+				var go = 1;//Buscando un elemento
 				for (var i = 0; i < wPapa2.length; i++)//recorre las filas de wPapa2
 				{ 	if((wPapa2[i][3] == 1)&&(wPapa2[i][2] == papas1[ini+1])&&(wPapa2[i][4] == papas[0]))
 					{	go = 0;//el elemento sugerido existe, es visible y cumple go=1
 						papas[1]=papas1[ini+1];
 					}
 				}
-				let ff = 1;
+				var ff = 1;
 				for (var i = 1; i < wPapa2.length; i++)//Recorre el array de paises - lugares 1 
 				{	if((wPapa2[i][3] == 1)&&(wPapa2[i][4] == papas[0]))//si esa fila es visible y además es un hijo de wPAPA1
 					{	wPAPA2[ff] = [wPapa2[i][2],wPapa2[i][1],wPapa2[i][4],ff+', '+wPapa2[i][0]+kTapaI[1][5],ff+', '+wPapa2[i][5]+kTapaI[2][5],ff+', '+wPapa2[i][6]+kTapaI[3][5],ff+', '+wPapa2[i][7]+kTapaI[4][5]];
@@ -5919,8 +5919,8 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 			}
 			*/
 			//Cargar/actualizar los wPAPAS hijos o dependientes desde ini[0-8]
-			let ff;
-			let go;
+			var ff;
+			var go;
 			for (var j = ini+1; j < 11; j++)//ini[0-8]  j[1-10]Recorre los wPAPAx restantes y los borra Y CREA DE NUEVO EN ORDEN A PARTIR DE LA TABLA ACTUAL
 			{	
 				switch(j)
@@ -5984,7 +5984,7 @@ function f0124(ini)//ACTUALIZAR tablas siguientes a wPAPAx (ini = x-1) de extens
 						//Cargar los titulos de wPAPA4..
 						//wPAPA4[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						//wPAPA4[0] = [wPapa4[0][2],0,wPapa4[0][4],'','','','','',wPapa4[0][0],wPapa4[0][ext+5],wPapa4[0][ext+6],wPapa4[0][ext+7]];	
-						//for(let m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
+						//for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
 						//{	wPAPA4[0][m] = wPapa4[0][m+2];
 						//}
 
@@ -6199,7 +6199,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 			//console.error(' - - - r003A=',r003A,'; g00VARS[86][2]=',g00VARS[86][2]);			
 			for (var i = ini; i <= 9; i++)//Recorre el array de papas [0-9] desde ini
 			{	if(papas[i]!=0)//si casilla no es 0 y esta buscando
-				{	let ok = 1;//Buscando los string que se necesitan[1]
+				{	var ok = 1;//Buscando los string que se necesitan[1]
 					//console.log(' - - - rrrrr f0125 i=',i,'; ini=',ini);
 					switch(i)//7 1 0 0 0 0 0
 					{	case 0://Papa1
@@ -6236,7 +6236,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
 										{	kComun[k][1]=wPAPA2[j][ext+k+2];
-											for(let l = 3; l < ext + 3; l++)
+											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA2[j][l];
 											}
 											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
@@ -6292,7 +6292,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
 										{	kComun[k][1]=wPAPA3[j][ext+k+2];
-											for(let l = 3; l < ext + 3; l++)
+											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA3[j][l];
 											}
 											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
@@ -6336,7 +6336,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
 										{	kComun[k][1]=wPAPA4[j][ext+k+2];
-											for(let l = 3; l < ext + 3; l++)
+											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA4[j][l];
 											}
 											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
@@ -6379,7 +6379,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
 										{	kComun[k][1]=wPAPA5[j][ext+k+2];
-											for(let l = 3; l < ext + 3; l++)
+											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA5[j][l];
 											}
 											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
@@ -6422,7 +6422,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
 										{	kComun[k][1]=wPAPA6[j][ext+k+2];
-											for(let l = 3; l < ext + 3; l++)
+											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA6[j][l];
 											}
 											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
@@ -6465,7 +6465,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
 										{	kComun[k][1]=wPAPA7[j][ext+k+2];
-											for(let l = 3; l < ext + 3; l++)
+											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA7[j][l];
 											}
 											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
@@ -6508,7 +6508,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
 										{	kComun[k][1]=wPAPA8[j][ext+k+2];
-											for(let l = 3; l < ext + 3; l++)
+											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA8[j][l];
 											}
 											//r004A[k][10]=kTapaI[k][28]+kTapaI[k][29];
@@ -6551,7 +6551,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										}
 										if(papas[i+1]==0)//Si el siguiente elemento es 0
 										{	kComun[k][1]=wPAPA9[j][ext+k+2];
-											for(let l = 3; l < ext + 3; l++)
+											for(var l = 3; l < ext + 3; l++)
 											{	dExt[l-3] = wPAPA9[j][l];
 											}
 
@@ -6594,7 +6594,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 										{ 	r002A[k][14]+=kTapaI[k][5]; 
 										}
 										kComun[k][1]=wPAPA10[j][ext+k+2];
-										for(let l = 3; l < ext + 3; l++)
+										for(var l = 3; l < ext + 3; l++)
 										{	dExt[l-3] = wPAPA10[j][l];
 										}
 
@@ -6640,7 +6640,7 @@ function f0125(ini)//ESTABLECER O ACTUALIZAR el string de los botones de los sit
 
 function f0126()//ACTUALIZAR la ruta
 		{	lOG(126);
-			let ruta = '';
+			var ruta = '';
 			for (var i = 0; i < 11; i++)
 			{		
 				if(papas[i]!=0)//Si no es un cero
@@ -6739,10 +6739,10 @@ quitar???
 			}
 			//console.log(' - - - rrr C papas0=',papas0);
 			//buscar dentro de rutas sugeridas a papa0 (papas paralelo) y ver si lo encuentra..
-			let siga = 1;
+			var siga = 1;
 			for (var i = 0; i < wSug.length; i++)
 			{	if(siga)
-				{	let oks = 0;
+				{	var oks = 0;
 					for (var j = 0; j < papas0.length; j++)
 					{ 	if(wSug[i][j] == papas0[j])//compara la casilla j de la sugerencia i con la casilla j de papas0
 						{	oks++;//suma un ok
@@ -6768,8 +6768,8 @@ quitar???
 
 
 			//Cargar los wPAPAS hijos o dependientes desde 0
-			let ff;
-			let go;
+			var ff;
+			var go;
 			for (var j = 1; j < 11; j++)//j[1-10]Recorre los wPAPAx, los borra Y CREA DE NUEVO EN ORDEN A PARTIR DEL 'nuevo' rumbo
 			{	switch(j)
 				{	case 1:
@@ -6830,7 +6830,7 @@ quitar???
 						//Cargar los titulos de wPAPA4..
 						//wPAPA4[0] = [wPapa1[0][2],0,wPapa1[0][4],'','','','','',wPapa1[0][0],wPapa1[0][ext+5],wPapa1[0][ext+6],wPapa1[0][ext+7]];
 						//wPAPA4[0] = [wPapa4[0][2],0,wPapa4[0][4],'','','','','',wPapa4[0][0],wPapa4[0][ext+5],wPapa4[0][ext+6],wPapa4[0][ext+7]];	
-						//for(let m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
+						//for(var m = 3; m < ext + 3; m++)//Adiciona los datos extras que van en ,''
 						//{	wPAPA4[0][m] = wPapa4[0][m+2];
 						//}
 
@@ -7057,9 +7057,9 @@ function f0140()//CARGAR anuncios en r003
 
 function f0141()//ENRUTAR al usuario con rutas validas y TRAER anuncios de la ruta actual de la base de datos
 		{	lOG(141);
-			let ruta = window.location.hash;
+			var ruta = window.location.hash;
 			nruta = ruta.slice(1);//quita el # ajusta el string ruta
-			let bin = 0;//Desactivar el bingo para verificar que la ruta existe..
+			var bin = 0;//Desactivar el bingo para verificar que la ruta existe..
 			for (var i = 0; i < rutas.length; i++)
 			{	if(nruta == rutas[i])//Bingo! la ruta existe!
 				{	nruta = nruta.slice(1)//quita el primer/
@@ -7134,7 +7134,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 
 						/* SWITCH CON LA BASE DE DATOS MONGO mongo* /
 						//INICIAR consulta a la base de datos y buscar si la ruta existe traer los anuncios para cargar r003 
-						let xhr = new XMLHttpRequest();//AJAX
+						var xhr = new XMLHttpRequest();//AJAX
 						//xhr.open("GET",'http://localhost:3000/'+nruta);
 						//xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
 						xhr.responseType = "json";
@@ -7171,7 +7171,7 @@ function f0142()//CONSULTAR a la base de datos por cierta collección Valida
 											];
 								//console.log(' typeof data =', typeof data);//string
 								//JSON.parse(data);//Convertir una cadena del JSON en un objeto, para ello se usa el metodo parse
-								let jsData = data;
+								var jsData = data;
 								console.log(' typeof jsData =', typeof jsData);//object
 								console.log(' .. jsData.length =', jsData.length);//234
 								for (var i = 0; i < jsData.length; i++)//Convertir el objeto JS en 3 arrays de r003
@@ -7467,7 +7467,7 @@ function hh5(get,rev)//CAMBIAR o TRAER el modo actual
 
 //function hh21(get,rev)//CAMBIAR o TRAER el color actual
 //		{	hOU(21);
-			let i = g00VARS[45][2];
+			var i = g00VARS[45][2];
 			if(get == undefined||get == 0)//Si no hay que traer es porque va a cambiar de modo
 			{	
 				
@@ -7540,12 +7540,12 @@ function hh5(get,rev)//CAMBIAR o TRAER el modo actual
 					}
 					*/
 
-					/*for (let j = 1; j <= 4; j++)
+					/*for (var j = 1; j <= 4; j++)
 					{	r001A[j][19]=wColor[i][1+(j * 2)]+kTapaI[j][5];
 						r001Z[j][19]=wColor[i][2+(j * 2)];
 					}*/
 
-					for (let j = 1; j <= 4; j++)
+					for (var j = 1; j <= 4; j++)
 					{	r004A[j][1]=wModeA[j][i]+kTapaI[j][5];
 						//r004Z[j][1]=wModeZ[j][i];
 					}
@@ -7566,7 +7566,7 @@ function hh6(id,rev)//(quitar rev?? sobra??) PONER el foco sobre la casilla actu
 		{	hOG(6);
 			if(id > 0)//Si viene con indice se trata de un anuncio/ preguntas frecuente o hola! , muestra el número del anuncio(id) y dependiendo de su logitud, cambia el apuntador
 			{	console.log('+++ id=',id);
-				let tam = 0;//tamaño de la lectura
+				var tam = 0;//tamaño de la lectura
 				//Si es la primera vez o ha cambiado de anuncio (id) resetea el apuntador..
 				if(memAnt != id)
 				{	f0117();//RESETEAR todos los apuntadores
@@ -7767,7 +7767,7 @@ function hh11()//PRESENTAR el tutorial de ESTILO - modo
 */
 function hh12()//INFORMAR la segunda parte de la casilla informativa tipo multimedia
 		{	hOU(12);//mIS(12);
-			let v1 = '';
+			var v1 = '';
 			if (vFocoIe)//si vFocoIe es distinto de ''...
 			{	v1 = 'i1, '+ vFocoIe;
 			}
@@ -7853,7 +7853,7 @@ function hh21(get,rev)//CAMBIAR o TRAER el color actual
 					{	iBody.style.setProperty('--cBeige',wColor[i][0]);
 						iBody.style.setProperty('--cYel',wColor[i][1]);
 					}
-					for (let j = 1; j <= 4; j++)
+					for (var j = 1; j <= 4; j++)
 					{	r001A[j][19]=wColor[i][1+(j * 2)]+kTapaI[j][5];
 						r001Z[j][19]=wColor[i][2+(j * 2)];
 					}
@@ -8331,7 +8331,7 @@ function hh61()//CARGAR la presentación AV de anuncios de la ruta 3 //b0061()	/
 			if(g00VARS[11][2] == 3)//Si el modo braille esta activo
 			{ 	iBrail.classList.add('cX');//Oculta el braille fijo
 			}
-			let ss = '<img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div>';
+			var ss = '<img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div>';
 			gRuta = 3;
 			gFoco = 1;
 
@@ -8393,20 +8393,20 @@ function hh62(anun)//CARGAR los guiones de la presentación AV Audio Visual es s
 		{	hOG(62);//mIS(62);
 			hFila = tNoFi.offsetHeight;//aquí mide la altura del objeto de texto en px que se va a mostrar
 			console.log(' - - - uuu == hFila='+hFila);
-			let id = g00VARS[27][2];//id Idioma local
-			let ss = '<img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div>';
-			let v0 = '';//Inicio HTML del guíon local.. CON CÓDIGO HTML <etiquetas>
-			let v1 = '';//inicio guion local SIN CÓDIGO HTML <etiquetas>
-			let v2;//inicio guion internacional SIN CÓDIGO HTML <etiquetas>
+			var id = g00VARS[27][2];//id Idioma local
+			var ss = '<img src="signs/0.png" alt="seña" class="z70"><div class="cGlosD cFlex"><div class="zProsa"></div></div>';
+			var v0 = '';//Inicio HTML del guíon local.. CON CÓDIGO HTML <etiquetas>
+			var v1 = '';//inicio guion local SIN CÓDIGO HTML <etiquetas>
+			var v2;//inicio guion internacional SIN CÓDIGO HTML <etiquetas>
 			if((id > 1)&&(g00VARS[5][2]))//Si no es el idioma ingles y esta i1..
 			{	v2 = 'i1, ';//Inicio del guíon internaional..
 			}
-			let v9;//HTML de la imagen provisional
+			var v9;//HTML de la imagen provisional
 			console.log('... 6 anun',anun,'; vis3=',vis3,'; contPre[0]=',contPre[0],'; contPre[1]=',contPre[1]);
 			if(anun > 0)//si anun >= 1 entonces..
 			{	
 
-				let v10 = vis3[anun];//[1-2-3-etc...]v4 de HYHY
+				var v10 = vis3[anun];//[1-2-3-etc...]v4 de HYHY
 				switch(r003B[1][v10][0])//El [0] indica que es el titular de ese anuncio, Tipo de ilet v10 = icono/imagen.. 0-3 TOMADO DE function f0012()
 				{	case 0://Imagen dinámicalet v10 = 
 
@@ -9101,7 +9101,7 @@ function hh102(rev)//CAMBIAR de lugar 0 sitio(0-9) CONTINENTES wMAPA1 por click 
 
 function hh103(rev)//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 		{	hOU(103);
-			let pos;
+			var pos;
 			for (var i = 1; i < wPAPA2.length; i++)//Recorrer wPAPA2
 			{	if(wPAPA2[i][0]==papas[1])//Encuentra dato papas[1], guarda fila [i] dentro de wPAPA2
 				{	pos = i;
@@ -9143,7 +9143,7 @@ function hh103(rev)//CAMBIAR de lugar 1 sitio(1-9) PAISES - parece ok
 
 function hh104(rev)//CAMBIAR a la siguiente fila(wPAPA3[0=>n]) y poner 0's a la derecha de papas[2]; lugar 2  sitio(2-9) - DEPTOS
 		{	hOU(104);
-			let pos;
+			var pos;
 			for (var i = 1; i < wPAPA3.length; i++)
 			{	if(wPAPA3[i][0]==papas[2])//Encuentra posición(fila) de i dentro de wPAPA2
 				{	pos = i;
@@ -9183,7 +9183,7 @@ function hh104(rev)//CAMBIAR a la siguiente fila(wPAPA3[0=>n]) y poner 0's a la 
 
 function hh105(rev)//CAMBIAR de lugar 3  sitio(3-9)
 		{	hOU(105);
-			let pos;
+			var pos;
 			for (var i = 1; i < wPAPA4.length; i++)
 			{	if(wPAPA4[i][0]==papas[3])//Encuentra cual es la posición de i dentro de wPAPA2
 				{	pos = i;
@@ -9223,7 +9223,7 @@ function hh105(rev)//CAMBIAR de lugar 3  sitio(3-9)
 
 function hh106(rev)//CAMBIAR de lugar 4  sitio(4-9)
 		{	hOU(106);
-			let pos;
+			var pos;
 			for (var i = 1; i < wPAPA5.length; i++)
 			{	if(wPAPA5[i][0]==papas[4])//Encuentra cual es la posición de i dentro de wPAPA2
 				{	pos = i;
@@ -9263,7 +9263,7 @@ function hh106(rev)//CAMBIAR de lugar 4  sitio(4-9)
 
 function hh107(rev)//CAMBIAR de lugar 5 sitio(5-9)
 		{	hOU(107);
-			let pos;
+			var pos;
 			for (var i = 1; i < wPAPA6.length; i++)
 			{	if(wPAPA6[i][0]==papas[5])//Encuentra cual es la posición de i dentro de wPAPA2
 				{	pos = i;
@@ -9303,7 +9303,7 @@ function hh107(rev)//CAMBIAR de lugar 5 sitio(5-9)
 
 function hh108(rev)//CAMBIAR de lugar 6  sitio(6-9)
 		{	hOU(108);
-			let pos;
+			var pos;
 			for (var i = 1; i < wPAPA7.length; i++)
 			{	if(wPAPA7[i][0]==papas[6])//Encuentra cual es la posición de i dentro de wPAPA2
 				{	pos = i;
@@ -9343,7 +9343,7 @@ function hh108(rev)//CAMBIAR de lugar 6  sitio(6-9)
 
 function hh109(rev)//CAMBIAR de lugar 7  sitio(7-9)
 		{	hOU(109);
-			let pos;
+			var pos;
 			for (var i = 1; i < wPAPA8.length; i++)
 			{	if(wPAPA8[i][0]==papas[7])//Encuentra cual es la posición de i dentro de wPAPA2
 				{	pos = i;
@@ -9383,7 +9383,7 @@ function hh109(rev)//CAMBIAR de lugar 7  sitio(7-9)
 
 function hh110(rev)//CAMBIAR de lugar 8  sitio(8-9)
 		{	hOU(110);
-			let pos;
+			var pos;
 			for (var i = 1; i < wPAPA9.length; i++)
 			{	if(wPAPA9[i][0]==papas[8])//Encuentra cual es la posición de i dentro de wPAPA2
 				{	pos = i;
@@ -9423,7 +9423,7 @@ function hh110(rev)//CAMBIAR de lugar 8  sitio(8-9)
 
 function hh111(rev)//CAMBIAR de lugar 9  sitio(9-9)
 		{	hOU(111);
-			let pos;
+			var pos;
 			for (var i = 1; i < wPAPA10.length; i++)
 			{	if(wPAPA10[i][0]==papas[9])//Encuentra cual es la posición de i dentro de wPAPA2
 				{	pos = i;
@@ -9463,7 +9463,7 @@ function hh111(rev)//CAMBIAR de lugar 9  sitio(9-9)
 /*
 function hh112()//CAMBIAR de comunidad
 		{	hOG(112);
-			let col = 0;
+			var col = 0;
 			for (var i = 1; i < 10; i++)
 			{	if(papas[i]!=0)
 				{ 	col++;
