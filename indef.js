@@ -3512,7 +3512,7 @@ function f0042()//HACER faro on y VIBRAR
 							//console.log(' + + + 6f + green !isIOS');
 							// Vibrar en otros dispositivos (utilizando navigator.vibrate si está disponible)
 							if (navigator.vibrate) {
-								navigator.vibrate([5000]);
+								navigator.vibrate([5000]);//Arreglar abcdef
 							}
 						}
 					//}
@@ -3623,7 +3623,7 @@ function f0043()//L HACER faro off y si puede vibrar PARAR cualquier vibración 
 							console.log(' + + + 6e purple 43');
 							// Vibrar en otros dispositivos (utilizando navigator.vibrate si está disponible)
 							if (navigator.vibrate) {
-								navigator.vibrate([0]);
+								navigator.vibrate([0]);//Arreglar abcdef
 							}
 						}
 					//}

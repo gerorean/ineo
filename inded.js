@@ -4032,7 +4032,7 @@ function		//AL SOLTAR EL TOUCH EN CUALQUIER PARTE..
 
 			f0017(1);//CARGAR los guiones de ruta y POSICIONAR el foco sobre la casilla actual
 
-			navigator.vibrate(300);//:/VIBRAR para una persona sordociega se entere
+			navigator.vibrate(300);//Arreglar abcdef //:/VIBRAR para una persona sordociega se entere
 			any[0] = 4; console.log('any[0]=' + any[0]);//REACTIVA LA ENTRADA TOUCHSTART
 		}
 		else {

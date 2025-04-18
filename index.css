@@ -16,7 +16,7 @@
 
 
 
-/* Animación CSS para iOS */
+/* Animación CSS para iOS a* /
 @keyframes vibrate {
     0% { transform: translate(0); }
     10%, 30%, 50%, 70%, 90% { transform: translate(-5px, 5px); }
@@ -26,7 +26,7 @@
 .vibrate-ios {
     animation: vibrate 0.3s linear infinite;
 }
-/*fin animación CSS para ios*/
+/*fin animación CSS para ios b*/
 
 
 
