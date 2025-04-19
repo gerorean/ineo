@@ -2,6 +2,9 @@
 /*	f0000()	... f0144()*   *NOTA! las funciones de la f0128() a la f0137() estan reservadas en inded.js para el servidor, aquí no se pueden usar ver tabla de registros en indet.js
 	hh1() 	... hh111()
 */
+
+var secuenciaIntervalo = null;//almacena la secuencia de la vibracion del vibrador en intervalos de 500ms
+
 //============================================================
 function f0000()	//ALISTAR ambiente en 0-blanco, 1-desarrollo o 2-producción (SI ya cargo el documento)
 		{	//console.timeEnd('tiempoDeCarga');//:/SwitchS0//INFORMAR cuánto tiempo demoró en cargar
@@ -3463,6 +3466,8 @@ function f0042()//HACER faro on y VIBRAR
 			//console.log(' + + + + f0042');
 			if(g00VARS[55][2] && g00VARS[60][3])//Si ya ocurrio el primer clic y permite vibración
 			{	//yHear.style.backgroundColor = 'var(--cblwh2)';//'var(--cblwh1)';
+
+				//HACER faro on 
 				yHear.classList.remove('cNoV');
 				yHear.classList.add('cSiV');
 
@@ -3512,7 +3517,33 @@ function f0042()//HACER faro on y VIBRAR
 							//console.log(' + + + 6f + green !isIOS');
 							// Vibrar en otros dispositivos (utilizando navigator.vibrate si está disponible)
 							if (navigator.vibrate) {
+
+
+								/* 2a */
+					            //2 Simulación de 5 segundos de vibración con intervalos de 500ms
+								var tiempoTotal = 5000;
+								var acumulado = 0;
+								//encenderLuz();
+								secuenciaIntervalo = setInterval(function(){
+								  if (acumulado >= tiempoTotal) {
+									clearInterval(secuenciaIntervalo);
+									secuenciaIntervalo = null;
+									//apagarLuz();
+									//HACER faro off 
+									yHear.classList.remove('cSiV');
+									yHear.classList.add('cNoV');
+								  } else {
+									navigator.vibrate([500]);
+									acumulado += 500;
+								  }
+								}, 500);
+								navigator.vibrate([500]); // <- ¡Vibración inmediata!
+								/* 2b */
+
+								/* 1a * /
+								//1
 								navigator.vibrate([5000]);//Arreglar abcdef
+								/* 1b */
 							}
 						}
 					//}
@@ -3545,30 +3576,9 @@ function f0042()//HACER faro on y VIBRAR
 						vibrar(2000);
 					}
 					*/
-
-
-
-
-
-
-
-
-
-
 				}
 			}
 		}
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3580,8 +3590,12 @@ function f0043()//L HACER faro off y si puede vibrar PARAR cualquier vibración 
 			if(g00VARS[55][2] && g00VARS[60][3])//Si ya ocurrio el primer clic y permite vibración
 			{	//iFaro.style.color = 'white!important';//'var(--cblwh2)';	
 				//yHear.style.backgroundColor = 'var(--cblwh1)';
+
+				//HACER faro off 
 				yHear.classList.remove('cSiV');
 				yHear.classList.add('cNoV');
+
+
 				if (canVibrate)//si puede vibrar:  on Firefox, Chrome and Safari on some iOS devices the code will be broken at this line
 				{	//iV2f.style.backgroundColor = 'yellow';//
 					
@@ -3617,14 +3631,31 @@ function f0043()//L HACER faro off y si puede vibrar PARAR cualquier vibración 
 								console.log(' + + + 6e gray 43');
 							//}, 5000);
 						} else {
+
+							//faro OFF
 							iV6f.style.backgroundColor = 'green';//No es un mac os
 							iV6e.style.backgroundColor = 'purple';//dejar de vibrar en mac os
 
+							/* 4a */
+							if (secuenciaIntervalo) {
+								clearInterval(secuenciaIntervalo);//interrumpe la serie de vibraciones
+								secuenciaIntervalo = null;
+							}
+							if (navigator.vibrate) {
+								navigator.vibrate(0);
+							}
+							/* 4b * /
+							
+
 							console.log(' + + + 6e purple 43');
 							// Vibrar en otros dispositivos (utilizando navigator.vibrate si está disponible)
+
+
+							/* 3a * /
 							if (navigator.vibrate) {
-								navigator.vibrate([0]);//Arreglar abcdef
+								navigator.vibrate([0]);//Arreglar abcdef	
 							}
+							/* 3b */
 						}
 					//}
 				
