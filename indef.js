@@ -3520,7 +3520,7 @@ function f0042()//HACER faro on y VIBRAR
 
 
 								/* 2a */
-					            //2 Simulación de 5 segundos de vibración con intervalos de 500ms
+					            //2 Simulación de 5 segundos de vibración con intervalos de 100ms
 								var tiempoTotal = 5000;
 								var acumulado = 0;
 								//encenderLuz();
@@ -3533,11 +3533,11 @@ function f0042()//HACER faro on y VIBRAR
 									yHear.classList.remove('cSiV');
 									yHear.classList.add('cNoV');
 								  } else {
-									navigator.vibrate([500]);
-									acumulado += 500;
+									navigator.vibrate([100]);
+									acumulado += 100;
 								  }
-								}, 500);
-								navigator.vibrate([500]); // <- ¡Vibración inmediata!
+								}, 100);
+								navigator.vibrate([100]); // <- ¡Vibración inmediata!
 								/* 2b */
 
 								/* 1a * /
