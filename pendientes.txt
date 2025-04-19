@@ -1,3 +1,4 @@
+Pendientes
 conectar el celu por USB
 ajustes equipo/sistema depuracion 7clics
 ajustes equipo/sistema herramientas desarrollo
