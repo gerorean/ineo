@@ -3,77 +3,13 @@ ajustes equipo/sistema depuracion 7clics
 ajustes equipo/sistema herramientas desarrollo
 chrome://inspect/#devices
 
-cuadrar el vibrador
-buscar navigator.vibrate(0);   //Arreglar abcdef
-
-
-y quitarlos con el truco de setInterval y miniduraciones del vibrador de 500ms:
- function iniciarVibracion() {
-        try {
-          var peso = 500;
-          var paso = 500; // vibrar por 400/100 ms cada vez
-          var piso = peso - paso;
-          var modo = document.getElementById("modo").value;
-          resetInterno(); // Limpiar cualquier vibración previa
-        
-          var isPC = !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        
-          if (!navigator.vibrate) {
-            logError("❌ Este navegador no soporta la API de vibración.");
-            return;
-          }
-        
-          if (modo === "manual") {
-            // Simulación de 10 segundos de vibración con intervalos
-            var tiempoTotal = 10000;
-            var acumulado = 0;
-            encenderLuz();
-            secuenciaIntervalo = setInterval(function(){
-              if (acumulado >= tiempoTotal) {
-                clearInterval(secuenciaIntervalo);
-                secuenciaIntervalo = null;
-                apagarLuz();
-              } else {
-                navigator.vibrate([paso, piso]);
-                acumulado += peso;
-              }
-            }, peso);
-            navigator.vibrate([paso, 100]); // <- ¡Vibración inmediata!
-          } else if (modo === "temporizado") {
-            // Simulación de 5 segundos de vibración con intervalos
-            var tiempoTotal = 5000;
-            var acumulado = 0;
-            encenderLuz();
-            secuenciaIntervalo = setInterval(function(){
-              if (acumulado >= tiempoTotal) {
-                clearInterval(secuenciaIntervalo);
-                secuenciaIntervalo = null;
-                apagarLuz();
-              } else {
-                navigator.vibrate([paso, piso]);
-                acumulado += peso;
-              }
-            }, peso);
-            navigator.vibrate([paso, piso]); // <- ¡Vibración inmediata!
-          } else if (modo === "secuencia") {
-            // Vibrar 2s, parar 2s, repetir
-            secuenciaIntervalo = setInterval(function () {
-              navigator.vibrate([2000, 2000]);
-              encenderLuz();
-              setTimeout(apagarLuz, 2000);
-            }, 4000);
-            navigator.vibrate([2000, 2000]); // vibración inmediata
-            encenderLuz();
-            setTimeout(apagarLuz, 2000);
-          }
-        } catch (error) {
-          logError("⚠️ Error al iniciar: " + error.message);
-        }
-      }
-
 reemplazar
 let x var
 a()=> x function a()
+
+trabajar en el reemplazo de max
+
+
 
 en css:
 var, max, calc, , ni vh/vw por valores fijos
@@ -81,7 +17,6 @@ ejemplo:
 .cCel0 {
   height: calc(100vh - 0.5vh - max(var(--z), 5vh) - var(--kdot));
 }
-
 
 js:
 <script>
